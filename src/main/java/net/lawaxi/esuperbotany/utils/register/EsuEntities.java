@@ -2,7 +2,7 @@ package net.lawaxi.esuperbotany.utils.register;
 
 import net.lawaxi.esuperbotany.EsuperBotany;
 import net.lawaxi.esuperbotany.common.entity.Vazkii.EntityVazkii;
-import net.lawaxi.esuperbotany.renderer.entity.Vazkii.RendererVazkii;
+import net.lawaxi.esuperbotany.common.entity.renderer.entity.Vazkii.RendererVazkii;
 import net.lawaxi.esuperbotany.utils.names.EntitiesNames;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;

@@ -1,4 +1,4 @@
-package net.lawaxi.esuperbotany.renderer.entity.Vazkii;
+package net.lawaxi.esuperbotany.common.entity.renderer.entity.Vazkii;
 
 import net.lawaxi.esuperbotany.common.entity.Vazkii.EntityVazkii;
 import net.minecraft.client.model.ModelPlayer;

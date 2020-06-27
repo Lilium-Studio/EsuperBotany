@@ -1,7 +1,9 @@
 package net.lawaxi.esuperbotany.utils;
 
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.text.TextComponentTranslation;
 
 public class Helper {
 
@@ -24,5 +26,9 @@ public class Helper {
             addx--;
 
         return pre.add(addx,addy,addz);
+    }
+
+    public static void sendActionBar(EntityPlayer player,String key){
+        player.sendStatusMessage(new TextComponentTranslation(key), true);
     }
 }

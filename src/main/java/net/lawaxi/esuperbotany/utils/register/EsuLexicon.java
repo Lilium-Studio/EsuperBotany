@@ -27,7 +27,6 @@ public class EsuLexicon {
     public static void init(){
 
         //自定义菜单
-
         categoryESU = new LexiconCategory("category.Botania:esu");
         categoryESU.setIcon(new ResourceLocation("esuperbotany","textures/gui/categories/esu.png"));
         categoryESU.setPriority(0);
@@ -41,8 +40,7 @@ public class EsuLexicon {
         LOTUSPOEONY = new CommonFloraLexicon(FuctionalFlora.LOTUSPEONY,categoryESU,EsuPetalRecipe.lotuspeony);
 
         //其他
-        new CommonArticleLexicon("lzfishingrod",2,BotaniaAPI.basicKnowledge,new ItemStack(EsuCommons.LZ_FISHING_ROD));
+        //new CommonArticleLexicon("lzfishingrod",2,BotaniaAPI.basicKnowledge,new ItemStack(EsuCommons.LZ_FISHING_ROD));
         new CommonArticleLexicon("+1srod",2,BotaniaAPI.relicKnowledge,new ItemStack(EsuCommons.ONESROD));
-        new CommonArticleLexicon("bridgingrod",1,BotaniaAPI.relicKnowledge,new ItemStack(EsuCommons.BRIDGINGROD));
     }
 }

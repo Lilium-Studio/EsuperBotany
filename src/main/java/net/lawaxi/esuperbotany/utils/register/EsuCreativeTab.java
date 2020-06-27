@@ -3,7 +3,6 @@ package net.lawaxi.esuperbotany.utils.register;
 import net.lawaxi.esuperbotany.utils.names.GeneratingFlora;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
@@ -41,10 +40,7 @@ public class EsuCreativeTab {
         additem(EsuCommons.COPPERINGOT);
         addblock(EsuCommons.COPPERORE);
         addblock(EsuCommons.COPPERBLOCK);
-
-        additem(EsuCommons.LZ_FISHING_ROD);
         additem(EsuCommons.ONESROD);
-        additem(EsuCommons.BRIDGINGROD);
     }
 
 

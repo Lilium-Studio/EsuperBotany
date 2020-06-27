@@ -39,17 +39,15 @@ botania.entry.+1srod=续命法杖
 botania.page.+1srod0=&1续命,简称+1s,&0是游戏《地球Online》 中角色:&6长者&0延长寿命的方式.  他是一位长者,常带黑框眼镜; 他很有姿势,会用特殊方法传 授经验;他非常风趣,人们总是 把他和一只可爱的动物联 系在一起;世纪之初,他对一位 晚辈的"关爱"被用视频记录,并 广为流传,衍生了诸多朗朗上 口的语录。如今,他已经退隐江 湖,但他曾经的谈笑风生会一 直被我们铭记.他,就是配音演 员:&6葛平老师&0。
 botania.page.+1srod1=&6天若有情天亦老, 我为长者续一秒.  垂死病中惊坐起, 谈笑风生又一年.
 
-botania.entry.bridgingrod=搭桥法杖
-botania.page.bridgingrod0=&6还没写
-botania.page.bridgingrod1=&6还没写
+info.+1srod.failed1=§c对方阳寿未尽,不需要续命!
+info.+1srod.failed2=§c您的阳寿未尽,不需要续命!
+info.+1srod.failed3=§c您的Mana不足1926,无法续命!
+info.+1srod.success1=§a+1s
+info.+1srod.success2=§a+1s
 
 #其他物品
-item.esuperbotany:fishing_rod_lz.name=刘泽の钓竿
-item.esuperbotany:fishing_rod_lz.lore=献给钓鱼反被鱼炸死的屑
 item.esuperbotany:+1srod.name=续命法杖
-item.esuperbotany:+1srod.lore=天若有情天亦老,我为长者续一秒
-item.esuperbotany:bridgingrod.name=搭桥法杖
-item.esuperbotany:bridgingrod.lore=在生存服中练习您的PVP技术(迫真
+item.esuperbotany:+1srod.lore=§a天若有情天亦老,我为长者续一秒
 
 item.esuperbotany:copper_ingot.name=铜锭
 tile.esuperbotany:copper_ore.name=铜矿石
