@@ -1,5 +1,6 @@
 package net.lawaxi.esuperbotany.common.item.relic;
 
+import net.lawaxi.esuperbotany.utils.Helper;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -50,14 +51,15 @@ public class ItemRelic2 extends Item implements IRelic {
         //遗物信息
         if(GuiScreen.isShiftKeyDown()) {
             if(!hasUUID(stack)) {
-                tooltip.add(I18n.format("botaniamisc.relicUnbound").replace("&","§"));
+
+                tooltip.add(Helper.colorSymbol(I18n.format("botaniamisc.relicUnbound")));
             } else {
                 if(!getSoulbindUUID(stack).equals(Minecraft.getMinecraft().player.getUniqueID()))
-                    tooltip.add(I18n.format("botaniamisc.notYourSagittarius").replace("&","§"));
-                else tooltip.add(I18n.format("botaniamisc.relicSoulbound", Minecraft.getMinecraft().player.getName()).replace("&","§"));
+                    tooltip.add(Helper.colorSymbol(I18n.format("botaniamisc.notYourSagittarius")));
+                else tooltip.add(Helper.colorSymbol(I18n.format("botaniamisc.relicSoulbound", Minecraft.getMinecraft().player.getName())));
             }
 
-        } else tooltip.add(I18n.format("botaniamisc.shiftinfo").replace("&","§"));
+        } else tooltip.add(Helper.colorSymbol(I18n.format("botaniamisc.shiftinfo")));
     }
 
     private static final String TAG ="soulbindUUID";

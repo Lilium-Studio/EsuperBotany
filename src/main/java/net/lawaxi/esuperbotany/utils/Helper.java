@@ -31,4 +31,8 @@ public class Helper {
     public static void sendActionBar(EntityPlayer player,String key){
         player.sendStatusMessage(new TextComponentTranslation(key), true);
     }
+
+    public static String colorSymbol(String pre){
+        return pre.replace("&","\\u00a7");
+    }
 }
