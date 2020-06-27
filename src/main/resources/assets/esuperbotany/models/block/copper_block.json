@@ -1,0 +1,8 @@
+{
+    "parent": "block/cube_bottom_top",
+    "textures": {
+        "bottom": "esuperbotany:blocks/copper_block",
+        "top": "esuperbotany:blocks/copper_block_top",
+        "side": "esuperbotany:blocks/copper_block"
+    }
+}

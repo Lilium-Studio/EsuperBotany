@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "esuperbotany",
+  "pattern": [
+    "X"
+  ],
+  "key": {
+    "X": {
+      "item": "esuperbotany:copper_block"
+    }
+  },
+  "result": {
+    "count": 9,
+    "item": "esuperbotany:copper_ingot"
+  }
+}

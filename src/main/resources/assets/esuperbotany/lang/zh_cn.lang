@@ -1,0 +1,56 @@
+# 菜单
+itemGroup.esuperbotany=恶俗学
+category.Botania:esu=恶俗学
+botania.knowledge.esu=恶俗的知识
+
+# 产能花
+tile.botania:flower.lily.name=百合花
+tile.botania:flower.lily.reference=不幸地,什么东西已经逝世,,,
+
+tile.botania:flower.yanhuang.name=焱璜
+tile.botania:flower.yanhuang.reference=用身躯换来中国铜产业的今天,多么不朽!!
+
+# 功能花
+tile.botania:flower.lotuspeony.name=荷包牡丹
+tile.botania:flower.lotuspeony.reference=哎呦卧槽,这事好的
+
+#一朵用于增加血量上限的花,让你黑屁时满血复活,硬度无限.
+
+
+#植物魔法辞典
+botania.entry.lily=百合花
+botania.page.lily0=&1百合&0喜好食用&1死人&0,这事它们 产出&4魔力&0的唯一方法.它们常 说:&6"有的人活着,但他已经死了." &0在它们尚有灵性的2017年,它 们只会食用这种人.但如今植 物魔法学家有了掌控它们的 权力,因此它们会听从您的指 示,不论您喂给它们什么,或者 是用&1红石信号&0让它们停止工作.
+botania.page.lily1=伟大的爱,深深的祝福.
+
+botania.entry.yanhuang=焱璜花
+botania.page.yanhuang0=&1焱璜花&0的一生都与铜有关,它 是在几个世纪前被人为创造 出的品种,用来精炼&1铜&0;即使在 世界铜产量已经完全满足供 给的今天,它也被植物魔法学 家用来生产&4魔力&0.尼采说过:"花 的伟大之处在于,它是一座桥 梁,要用毕生精力,&6学习炼铜技 术铸造起钢铁之桥而非目的.&0"
+botania.page.yanhuang1=如有雷同,纯属巧合.
+
+botania.entry.lotuspeony=荷包牡丹
+botania.page.lotuspeony0=&6等着leon告诉我
+botania.page.lotuspeony1=&6等着leon告诉我
+
+
+botania.entry.lzfishingrod=刘泽の钓竿
+botania.page.lzfishingrod0=&6&1刘女士&0大学肄业,没有工作可 找,只能去家乡附近的一个小 池沼中钓鱼.于是她的父亲喜 忠送了她一根&1鱼竿&0,她常常想 着&6"放长长长线,钓大大大鱼"&0,但 每次钓鱼都会被鱼咬死.因此 他舍弃了这根鱼竿,如果您获 得了他,您就是刘女士的夜蝶 了!
+botania.page.lzfishingrod1=&6"果↑不↓其↑然↓呀"
+
+botania.entry.+1srod=续命法杖
+botania.page.+1srod0=&1续命,简称+1s,&0是游戏《地球Online》 中角色:&6长者&0延长寿命的方式.  他是一位长者,常带黑框眼镜; 他很有姿势,会用特殊方法传 授经验;他非常风趣,人们总是 把他和一只可爱的动物联 系在一起;世纪之初,他对一位 晚辈的"关爱"被用视频记录,并 广为流传,衍生了诸多朗朗上 口的语录。如今,他已经退隐江 湖,但他曾经的谈笑风生会一 直被我们铭记.他,就是配音演 员:&6葛平老师&0。
+botania.page.+1srod1=&6天若有情天亦老, 我为长者续一秒.  垂死病中惊坐起, 谈笑风生又一年.
+
+botania.entry.bridgingrod=搭桥法杖
+botania.page.bridgingrod0=&6还没写
+botania.page.bridgingrod1=&6还没写
+
+#其他物品
+item.esuperbotany:fishing_rod_lz.name=刘泽の钓竿
+item.esuperbotany:fishing_rod_lz.lore=献给钓鱼反被鱼炸死的屑
+item.esuperbotany:+1srod.name=续命法杖
+item.esuperbotany:+1srod.lore=天若有情天亦老,我为长者续一秒
+item.esuperbotany:bridgingrod.name=搭桥法杖
+item.esuperbotany:bridgingrod.lore=在生存服中练习您的PVP技术(迫真
+
+item.esuperbotany:copper_ingot.name=铜锭
+tile.esuperbotany:copper_ore.name=铜矿石
+tile.esuperbotany:copper_block.name=铜块
