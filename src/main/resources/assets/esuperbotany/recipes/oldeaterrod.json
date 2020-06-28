@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "esuperbotany",
+  "pattern": [
+    " XW",
+    " YX",
+    "Z  "
+  ],
+  "key": {
+    "W": {
+      "item": "minecraft:fishing_rod"
+    },
+    "X": {
+      "item": "minecraft:quartz_block",
+      "data": 1
+    },
+    "Y": {
+      "item": "esuperbotany:resource",
+      "data": 1
+    },
+    "Z": {
+      "item": "botania:rune",
+      "data": 9
+    }
+  },
+  "result": {
+    "item": "esuperbotany:oldeaterrod"
+  }
+}

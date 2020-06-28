@@ -1,7 +1,7 @@
 # 菜单
-itemGroup.esuperbotany=恶俗学
-category.Botania:esu=恶俗学
-botania.knowledge.esu=恶俗的知识
+itemGroup.esuperbotany=百合学
+category.Botania:esu=百合学
+botania.knowledge.esu=百合学知识
 
 # 产能花
 tile.botania:flower.lily.name=百合花
@@ -30,14 +30,13 @@ botania.entry.lotuspeony=荷包牡丹
 botania.page.lotuspeony0=&6等着leon告诉我
 botania.page.lotuspeony1=&6等着leon告诉我
 
-
-botania.entry.lzfishingrod=刘泽の钓竿
-botania.page.lzfishingrod0=&6&1刘女士&0大学肄业,没有工作可 找,只能去家乡附近的一个小 池沼中钓鱼.于是她的父亲喜 忠送了她一根&1鱼竿&0,她常常想 着&6"放长长长线,钓大大大鱼"&0,但 每次钓鱼都会被鱼咬死.因此 他舍弃了这根鱼竿,如果您获 得了他,您就是刘女士的夜蝶 了!
-botania.page.lzfishingrod1=&6"果↑不↓其↑然↓呀"
-
 botania.entry.+1srod=续命法杖
-botania.page.+1srod0=&1续命,简称+1s,&0是游戏《地球Online》 中角色:&6长者&0延长寿命的方式.  他是一位长者,常带黑框眼镜; 他很有姿势,会用特殊方法传 授经验;他非常风趣,人们总是 把他和一只可爱的动物联 系在一起;世纪之初,他对一位 晚辈的"关爱"被用视频记录,并 广为流传,衍生了诸多朗朗上 口的语录。如今,他已经退隐江 湖,但他曾经的谈笑风生会一 直被我们铭记.他,就是配音演 员:&6葛平老师&0。
-botania.page.+1srod1=&6天若有情天亦老, 我为长者续一秒.  垂死病中惊坐起, 谈笑风生又一年.
+botania.page.+1srod0=&1续命,简称+1s,&0是游戏《地球Online》 中角色:&6长者&0延长寿命的方式.  他是一位长者,常带黑框眼镜; 他很有姿势,会用特殊方法传 授经验;他非常风趣,人们总是 把他和一只可爱的动物联 系在一起;世纪之初,他对一位 晚辈的"关爱"被用视频记录,并 广为流传,衍生了诸多朗朗上 口的语录.如今,他已经退隐江 湖,但他曾经的谈笑风生会一 直被我们铭记.他,就是配音演 员:&6葛平老师&0。
+botania.page.+1srod1=&6垂死病中惊坐起, 谈笑风生又一年.
+
+botania.entry.oldeaterrod=啃老法杖
+botania.page.oldeaterrod0=&1刘女士&0大学肄业,没有工作可 找,只能依靠其父刘喜忠先生 养活.她的父亲在家附近的一 个小池沼钓鱼,被鱼咬死后留 下了一根&1法杖&0,这根法杖能帮 助刘女士继续啃别的老人.现 在她决定成为一名导演,录制 年度大戏&6《整治es券》&0,于是 他舍弃了这根法杖.如果您获 得了它,您就是刘女士的夜蝶 了!
+botania.page.oldeaterrod1=&6@说真话者难得善终
 
 info.+1srod.failed1=§c对方阳寿未尽,不需要续命!
 info.+1srod.failed2=§c您的阳寿未尽,不需要续命!
@@ -45,10 +44,22 @@ info.+1srod.failed3=§c您的Mana不足1926,无法续命!
 info.+1srod.success1=§a+1s
 info.+1srod.success2=§a+1s
 
+info.oldeaterrod.failed1=§c碴女士十分正义,不愿对血量过低的夜蝶下手!
+info.oldeaterrod.failed2=§c您的Mana不足1998,碴女士需要更多!
+info.oldeaterrod.success=§a您啃了夜蝶一口
+
 #其他物品
 item.esuperbotany:+1srod.name=续命法杖
 item.esuperbotany:+1srod.lore=§a天若有情天亦老,我为长者续一秒
 
+item.esuperbotany:oldeaterrod.name=啃老法杖
+item.esuperbotany:oldeaterrod.lore=§e"果↑不↓其↑然↓呀"
+
 item.esuperbotany:copper_ingot.name=铜锭
 tile.esuperbotany:copper_ore.name=铜矿石
 tile.esuperbotany:copper_block.name=铜块
+
+item.esuperbotany:manaEmerald.name=魔力绿宝石
+tile.esuperbotany:manaemerald_block.name=魔力绿宝石块
+item.esuperbotany:netherAirBottle.name=瓶装地狱空气
+item.esuperbotany:lytPicture.name=龙图

@@ -1,9 +1,8 @@
 package net.lawaxi.esuperbotany.utils.register;
 
-import net.lawaxi.esuperbotany.EsuperBotany;
-import net.lawaxi.esuperbotany.common.block.flora.fuctional.LotusPeony;
-import net.lawaxi.esuperbotany.common.block.flora.generating.Lily;
-import net.lawaxi.esuperbotany.common.block.flora.generating.YanHuang;
+import net.lawaxi.esuperbotany.block.flora.fuctional.LotusPeony;
+import net.lawaxi.esuperbotany.block.flora.generating.Lily;
+import net.lawaxi.esuperbotany.block.flora.generating.YanHuang;
 import net.lawaxi.esuperbotany.utils.names.FuctionalFlora;
 import net.lawaxi.esuperbotany.utils.names.GeneratingFlora;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;

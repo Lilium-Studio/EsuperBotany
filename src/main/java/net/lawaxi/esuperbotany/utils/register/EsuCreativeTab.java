@@ -1,5 +1,6 @@
 package net.lawaxi.esuperbotany.utils.register;
 
+import net.lawaxi.esuperbotany.item.ItemResource;
 import net.lawaxi.esuperbotany.utils.names.GeneratingFlora;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
@@ -31,6 +32,10 @@ public class EsuCreativeTab {
             @Override
             public void displayAllRelevantItems(NonNullList<ItemStack> list) {
                 EsuCommons.FLORA.getSubBlocks(this,list);
+
+                for(int i=0;i<ItemResource.names.length;i++) {
+                    list.add(new ItemStack(EsuCommons.RESOURCE, 1, i));
+                }
                 super.displayAllRelevantItems(list);
             }
         };
@@ -40,7 +45,10 @@ public class EsuCreativeTab {
         additem(EsuCommons.COPPERINGOT);
         addblock(EsuCommons.COPPERORE);
         addblock(EsuCommons.COPPERBLOCK);
+        addblock(EsuCommons.MANAEMERALDBLOCK);
+
         additem(EsuCommons.ONESROD);
+        additem(EsuCommons.OLDEATER);
     }
 
 

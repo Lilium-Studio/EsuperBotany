@@ -1,9 +1,10 @@
 package net.lawaxi.esuperbotany.utils.register;
 
-import net.lawaxi.esuperbotany.common.lexicon.CommonArticleLexicon;
-import net.lawaxi.esuperbotany.common.lexicon.CommonFloraLexicon;
+import net.lawaxi.esuperbotany.lexicon.CommonItemInfoLexicon;
+import net.lawaxi.esuperbotany.lexicon.CommonFloraLexicon;
 import net.lawaxi.esuperbotany.utils.names.FuctionalFlora;
 import net.lawaxi.esuperbotany.utils.names.GeneratingFlora;
+import net.lawaxi.esuperbotany.utils.register.botania.EsuPetalRecipe;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import vazkii.botania.api.BotaniaAPI;
@@ -34,13 +35,13 @@ public class EsuLexicon {
 
         //产能花
         LILY = new CommonFloraLexicon(GeneratingFlora.LILY, categoryESU,EsuPetalRecipe.lily);
-        YANHUANG = new CommonFloraLexicon(GeneratingFlora.YANHUANG, categoryESU,EsuPetalRecipe.yanhuang);
+        YANHUANG = new CommonFloraLexicon(GeneratingFlora.YANHUANG, categoryESU, EsuPetalRecipe.yanhuang);
 
         //功能花
         LOTUSPOEONY = new CommonFloraLexicon(FuctionalFlora.LOTUSPEONY,categoryESU,EsuPetalRecipe.lotuspeony);
 
         //其他
-        //new CommonArticleLexicon("lzfishingrod",2,BotaniaAPI.basicKnowledge,new ItemStack(EsuCommons.LZ_FISHING_ROD));
-        new CommonArticleLexicon("+1srod",2,BotaniaAPI.relicKnowledge,new ItemStack(EsuCommons.ONESROD));
+        new CommonItemInfoLexicon("+1srod",1,true,BotaniaAPI.relicKnowledge,new ItemStack(EsuCommons.ONESROD));
+        new CommonItemInfoLexicon("oldeaterrod",1,true,BotaniaAPI.relicKnowledge,new ItemStack(EsuCommons.OLDEATER));
     }
 }

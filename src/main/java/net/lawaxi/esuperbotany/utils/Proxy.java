@@ -1,7 +1,8 @@
 package net.lawaxi.esuperbotany.utils;
 
-import net.lawaxi.esuperbotany.common.world.WorldGenerator;
+import net.lawaxi.esuperbotany.world.WorldGenerator;
 import net.lawaxi.esuperbotany.utils.register.*;
+import net.lawaxi.esuperbotany.utils.register.botania.EsuBotaniaAll;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -17,12 +18,12 @@ public class Proxy {
         EsuCommons.init();
         EsuCreativeTab.init();
         EsuEntities.init();
-        EsuPetalRecipe.init();
-        EsuLexicon.init();
     }
 
     public void init(FMLInitializationEvent event) {
 
+        EsuBotaniaAll.init();
+        EsuLexicon.init();
     }
 
     public void postInit(FMLPostInitializationEvent event) {
