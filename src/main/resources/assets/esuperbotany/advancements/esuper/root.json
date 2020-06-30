@@ -1,0 +1,28 @@
+{
+  "display": {
+    "icon": {
+      "item": "botania:specialFlower",
+      "nbt": "{\"type\": \"lily\"}"
+    },
+    "title": {
+      "translate": "advancements.esuper.root.title"
+    },
+    "description": {
+      "translate": "advancements.esuper.root.description"
+    },
+    "background": "botania:textures/blocks/livingwood0.png"
+  },
+  "criteria": {
+    "getit": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "botania:specialFlower",
+            "nbt": "{\"type\": \"lily\"}"
+          }
+        ]
+      }
+    }
+  }
+}

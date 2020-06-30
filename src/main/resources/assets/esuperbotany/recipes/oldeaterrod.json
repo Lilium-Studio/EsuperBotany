@@ -11,12 +11,12 @@
       "item": "minecraft:fishing_rod"
     },
     "X": {
-      "item": "minecraft:quartz_block",
-      "data": 1
+      "item": "esuperbotany:resource",
+      "data": 3
     },
     "Y": {
-      "item": "esuperbotany:resource",
-      "data": 1
+      "item": "botania:manaresource",
+      "data": 5
     },
     "Z": {
       "item": "botania:rune",

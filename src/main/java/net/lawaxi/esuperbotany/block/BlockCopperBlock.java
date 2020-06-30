@@ -17,7 +17,7 @@ public class BlockCopperBlock extends Block {
 
         super(Material.ROCK);
 
-        setSoundType(SoundType.STONE);
+        setSoundType(SoundType.METAL);
         setHarvestLevel("pickaxe",2);
         this.setHardness(10.0F);
 

@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "esuperbotany:manaemerald_block"
+    },
+    "title": {
+      "translate": "advancements.esuper.emerald.title"
+    },
+    "description": {
+      "translate": "advancements.esuper.emerald.description"
+    }
+  },
+  "parent": "esuperbotany:esuper/root",
+  "criteria": {
+    "getit": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "esuperbotany:manaemerald_block"
+          }
+        ]
+      }
+    }
+  }
+}

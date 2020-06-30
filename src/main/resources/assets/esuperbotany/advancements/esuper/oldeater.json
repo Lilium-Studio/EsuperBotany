@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "esuperbotany:oldeaterrod"
+    },
+    "title": {
+      "translate": "advancements.esuper.oldeater.title"
+    },
+    "description": {
+      "translate": "advancements.esuper.oldeater.description"
+    }
+  },
+  "parent": "esuperbotany:esuper/time",
+  "criteria": {
+    "getit": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "esuperbotany:oldeaterrod"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,5 +1,6 @@
 package net.lawaxi.esuperbotany.utils.register;
 
+import net.lawaxi.esuperbotany.block.flora.fuctional.Joessr;
 import net.lawaxi.esuperbotany.block.flora.fuctional.LotusPeony;
 import net.lawaxi.esuperbotany.block.flora.generating.Lily;
 import net.lawaxi.esuperbotany.block.flora.generating.YanHuang;
@@ -21,12 +22,14 @@ public class EsuFlora {
 
         //功能花
         registerSubTile(FuctionalFlora.LOTUSPEONY, LotusPeony.class);
+        registerSubTile(FuctionalFlora.JOESSR, Joessr.class);
 
     }
 
 
     private static void registerSubTile(String key, Class<? extends SubTileEntity> classs) {
         BotaniaAPI.registerSubTile(key, classs);
+
 
         BotaniaAPIClient.registerSubtileModel(key,
                 new ModelResourceLocation(new ResourceLocation("esuperbotany", key), "normal"),

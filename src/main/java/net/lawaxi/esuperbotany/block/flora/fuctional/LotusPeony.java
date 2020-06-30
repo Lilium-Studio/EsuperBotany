@@ -54,6 +54,6 @@ public class LotusPeony extends SubTileFunctional {
 
     @Override
     public LexiconEntry getEntry() {
-        return EsuLexicon.LOTUSPOEONY;
+        return EsuLexicon.LOTUSPEONY;
     }
 }

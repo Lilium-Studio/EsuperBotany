@@ -22,11 +22,13 @@ import vazkii.botania.common.entity.EntityEnderAirBottle;
 
 public class ItemResource extends CommonItem implements IFlowerComponent {
 
-    public static final String[] names = {"manaEmerald","netherAirBottle","lytPicture"};
+    public static final String[] names = {"manaEmerald","netherAirBottle","lytPicture","pension"};
 
 
     public ItemResource() {
+
         super("esuperbotany:resource");
+        setHasSubtypes(true);
 
         for(int i=0;i<names.length;i++){
             ModelLoader.setCustomModelResourceLocation(this,i,new ModelResourceLocation("esuperbotany:"+names[i], "inventory"));
@@ -44,6 +46,14 @@ public class ItemResource extends CommonItem implements IFlowerComponent {
     public String getUnlocalizedName(ItemStack stack) {
         return "item.esuperbotany:"+names[stack.getMetadata()%names.length];
     }
+
+    /*
+    @Override
+    public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> items) {
+        for(int i=0;i<names.length;i++){
+            items.add(new ItemStack(this,1,i));
+        }
+    }*/
 
     @Override
     public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {

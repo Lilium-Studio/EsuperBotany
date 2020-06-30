@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "esuperbotany:+1srod"
+    },
+    "title": {
+      "translate": "advancements.esuper.time.title"
+    },
+    "description": {
+      "translate": "advancements.esuper.time.description"
+    }
+  },
+  "parent": "esuperbotany:esuper/root",
+  "criteria": {
+    "getit": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "esuperbotany:+1srod"
+          }
+        ]
+      }
+    }
+  }
+}

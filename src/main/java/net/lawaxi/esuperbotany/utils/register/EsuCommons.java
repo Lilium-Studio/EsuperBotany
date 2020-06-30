@@ -3,7 +3,9 @@ package net.lawaxi.esuperbotany.utils.register;
 import net.lawaxi.esuperbotany.block.BlockCopperBlock;
 import net.lawaxi.esuperbotany.block.BlockCopperOre;
 import net.lawaxi.esuperbotany.block.BlockManaEmeraldBlock;
+import net.lawaxi.esuperbotany.block.BlockManaStorage;
 import net.lawaxi.esuperbotany.item.ItemCopperIngot;
+import net.lawaxi.esuperbotany.item.ItemCosmetic;
 import net.lawaxi.esuperbotany.item.ItemResource;
 import net.lawaxi.esuperbotany.item.relic.CommonItemRelic;
 import net.lawaxi.esuperbotany.item.relic.Item1srod;
@@ -33,8 +35,11 @@ public class EsuCommons {
 
     //Items
     public static Item COPPERINGOT;
-    public static Item RESOURCE;
+    public static ItemResource RESOURCE;
+    public static ItemCosmetic COSMETIC;
+
     public static Block MANAEMERALDBLOCK;
+    public static Block MANASTORAGE;
     public static CommonItemRelic ONESROD;
     public static CommonItemRelic OLDEATER;
 
@@ -46,7 +51,8 @@ public class EsuCommons {
         floras.addAll(Arrays.asList(new String[]{
                 GeneratingFlora.LILY,
                 GeneratingFlora.YANHUANG,
-                FuctionalFlora.LOTUSPEONY
+                FuctionalFlora.LOTUSPEONY,
+                FuctionalFlora.JOESSR
         }));
 
         FLORA = new BlockSpecialFlower(){
@@ -65,14 +71,15 @@ public class EsuCommons {
 
         COPPERORE = new BlockCopperOre();
         COPPERBLOCK = new BlockCopperBlock();
+        MANAEMERALDBLOCK = new BlockManaEmeraldBlock();
+        MANASTORAGE = new BlockManaStorage();
 
         //魔法材料
         RESOURCE = new ItemResource();
-        MANAEMERALDBLOCK = new BlockManaEmeraldBlock();
+        COSMETIC = new ItemCosmetic();
 
         //趣味道具
         ONESROD = new Item1srod();
         OLDEATER = new ItemOldEater();
-
     }
 }

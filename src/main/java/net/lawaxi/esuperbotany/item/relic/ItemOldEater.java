@@ -1,6 +1,7 @@
 package net.lawaxi.esuperbotany.item.relic;
 
 import net.lawaxi.esuperbotany.api.Helper;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
@@ -40,11 +41,9 @@ public class ItemOldEater extends CommonItemRelic implements IManaUsingItem, IRe
             playerIn.swingArm(hand);
             target.attackEntityFrom(DamageSource.MAGIC,per);
 
-            EntityItem a = new EntityItem(target.world);
-            a.setLocationAndAngles(target.posX,target.posY+2.0F,target.posZ,0,0);
-            a.setItem(newMoney());
-            a.setPickupDelay(0);
-            target.world.onEntityAdded(a);
+            Entity a = new EntityItem(target.world,target.posX,target.posY+2.0F,target.posZ,newMoney());
+            ((EntityItem)a).setDefaultPickupDelay();
+            target.world.spawnEntity(a);
 
         }else
             Helper.sendActionBar(playerIn, "info.oldeaterrod.failed2");

@@ -1,0 +1,28 @@
+{
+  "display": {
+    "icon": {
+      "item": "esuperbotany:resource",
+      "data": 2
+    },
+    "title": {
+      "translate": "advancements.esuper.lytpicture.title"
+    },
+    "description": {
+      "translate": "advancements.esuper.lytpicture.description"
+    }
+  },
+  "parent": "esuperbotany:esuper/emerald",
+  "criteria": {
+    "getit": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "esuperbotany:resource",
+            "data": 2
+          }
+        ]
+      }
+    }
+  }
+}

@@ -5,7 +5,6 @@ import net.lawaxi.esuperbotany.utils.register.EsuLexicon;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import vazkii.botania.api.lexicon.LexiconEntry;
@@ -25,6 +24,7 @@ public class YanHuang extends SubTileGenerating {
 
     private int delay = 0;
 
+    private static final int[] range = {-1,0,1};
 
     @Override
     public void onUpdate() {
@@ -38,24 +38,26 @@ public class YanHuang extends SubTileGenerating {
                         supertile.getWorld().getEntitiesWithinAABB(EntityItem.class, new AxisAlignedBB(getPos().add(-3,-3,-3),getPos().add(4,4,4)))){
 
                     if(item.getItem().getItem() == EsuCommons.COPPERINGOT){
-                        deal(item);
+                        item.getItem().shrink(1);
                         delay+=20*1;
                         mana+=10;
+                        return; //为了延时稳定 需要在检测到一个后立刻停止
                     }
                     if(item.getItem().getItem() == Item.getItemFromBlock(EsuCommons.COPPERORE)){
-                        deal(item);
+                        item.getItem().shrink(1);
                         delay+=20*1;
                         mana+=12;
+                        return;
                     }
                     if(item.getItem().getItem() == Item.getItemFromBlock(EsuCommons.COPPERBLOCK)){
-                        deal(item);
+                        item.getItem().shrink(1);
                         delay+=20*3;
                         mana+=90;
+                        return;
                     }
                 }
 
                 //方块
-                int[] range = {-1,0,1};
                 for(int i:range){
                     for(int j:range){
                         for(int k:range){
@@ -70,14 +72,14 @@ public class YanHuang extends SubTileGenerating {
                                 getWorld().setBlockState(pos, Blocks.AIR.getDefaultState());
                                 delay+=20*1;
                                 mana+=90;
-                                continue;
+                                return;
                             }
 
                             if(getWorld().getBlockState(pos).getBlock() == EsuCommons.COPPERORE){
                                 getWorld().setBlockState(pos, Blocks.AIR.getDefaultState());
                                 delay+=20*3;
                                 mana+=10;
-                                continue;
+                                return;
                             }
                         }
 
@@ -89,17 +91,6 @@ public class YanHuang extends SubTileGenerating {
             delay--;
         }
 
-    }
-
-    private static void deal(EntityItem item){
-        ItemStack i = item.getItem();
-        if(i.getCount()==1){
-            item.setDead();
-        }
-        else{
-            i.setCount(i.getCount()-1);
-            item.setItem(i);
-        }
     }
 
     @Override

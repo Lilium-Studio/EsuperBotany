@@ -1,14 +1,19 @@
 package net.lawaxi.esuperbotany.item.relic;
 
 import net.lawaxi.esuperbotany.api.Helper;
+import net.lawaxi.esuperbotany.utils.register.EsuCommons;
+import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.EnumParticleTypes;
-import net.minecraft.world.World;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import vazkii.botania.api.item.IRelic;
@@ -24,12 +29,61 @@ public class Item1srod extends CommonItemRelic implements IManaUsingItem, IRelic
 
     public Item1srod() {
         super("esuperbotany:+1srod",true,1);
+        MinecraftForge.EVENT_BUS.register(this);
+    }
+
+    @SubscribeEvent
+    public void rightClick(PlayerInteractEvent.RightClickEmpty e) {
+
+        if(!e.getItemStack().isEmpty()) {
+            //瓶装地狱空气
+            if ( e.getItemStack().getItem() == this ) {
+
+                if (e.getEntityPlayer().getHealth() < e.getEntityPlayer().getMaxHealth()){
+
+                    if (ManaItemHandler.requestManaExactForTool(e.getItemStack(), e.getEntityPlayer(), cost, false)) {
+                        e.getEntityPlayer().swingArm(e.getHand());
+                        e.getEntityPlayer().heal(per);
+                        spawnParticles(e.getEntity());
+                        Helper.sendActionBar(e.getEntityPlayer(), "info.+1srod.success2");
+
+                    } else {
+
+                        Helper.sendActionBar(e.getEntityPlayer(), "info.+1srod.failed3");
+                    }
+                }else{
+
+                    Helper.sendActionBar(e.getEntityPlayer(), "info.+1srod.failed2");
+                }
+
+            }
+        }
+    }
+    @SubscribeEvent
+    public void rightClick(PlayerInteractEvent.RightClickBlock e) {
+
+        if(!e.getItemStack().isEmpty()) {
+            //瓶装地狱空气
+            if ( e.getItemStack().getItem() == this && e.getWorld().getBlockState(e.getPos()).getBlock() == Blocks.GOLD_BLOCK) {
+
+                //破化金块
+                e.getWorld().playEvent(2001, e.getPos(), Block.getStateId(Blocks.GOLD_BLOCK.getDefaultState()));
+                e.getWorld().setBlockToAir(e.getPos());
+
+                //生成养老金
+                Entity a = new EntityItem(e.getWorld(),e.getPos().getX(),e.getPos().getY(),e.getPos().getZ(),new ItemStack(EsuCommons.RESOURCE,1,3));
+                ((EntityItem)a).setDefaultPickupDelay();
+                e.getWorld().spawnEntity(a);
+
+            }
+        }
     }
 
     @Override
     public boolean usesMana(ItemStack itemStack) {
         return true;
     }
+
 
     @Override
     public boolean itemInteractionForEntity(ItemStack stack, EntityPlayer playerIn, EntityLivingBase target, EnumHand hand) {
@@ -52,28 +106,6 @@ public class Item1srod extends CommonItemRelic implements IManaUsingItem, IRelic
         return true;
     }
 
-    @Override
-    public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
-
-        if (playerIn.getHealth() < playerIn.getMaxHealth()){
-
-            if (ManaItemHandler.requestManaExactForTool(playerIn.getHeldItem(handIn), playerIn, cost, false)) {
-                playerIn.swingArm(handIn);
-                playerIn.heal(per);
-                spawnParticles(playerIn);
-                Helper.sendActionBar(playerIn, "info.+1srod.success2");
-
-            } else {
-
-                Helper.sendActionBar(playerIn, "info.+1srod.failed3");
-            }
-        }else{
-
-            Helper.sendActionBar(playerIn, "info.+1srod.failed2");
-        }
-        
-        return super.onItemRightClick(worldIn, playerIn, handIn);
-    }
 
     // 改编自村民交易结束代码
 
@@ -89,4 +121,5 @@ public class Item1srod extends CommonItemRelic implements IManaUsingItem, IRelic
             entity.world.spawnParticle(EnumParticleTypes.VILLAGER_HAPPY, entity.posX + (double)(this.rand.nextFloat() * entity.width * 2.0F) - (double)entity.width, entity.posY + 1.0D + (double)(this.rand.nextFloat() * entity.height), entity.posZ + (double)(this.rand.nextFloat() * entity.width * 2.0F) - (double)entity.width, d0, d1, d2);
         }
     }
+
 }
