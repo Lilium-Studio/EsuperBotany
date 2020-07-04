@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "esuperbotany",
+  "pattern": [
+    "X"
+  ],
+  "key": {
+    "X": {
+      "item": "esuperbotany:manastorage"
+    }
+  },
+  "result": {
+    "count": 9,
+    "item": "esuperbotany:resource",
+    "data": 4
+  }
+}

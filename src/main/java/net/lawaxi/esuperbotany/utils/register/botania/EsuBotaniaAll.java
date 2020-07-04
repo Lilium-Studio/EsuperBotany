@@ -6,5 +6,7 @@ public class EsuBotaniaAll {
         EsuPetalRecipe.init();
         EsuManaPool.init();
         EsuElvenTrade.init();
+        EsuMultiBlockSet.init();
+        EsuLexicon.init();
     }
 }

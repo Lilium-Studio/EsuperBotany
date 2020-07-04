@@ -1,7 +1,7 @@
 package net.lawaxi.esuperbotany.block.flora.generating;
 
 import net.lawaxi.esuperbotany.utils.register.EsuCommons;
-import net.lawaxi.esuperbotany.utils.register.EsuLexicon;
+import net.lawaxi.esuperbotany.utils.register.botania.EsuLexicon;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;

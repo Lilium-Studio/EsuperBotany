@@ -1,11 +1,10 @@
 package net.lawaxi.esuperbotany.utils.register.botania;
 
+import net.lawaxi.esuperbotany.api.Helper;
 import net.lawaxi.esuperbotany.utils.names.FuctionalFlora;
 import net.lawaxi.esuperbotany.utils.names.GeneratingFlora;
 import net.lawaxi.esuperbotany.utils.register.EsuCommons;
-import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 import vazkii.botania.api.BotaniaAPI;
 import vazkii.botania.api.recipe.RecipePetals;
 import vazkii.botania.common.item.block.ItemBlockSpecialFlower;
@@ -58,11 +57,12 @@ public class EsuPetalRecipe {
 
     //其他
     public static RecipePetals redScarf;
+    public static RecipePetals flowerCollector;
+    public static RecipePetals LEON;
 
     public static void init(){
 
-        //7个绿色花瓣合成Lawaxi头颅噢2333~
-        BotaniaAPI.registerPetalRecipe(gethead("Lawaxi"),green,green,green,green,green,green,green);
+        LEON = BotaniaAPI.registerPetalRecipe(Helper.gethead("CMOleon"),blue,blue,blue,blue,blue,blue,blue);
 
         //产能花
         lily = BotaniaAPI.registerPetalRecipe(ItemBlockSpecialFlower.ofType(GeneratingFlora.LILY),white,white,white,white,white,white,white,runePride);
@@ -73,13 +73,7 @@ public class EsuPetalRecipe {
 
         //其他
         redScarf = BotaniaAPI.registerPetalRecipe(new ItemStack(EsuCommons.COSMETIC,1,0),red,red,blue,white);
+        flowerCollector = BotaniaAPI.registerPetalRecipe(new ItemStack(EsuCommons.COSMETIC,1,1),white,orange,magenta,lightBlue,yellow,lime,pink,gray,lightGray,cyan,purple,blue,brown,green,red,black);
     }
 
-    public static final ItemStack gethead(String name){
-        ItemStack head = new ItemStack(Items.SKULL,1,3);
-        NBTTagCompound nbt = new NBTTagCompound();
-        nbt.setString("SkullOwner","Lawaxi");
-        head.setTagCompound(nbt.copy());
-        return head;
-    }
 }

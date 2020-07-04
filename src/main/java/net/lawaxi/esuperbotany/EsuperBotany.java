@@ -3,16 +3,19 @@ package net.lawaxi.esuperbotany;
 import net.lawaxi.esuperbotany.utils.Proxy;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
+import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import org.apache.logging.log4j.Logger;
 
-@Mod(modid = "esuperbotany", name = "Esuper Botany", version = "1.0")
+@Mod(modid = "esuperbotany", name = "Esuper Botany", version = "alfa3")
 public class EsuperBotany
 {
     public static EsuperBotany instance;
-    public static Proxy proxy = new Proxy();
+
+    @SidedProxy(serverSide = "net.lawaxi.esuperbotany.utils.Proxy",clientSide = "net.lawaxi.esuperbotany.utils.ClientProxy")
+    public static Proxy proxy;
 
     public static Logger logger;
 

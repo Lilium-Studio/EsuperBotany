@@ -1,6 +1,6 @@
 package net.lawaxi.esuperbotany.block.flora.generating;
 
-import net.lawaxi.esuperbotany.utils.register.EsuLexicon;
+import net.lawaxi.esuperbotany.utils.register.botania.EsuLexicon;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.boss.EntityDragon;
 import net.minecraft.entity.boss.EntityWither;

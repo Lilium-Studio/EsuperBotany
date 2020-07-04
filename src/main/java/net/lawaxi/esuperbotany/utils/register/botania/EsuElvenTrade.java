@@ -1,5 +1,6 @@
 package net.lawaxi.esuperbotany.utils.register.botania;
 
+import net.lawaxi.esuperbotany.api.Helper;
 import net.lawaxi.esuperbotany.utils.names.FuctionalFlora;
 import net.lawaxi.esuperbotany.utils.register.EsuCommons;
 import net.minecraft.client.resources.I18n;
@@ -13,13 +14,27 @@ import vazkii.botania.common.item.block.ItemBlockSpecialFlower;
 public class EsuElvenTrade {
 
     public static RecipeElvenTrade JOESSR;
+    public static RecipeElvenTrade LAWAXI;
 
     public static void init(){
 
         BotaniaAPI.registerElvenTradeRecipe(new ItemStack(EsuCommons.RESOURCE,1,2),new ItemStack(Items.PAINTING));
 
-        ItemStack a = Item.getByNameOrId("botania:specialflower").getDefaultInstance();
-        a.setStackDisplayName(I18n.format("info.joessr.any"));
+        ItemStack a = new ItemStack(Item.getByNameOrId("botania:specialflower"));
+        try {
+            a.setStackDisplayName(I18n.format("info.specialflora.any"));
+        }catch (Error e){
+
+        }
         JOESSR = BotaniaAPI.registerElvenTradeRecipe(ItemBlockSpecialFlower.ofType(FuctionalFlora.JOESSR), a);
+
+
+        ItemStack b = new ItemStack(Items.SKULL);
+        try{
+            b.setStackDisplayName(I18n.format("info.playerskull.any"));
+        }catch (Error e){
+
+        }
+        LAWAXI = BotaniaAPI.registerElvenTradeRecipe(Helper.gethead("Lawaxi"),b);
     }
 }

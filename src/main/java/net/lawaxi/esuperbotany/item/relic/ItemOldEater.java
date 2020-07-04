@@ -30,24 +30,27 @@ public class ItemOldEater extends CommonItemRelic implements IManaUsingItem, IRe
     @Override
     public boolean itemInteractionForEntity(ItemStack stack, EntityPlayer playerIn, EntityLivingBase target, EnumHand hand) {
 
-        if(target.getHealth()<=per){
-            Helper.sendActionBar(playerIn, "info.oldeaterrod.failed1");
-            return true;
+        if(!playerIn.getEntityWorld().isRemote) {
+
+            if (target.getHealth() <= per) {
+                Helper.sendActionBar(playerIn, "info.oldeaterrod.failed1");
+                return true;
+            }
+
+            if (ManaItemHandler.requestManaExactForTool(stack, playerIn, cost, false)) {
+                Helper.sendActionBar(playerIn, "info.oldeaterrod.success");
+
+                playerIn.swingArm(hand);
+                target.attackEntityFrom(DamageSource.MAGIC, per);
+
+                Entity a = new EntityItem(target.world, target.posX, target.posY + 2.0F, target.posZ, newMoney());
+                ((EntityItem) a).setDefaultPickupDelay();
+                target.world.spawnEntity(a);
+
+            } else
+                Helper.sendActionBar(playerIn, "info.oldeaterrod.failed2");
+
         }
-
-        if (ManaItemHandler.requestManaExactForTool(stack, playerIn, cost, false)) {
-            Helper.sendActionBar(playerIn, "info.oldeaterrod.success");
-
-            playerIn.swingArm(hand);
-            target.attackEntityFrom(DamageSource.MAGIC,per);
-
-            Entity a = new EntityItem(target.world,target.posX,target.posY+2.0F,target.posZ,newMoney());
-            ((EntityItem)a).setDefaultPickupDelay();
-            target.world.spawnEntity(a);
-
-        }else
-            Helper.sendActionBar(playerIn, "info.oldeaterrod.failed2");
-
         return true;
     }
 

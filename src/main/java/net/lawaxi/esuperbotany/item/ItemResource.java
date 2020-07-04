@@ -1,7 +1,6 @@
 package net.lawaxi.esuperbotany.item;
 
 import net.lawaxi.esuperbotany.entity.EntityHellAirBottle;
-import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.entity.player.EntityPlayer;
@@ -13,16 +12,16 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldProviderHell;
-import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.oredict.OreDictionary;
 import vazkii.botania.api.recipe.IFlowerComponent;
 import vazkii.botania.common.entity.EntityEnderAirBottle;
 
 public class ItemResource extends CommonItem implements IFlowerComponent {
 
-    public static final String[] names = {"manaEmerald","netherAirBottle","lytPicture","pension"};
+    public static final String[] names = {"manaEmerald","netherAirBottle","lytPicture","pension","mana_ingot"};
 
 
     public ItemResource() {
@@ -30,11 +29,12 @@ public class ItemResource extends CommonItem implements IFlowerComponent {
         super("esuperbotany:resource");
         setHasSubtypes(true);
 
-        for(int i=0;i<names.length;i++){
-            ModelLoader.setCustomModelResourceLocation(this,i,new ModelResourceLocation("esuperbotany:"+names[i], "inventory"));
-        }
-
         MinecraftForge.EVENT_BUS.register(this);
+        OreDictionary.registerOre("manaEmerald", new ItemStack(this,0,0));
+        OreDictionary.registerOre("elvenDragonpicture", new ItemStack(this,0,2));
+        OreDictionary.registerOre("ingotMana", new ItemStack(this,0,4));
+        hasSubtypes = true;
+
     }
 
     @Override
@@ -58,17 +58,24 @@ public class ItemResource extends CommonItem implements IFlowerComponent {
     @Override
     public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
 
-        ItemStack stack = playerIn.getHeldItem(handIn);
-        if(stack.getMetadata() == 1){
-            worldIn.playSound((EntityPlayer)null, playerIn.posX, playerIn.posY, playerIn.posZ, SoundEvents.ENTITY_SPLASH_POTION_THROW, SoundCategory.PLAYERS, 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
-            if(!worldIn.isRemote){
-                EntityEnderAirBottle b = new EntityHellAirBottle(worldIn, playerIn);
-                b.shoot(playerIn, playerIn.rotationPitch, playerIn.rotationYaw, 0.0F, 1.5F, 1.0F);
-                worldIn.onEntityAdded(b);
-            }else{
-                playerIn.swingArm(handIn);
+            ItemStack stack = playerIn.getHeldItem(handIn);
+            if (stack.getMetadata() == 1) {
+
+                worldIn.playSound((EntityPlayer) null, playerIn.posX, playerIn.posY, playerIn.posZ, SoundEvents.ENTITY_SPLASH_POTION_THROW, SoundCategory.PLAYERS, 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
+
+                if (!worldIn.isRemote) {
+                    //服务端
+                    EntityEnderAirBottle b = new EntityHellAirBottle(worldIn, playerIn);
+                    b.shoot(playerIn, playerIn.rotationPitch, playerIn.rotationYaw, 0.0F, 1.5F, 1.0F);
+                    worldIn.spawnEntity(b);
+
+                } else {
+                    //客户端
+                    playerIn.swingArm(handIn);
+                }
+
+                stack.shrink(1);
             }
-        }
 
         return super.onItemRightClick(worldIn, playerIn, handIn);
     }

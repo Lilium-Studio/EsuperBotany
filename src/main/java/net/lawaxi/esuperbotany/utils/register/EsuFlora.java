@@ -30,9 +30,13 @@ public class EsuFlora {
     private static void registerSubTile(String key, Class<? extends SubTileEntity> classs) {
         BotaniaAPI.registerSubTile(key, classs);
 
+        try {
+            BotaniaAPIClient.registerSubtileModel(key,
+                    new ModelResourceLocation(new ResourceLocation("esuperbotany", key), "normal"),
+                    new ModelResourceLocation(new ResourceLocation("esuperbotany", key), "inventory"));
+        }catch (Error e){
 
-        BotaniaAPIClient.registerSubtileModel(key,
-                new ModelResourceLocation(new ResourceLocation("esuperbotany", key), "normal"),
-                new ModelResourceLocation(new ResourceLocation("esuperbotany", key), "inventory"));
+        }
+
     }
 }

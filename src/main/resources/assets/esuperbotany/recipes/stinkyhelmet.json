@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "esuperbotany",
+  "pattern": [
+    "XXX",
+    "X X"
+  ],
+  "key": {
+    "X": {
+      "item": "esuperbotany:resouce",
+      "data": 4
+    }
+  },
+  "result": {
+    "item": "esuperbotany:stinkyhelmet"
+  }
+}

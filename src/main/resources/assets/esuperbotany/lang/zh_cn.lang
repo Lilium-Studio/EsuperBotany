@@ -17,7 +17,8 @@ tile.botania:flower.lotuspeony.reference=等着leon告诉我
 tile.botania:flower.joessr.name=植魔皇帝
 tile.botania:flower.joessr.reference=哎呦卧槽,这事好的
 
-info.joessr.any=任意的魔法植物
+info.specialflora.any=任意的魔法植物
+info.playerskull.any=任意的玩家头颅
 
 #植物魔法辞典
 botania.entry.lily=百合花
@@ -36,6 +37,7 @@ botania.entry.joessr=植魔皇帝/魔力方块
 botania.page.joessr0=&1植魔皇帝&0是整个世界&4魔力&0运 行的掌控者,任何被精灵认可 的魔法植物都能成为.&6你可能 不知道&0,植物能长期拥有魔法, 并与精灵,魔法师交流,全部得 益于植魔皇帝的功劳.因此,一 朵真正的植魔皇帝可以自由 地操作&4魔力&0,甚至将它们转换 成方块.作为魔法师,训练一朵 植魔皇帝,就从 它的合成开始吧.
 botania.page.joessr1=*我做植魔鬼畜音MAD,好吗?*
 botania.page.joessr2=为了魔法师储存方便,植魔皇 帝会帮您将&4魔力&0转化为&1方块&0. &4魔力&0非常神奇,用&4魔力&0做成的 方块既不硬也不软,虽然您需 要耗费很大的力气将它敲碎, 但您甚至可以被它弹起(比史 莱姆块更高).
+botania.page.joessr3=用于植物魔法工业化
 
 botania.entry.+1srod=续命法杖
 botania.page.+1srod0=&1续命,简称+1s,&0是游戏《地球Online》 中角色:&6长者&0延长寿命的方式.  他是一位长者,常带黑框眼镜; 他很有姿势,会用特殊方法传 授经验;他非常风趣,人们总是 把他和一只可爱的动物联 系在一起;世纪之初,他对一位 晚辈的"关爱"被用视频记录,并 广为流传,衍生了诸多朗朗上 口的语录.如今,他已经退隐江 湖,但他曾经的谈笑风生会一 直被我们铭记.他,就是配音演 员:&6葛平老师&0。
@@ -46,8 +48,12 @@ botania.page.oldeaterrod0=&1刘女士&0大学肄业,没有工作可 找,只能�
 botania.page.oldeaterrod1=&6@说真话者难得善终
 
 botania.entry.redScarf=川普の红领巾
-botania.entry.redScarf1=一去四年又四年,白发如丝生鬓间. 心魂一缕牵华夏,为国甘驻美利坚. 白头鹰徽悬身后,镰锤默然藏心间. 常怀故国苍生望,愿埋忠骨白宫前.
-botania.entry.redScarf2=是你暴露了建国同志!
+botania.page.redScarf0=一去四年又四年,白发如丝生鬓间. 心魂一缕牵华夏,为国甘驻美利坚. 白头鹰徽悬身后,镰锤默然藏心间. 常怀故国苍生望,愿埋忠骨白宫前.
+botania.page.redScarf1=是你暴露了建国同志!
+
+botania.entry.flowerCollector=自动采花
+botania.page.flowerCollector0=想要得到神秘花,您可以选择 使用花肥以应对急需.然而如 果选择在闲逛地图时顺手采 集,这不是更令人高兴的事情 吗.很多人以取离自己几格远 的地方采花当成一种麻烦,那 么采花袋与&1自动采花&0的配合 将会让您十分愉快,您每次只 需要花费5&4魔力&0就可以自动采 集自己前后左右5格方块内的 神秘花进入您的采花袋.但是 特别地,您需要将采花袋放在 您的主手位置.
+botania.page.flowerCollector1=懒
 
 info.+1srod.failed1=§c对方阳寿未尽,不需要续命!
 info.+1srod.failed2=§c您的阳寿未尽,不需要续命!
@@ -69,29 +75,41 @@ item.esuperbotany:oldeaterrod.lore=§e"果↑不↓其↑然↓呀"
 item.esuperbotany:copper_ingot.name=铜锭
 tile.esuperbotany:copper_ore.name=铜矿石
 tile.esuperbotany:copper_block.name=铜块
+item.esuperbotany:manaEmerald.name=魔力绿宝石
 tile.esuperbotany:manaemerald_block.name=魔力绿宝石块
+item.esuperbotany:mana_ingot.name=魔力锭
 tile.esuperbotany:manastorage.name=魔力方块
 
-item.esuperbotany:manaEmerald.name=魔力绿宝石
 item.esuperbotany:netherAirBottle.name=瓶装地狱空气
 item.esuperbotany:lytPicture.name=龙图
 item.esuperbotany:pension.name=养老金
 
 item.esuperbotany:redScarf.name=川普の红领巾
+item.esuperbotany:flowey.name=小花
+item.esuperbotany:flowerCollector.name=自动采花
+
+esuperbotany.armorset.stinky.name=真夏の夜の淫夢
+esuperbotany.armorset.stinky.desc0=让人性奋
+item.esuperbotany:stinkyHelmet.name=cosplay头部
+item.esuperbotany:stinkyChestplate.name=白色T恤
+item.esuperbotany:stinkyLeggings.name=深蓝色裤子
+item.esuperbotany:stinkyBoots.name=沾有红茶渍的拖鞋
 
 #进度
-advancements.esuper.root.title=ao!
-advancements.esuper.root.description=欢迎来到百合植物学
+advancements.esuper.root.title=百合植物学
+advancements.esuper.root.description=ao!欢迎来到百合植物学
 advancements.esuper.emerald.title=魔力绿宝石
 advancements.esuper.emerald.description=魔法师世界的通行钞票
 advancements.esuper.lytpicture.title=你也事龙厨?
 advancements.esuper.lytpicture.description=精灵会将钻石换成龙石,那会将画换成什么呢?
 advancements.esuper.redscarf.title=川建国
 advancements.esuper.redscarf.description=中国儿女的好同志
+advancements.esuper.stinkyarmor.title=压力马斯内
+advancements.esuper.redscarf.description=这么鉴的衣服有穿的必要吗
 
 advancements.esuper.time.title=抓紧时间
 advancements.esuper.time.description=稻花香里说丰年
-advancements.esuper.oldeater.title=逸站事我家
+advancements.esuper.oldeater.title=睿站事我家
 advancements.esuper.oldeater.description=一个刘泽倒下去,千万个喜忠站起来
 
 advancements.esuper.emperor.title=植魔大皇帝

@@ -3,40 +3,31 @@ package net.lawaxi.esuperbotany.block;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
-import net.minecraftforge.client.model.ModelLoader;
-import net.minecraftforge.fml.common.registry.ForgeRegistries;
+import net.minecraftforge.oredict.OreDictionary;
 import vazkii.botania.api.item.IManaDissolvable;
 import vazkii.botania.api.mana.IManaPool;
 import vazkii.botania.common.network.PacketBotaniaEffect;
 import vazkii.botania.common.network.PacketHandler;
 
-public class BlockManaStorage extends Block {
+public class BlockManaStorage extends CommonBlock {
 
     public static final int per = 50000;
 
     public BlockManaStorage() {
 
-        super(Material.ROCK);
+        super("esuperbotany:manastorage",Material.ROCK);
 
         setSoundType(SoundType.SNOW);
-        setHarvestLevel("pickaxe",3);
+        setHarvestLevel("pickaxe",2);
+        OreDictionary.registerOre("blockMana", this);
         this.setHardness(5.0F);
 
-        String name = "esuperbotany:manastorage";
-        setUnlocalizedName(name);
-
-        ForgeRegistries.BLOCKS.register(this.setRegistryName(new ResourceLocation(name)));
-        ForgeRegistries.ITEMS.register(new ItemManaStorage(this).setRegistryName(name));
-        ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this),0,new ModelResourceLocation(name,"inventory"));
     }
 
     @Override

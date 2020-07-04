@@ -1,6 +1,6 @@
 package net.lawaxi.esuperbotany.block.flora.fuctional;
 
-import net.lawaxi.esuperbotany.utils.register.EsuLexicon;
+import net.lawaxi.esuperbotany.utils.register.botania.EsuLexicon;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.potion.PotionEffect;
@@ -40,15 +40,15 @@ public class LotusPeony extends SubTileFunctional {
             }
 
             if(!has) {
-                player.addPotionEffect(new PotionEffect(MobEffects.HEALTH_BOOST, 20*10, 5,false,false));
-                mana -= 20;
+                player.addPotionEffect(new PotionEffect(MobEffects.HEALTH_BOOST, 20*10, 2,false,false));
+                mana -= 500;
             }
         }
     }
 
     @Override
     public int getMaxMana() {
-        return 20;
+        return 500;
     }
 
 

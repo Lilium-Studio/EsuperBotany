@@ -22,6 +22,7 @@ import vazkii.botania.common.item.block.ItemBlockSpecialFlower;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 
 public class EsuCommons {
@@ -43,6 +44,7 @@ public class EsuCommons {
     public static CommonItemRelic ONESROD;
     public static CommonItemRelic OLDEATER;
 
+    public static final HashSet<Item> items = new HashSet<>();
 
     public static void init(){
 
@@ -81,5 +83,10 @@ public class EsuCommons {
         //趣味道具
         ONESROD = new Item1srod();
         OLDEATER = new ItemOldEater();
+
+        //ArmorStinky.build();
+        //new debug();
     }
+
+
 }

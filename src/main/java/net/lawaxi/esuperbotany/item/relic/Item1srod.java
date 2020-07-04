@@ -35,23 +35,29 @@ public class Item1srod extends CommonItemRelic implements IManaUsingItem, IRelic
     @SubscribeEvent
     public void rightClick(PlayerInteractEvent.RightClickEmpty e) {
 
-        if(!e.getItemStack().isEmpty()) {
-            //瓶装地狱空气
-            if ( e.getItemStack().getItem() == this ) {
+        if (!e.getItemStack().isEmpty()) {
 
-                if (e.getEntityPlayer().getHealth() < e.getEntityPlayer().getMaxHealth()){
+            if (e.getItemStack().getItem() == this) {
+
+                if (e.getEntityPlayer().getHealth() < e.getEntityPlayer().getMaxHealth()) {
 
                     if (ManaItemHandler.requestManaExactForTool(e.getItemStack(), e.getEntityPlayer(), cost, false)) {
-                        e.getEntityPlayer().swingArm(e.getHand());
-                        e.getEntityPlayer().heal(per);
-                        spawnParticles(e.getEntity());
+
+                        if(!e.getWorld().isRemote){
+                            e.getEntityPlayer().heal(per);
+
+                        }else{
+                            spawnParticles(e.getEntity());
+                            e.getEntityPlayer().swingArm(e.getHand());
+                        }
+
                         Helper.sendActionBar(e.getEntityPlayer(), "info.+1srod.success2");
 
                     } else {
 
                         Helper.sendActionBar(e.getEntityPlayer(), "info.+1srod.failed3");
                     }
-                }else{
+                } else {
 
                     Helper.sendActionBar(e.getEntityPlayer(), "info.+1srod.failed2");
                 }
@@ -62,18 +68,25 @@ public class Item1srod extends CommonItemRelic implements IManaUsingItem, IRelic
     @SubscribeEvent
     public void rightClick(PlayerInteractEvent.RightClickBlock e) {
 
-        if(!e.getItemStack().isEmpty()) {
-            //瓶装地狱空气
-            if ( e.getItemStack().getItem() == this && e.getWorld().getBlockState(e.getPos()).getBlock() == Blocks.GOLD_BLOCK) {
 
-                //破化金块
+        if (!e.getItemStack().isEmpty()) {
+            if (e.getItemStack().getItem() == this && e.getWorld().getBlockState(e.getPos()).getBlock() == Blocks.GOLD_BLOCK) {
+
                 e.getWorld().playEvent(2001, e.getPos(), Block.getStateId(Blocks.GOLD_BLOCK.getDefaultState()));
-                e.getWorld().setBlockToAir(e.getPos());
 
-                //生成养老金
-                Entity a = new EntityItem(e.getWorld(),e.getPos().getX(),e.getPos().getY(),e.getPos().getZ(),new ItemStack(EsuCommons.RESOURCE,1,3));
-                ((EntityItem)a).setDefaultPickupDelay();
-                e.getWorld().spawnEntity(a);
+                if (!e.getWorld().isRemote) {
+
+                    //破化金块
+                    e.getWorld().setBlockToAir(e.getPos());
+
+                    //生成养老金
+                    Entity a = new EntityItem(e.getWorld(), e.getPos().getX(), e.getPos().getY(), e.getPos().getZ(), new ItemStack(EsuCommons.RESOURCE, 1, 3));
+                    ((EntityItem) a).setDefaultPickupDelay();
+                    e.getWorld().spawnEntity(a);
+
+                } else {
+                    e.getEntityPlayer().swingArm(e.getHand());
+                }
 
             }
         }
@@ -87,22 +100,31 @@ public class Item1srod extends CommonItemRelic implements IManaUsingItem, IRelic
 
     @Override
     public boolean itemInteractionForEntity(ItemStack stack, EntityPlayer playerIn, EntityLivingBase target, EnumHand hand) {
-        if(target.getHealth()<target.getMaxHealth()) {
+
+        if (target.getHealth() < target.getMaxHealth()) {
             if (ManaItemHandler.requestManaExactForTool(stack, playerIn, cost, false)) {
-                playerIn.swingArm(hand);
-                target.heal(per);
-                spawnParticles(target);
-                Helper.sendActionBar(playerIn,"info.+1srod.success1");
-            }else {
+
+                if(!playerIn.getEntityWorld().isRemote) {
+                    //服务端
+                    target.heal(per);
+                }else{
+                    //客户端
+                    spawnParticles(target);
+                    playerIn.swingArm(hand);
+                }
+                Helper.sendActionBar(playerIn, "info.+1srod.success1");
+
+            } else {
 
                 Helper.sendActionBar(playerIn, "info.+1srod.failed3");
             }
-        }else{
+        } else {
 
-            Helper.sendActionBar(playerIn,"info.+1srod.failed1");
+            Helper.sendActionBar(playerIn, "info.+1srod.failed1");
         }
 
         //此处return ture就不会触发右击空气的事件
+
         return true;
     }
 
@@ -110,6 +132,7 @@ public class Item1srod extends CommonItemRelic implements IManaUsingItem, IRelic
     // 改编自村民交易结束代码
 
     protected Random rand = new Random();
+
     @SideOnly(Side.CLIENT)
     private void spawnParticles(Entity entity)
     {

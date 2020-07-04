@@ -29,6 +29,7 @@ public class EntityHellAirBottle extends EntityEnderAirBottle {
     @Override
     protected void onImpact(@Nonnull RayTraceResult pos) {
         if (pos.typeOfHit == RayTraceResult.Type.BLOCK && !world.isRemote) {
+
             List<BlockPos> coordsList = getCoordsToPut(((RayTraceResult) pos).getBlockPos());
             world.playEvent(2002, new BlockPos(this), 8);
 

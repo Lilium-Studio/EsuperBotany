@@ -57,6 +57,12 @@ public class EsuCreativeTab {
 
         additem(EsuCommons.ONESROD);
         additem(EsuCommons.OLDEATER);
+
+        /*
+        additem(Item.getByNameOrId("esuperbotany:stinkyHelmet"));
+        additem(Item.getByNameOrId("esuperbotany:stinkyChestplate"));
+        additem(Item.getByNameOrId("esuperbotany:stinkyLeggings"));
+        additem(Item.getByNameOrId("esuperbotany:stinkyBoots"));*/
     }
 
 

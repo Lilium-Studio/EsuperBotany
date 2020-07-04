@@ -4,7 +4,6 @@ import net.lawaxi.esuperbotany.utils.register.EsuCommons;
 import net.minecraft.block.BlockOre;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.ResourceLocation;
@@ -12,7 +11,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.oredict.OreDictionary;
 
@@ -32,7 +30,8 @@ public class BlockCopperOre extends BlockOre {
         OreDictionary.registerOre("oreCopper", this);
         ForgeRegistries.BLOCKS.register(this.setRegistryName(new ResourceLocation(name)));
         ForgeRegistries.ITEMS.register(new ItemBlock(this).setRegistryName(name));
-        ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this),0,new ModelResourceLocation(name,"inventory"));
+
+        EsuCommons.items.add(Item.getItemFromBlock(this));
     }
 
     @Override
