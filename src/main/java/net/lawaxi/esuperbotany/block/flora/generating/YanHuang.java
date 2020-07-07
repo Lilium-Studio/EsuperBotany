@@ -25,6 +25,7 @@ public class YanHuang extends SubTileGenerating {
     private int delay = 0;
 
     private static final int[] range = {-1,0,1};
+    private static final int per = 100;
 
     @Override
     public void onUpdate() {
@@ -40,19 +41,19 @@ public class YanHuang extends SubTileGenerating {
                     if(item.getItem().getItem() == EsuCommons.COPPERINGOT){
                         item.getItem().shrink(1);
                         delay+=20*1;
-                        mana+=10;
+                        mana+=per;
                         return; //为了延时稳定 需要在检测到一个后立刻停止
                     }
                     if(item.getItem().getItem() == Item.getItemFromBlock(EsuCommons.COPPERORE)){
                         item.getItem().shrink(1);
                         delay+=20*1;
-                        mana+=12;
+                        mana+=per*1.2;
                         return;
                     }
                     if(item.getItem().getItem() == Item.getItemFromBlock(EsuCommons.COPPERBLOCK)){
                         item.getItem().shrink(1);
                         delay+=20*3;
-                        mana+=90;
+                        mana+=per*9;
                         return;
                     }
                 }
@@ -71,14 +72,14 @@ public class YanHuang extends SubTileGenerating {
 
                                 getWorld().setBlockState(pos, Blocks.AIR.getDefaultState());
                                 delay+=20*1;
-                                mana+=90;
+                                mana+=per;
                                 return;
                             }
 
                             if(getWorld().getBlockState(pos).getBlock() == EsuCommons.COPPERORE){
                                 getWorld().setBlockState(pos, Blocks.AIR.getDefaultState());
                                 delay+=20*3;
-                                mana+=10;
+                                mana+=per*9;
                                 return;
                             }
                         }

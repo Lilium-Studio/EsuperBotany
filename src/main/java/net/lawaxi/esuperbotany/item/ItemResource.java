@@ -33,7 +33,6 @@ public class ItemResource extends CommonItem implements IFlowerComponent {
         OreDictionary.registerOre("manaEmerald", new ItemStack(this,0,0));
         OreDictionary.registerOre("elvenDragonpicture", new ItemStack(this,0,2));
         OreDictionary.registerOre("ingotMana", new ItemStack(this,0,4));
-        hasSubtypes = true;
 
     }
 

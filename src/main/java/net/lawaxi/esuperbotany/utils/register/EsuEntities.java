@@ -13,7 +13,7 @@ public class EsuEntities {
 
     public static void init(){
         register(EntitiesNames.VAZKII,EntityVazkii.class,256,3,true);
-        register(EntitiesNames.HELLAIRBOTTLE, EntityHellAirBottle.class,64,3,true);
+        register(EntitiesNames.HELLAIRBOTTLE, EntityHellAirBottle.class,64,10,true);
     }
 
     private static int id =0;

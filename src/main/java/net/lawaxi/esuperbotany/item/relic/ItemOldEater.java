@@ -1,6 +1,7 @@
 package net.lawaxi.esuperbotany.item.relic;
 
 import net.lawaxi.esuperbotany.api.Helper;
+import net.lawaxi.esuperbotany.utils.register.EsuCommons;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
@@ -19,7 +20,7 @@ public class ItemOldEater extends CommonItemRelic implements IManaUsingItem, IRe
     private static final float per = 4.0F;
 
     public ItemOldEater() {
-        super("esuperbotany:oldeaterrod",true,1);
+        super("esuperbotany:oldeaterrod",true,DamgeType.HURT);
     }
 
     @Override
@@ -54,8 +55,18 @@ public class ItemOldEater extends CommonItemRelic implements IManaUsingItem, IRe
         return true;
     }
 
-    private static final String[] moneys = {"diamond","gold_ingot","iron_ingot","esuperbotany:copper_ingot","emerald"};
-    public static ItemStack newMoney(){
-        return new ItemStack(Item.getByNameOrId(moneys[itemRand.nextInt(moneys.length)]));
+
+    private ItemStack newMoney(){
+        return getStack(moneys[itemRand.nextInt(moneys.length)]);
+    }
+
+
+    private static final String[] moneys = {"diamond","gold_ingot","iron_ingot","esuperbotany:copper_ingot","emerald","x"};
+    private static final ItemStack getStack(String name){
+        if(name.equalsIgnoreCase("x"))
+            return new ItemStack(EsuCommons.LOOTBAG,1,0);
+        else
+            return new ItemStack(Item.getByNameOrId(name));
+
     }
 }

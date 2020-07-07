@@ -24,7 +24,9 @@ public class Lily extends SubTileGenerating {
 
     @Override
     public void onUpdate() {
+
         super.onUpdate();
+
         if(mana<getMaxMana() && redstoneSignal==0){
 
             for(EntityLivingBase entity :

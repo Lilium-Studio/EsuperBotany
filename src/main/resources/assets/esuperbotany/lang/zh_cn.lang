@@ -3,74 +3,83 @@ itemGroup.esuperbotany=百合学
 category.Botania:esu=百合学
 botania.knowledge.esu=百合学知识
 
-# 产能花
+#花朵
+
+#- 产能花
 tile.botania:flower.lily.name=百合花
 tile.botania:flower.lily.reference=不幸地,什么东西已经逝世,,,
-
 tile.botania:flower.yanhuang.name=焱璜
 tile.botania:flower.yanhuang.reference=用身躯换来中国铜产业的今天,多么不朽!!
 
-# 功能花
+#- 功能花
 tile.botania:flower.lotuspeony.name=荷包牡丹
-tile.botania:flower.lotuspeony.reference=等着leon告诉我
-
+tile.botania:flower.lotuspeony.reference=未补充
+tile.botania:flower.irrigator.name=灌水花
+tile.botania:flower.irrigator.reference=未补充
 tile.botania:flower.joessr.name=植魔皇帝
 tile.botania:flower.joessr.reference=哎呦卧槽,这事好的
 
+#显示
 info.specialflora.any=任意的魔法植物
 info.playerskull.any=任意的玩家头颅
 
 #植物魔法辞典
+
+#- flora
 botania.entry.lily=百合花
 botania.page.lily0=&1百合&0喜好食用&1死人&0,这事它们 产出&4魔力&0的唯一方法.它们常 说:&6"有的人活着,但他已经死了." &0在它们尚有灵性的2017年,它 们只会食用这种人.但如今植 物魔法学家有了掌控它们的 权力,因此它们会听从您的指 示,不论您喂给它们什么,或者 是用&1红石信号&0让它们停止工作.
 botania.page.lily1=伟大的爱,深深的祝福.
-
 botania.entry.yanhuang=焱璜花
-botania.page.yanhuang0=&1焱璜花&0的一生都与铜有关,它 是在几个世纪前被人为创造 出的品种,用来精炼&1铜&0;即使在 世界铜产量已经完全满足供 给的今天,它也被植物魔法学 家用来生产&4魔力&0.尼采说过:"花 的伟大之处在于,它是一座桥 梁,要用毕生精力,&6学习炼铜技 术铸造起钢铁之桥而非目的.&0"
+botania.page.yanhuang0=&1焱璜花&0的一生都与铜有关,它 是在几个世纪前被人为创造 出的品种,用来精炼&1铜&0;即使在 世界铜产量已经完全满足供 给的今天,它也被植物魔法学 家用来生产&4魔力&0.尼采说过:"花 的伟大之处在于,它是一座桥 梁,要用毕生精力,&6学习炼铜技 术铸造起钢铁之桥而非目的.&0"<br>&1铜的表现形式可以是方块或者掉落物,合成铜块可以通过降低延时提高效率.
 botania.page.yanhuang1=如有雷同,纯属巧合.
-
 botania.entry.lotuspeony=荷包牡丹
-botania.page.lotuspeony0=等着leon告诉我
-botania.page.lotuspeony1=等着leon告诉我
-
-botania.entry.joessr=植魔皇帝/魔力方块
+botania.page.lotuspeony0=未补充
+botania.page.lotuspeony1=未补充
+botania.entry.irrigator=灌水花
+botania.page.irrigator0=&1灌水花&0是一种靠&4魔力&0趋势水 贴的花朵.不管在百度贴吧还 是Minecraft原版,&1经验&0都是极为重 要的东西,您最好将灌水花种 在水边,它会在一个延时循环 中在周围的每格水中放置含 有2~20个经验的经验球,并消 耗经验*300的&4魔力&0.假如到游 戏后期,或者您全心全意游玩 模组时,可能经验缺少了原有 的价值,您可以使用一个红石 信号告诉它:它的使命结束了.
+botania.page.irrigator1=经验+3,告辞!
+botania.entry.joessr=植魔皇帝
 botania.page.joessr0=&1植魔皇帝&0是整个世界&4魔力&0运 行的掌控者,任何被精灵认可 的魔法植物都能成为.&6你可能 不知道&0,植物能长期拥有魔法, 并与精灵,魔法师交流,全部得 益于植魔皇帝的功劳.因此,一 朵真正的植魔皇帝可以自由 地操作&4魔力&0,甚至将它们转换 成方块.作为魔法师,训练一朵 植魔皇帝,就从 它的合成开始吧.
 botania.page.joessr1=*我做植魔鬼畜音MAD,好吗?*
 botania.page.joessr2=为了魔法师储存方便,植魔皇 帝会帮您将&4魔力&0转化为&1方块&0. &4魔力&0非常神奇,用&4魔力&0做成的 方块既不硬也不软,虽然您需 要耗费很大的力气将它敲碎, 但您甚至可以被它弹起(比史 莱姆块更高).
 botania.page.joessr3=用于植物魔法工业化
+botania.page.joessr3=更简便的装置
 
-botania.entry.+1srod=续命法杖
-botania.page.+1srod0=&1续命,简称+1s,&0是游戏《地球Online》 中角色:&6长者&0延长寿命的方式.  他是一位长者,常带黑框眼镜; 他很有姿势,会用特殊方法传 授经验;他非常风趣,人们总是 把他和一只可爱的动物联 系在一起;世纪之初,他对一位 晚辈的"关爱"被用视频记录,并 广为流传,衍生了诸多朗朗上 口的语录.如今,他已经退隐江 湖,但他曾经的谈笑风生会一 直被我们铭记.他,就是配音演 员:&6葛平老师&0。
-botania.page.+1srod1=&6垂死病中惊坐起, 谈笑风生又一年.
-
-botania.entry.oldeaterrod=啃老法杖
-botania.page.oldeaterrod0=&1刘女士&0大学肄业,没有工作可 找,只能依靠其父刘喜忠先生 养活.她的父亲在家附近的一 个小池沼钓鱼,被鱼咬死后留 下了一根&1法杖&0,这根法杖能帮 助刘女士继续啃别的老人.现 在她决定成为一名导演,录制 年度大戏&6《整治es券》&0,于是 他舍弃了这根法杖.如果您获 得了它,您就是刘女士的夜蝶 了!
-botania.page.oldeaterrod1=&6@说真话者难得善终
-
+#- misc
 botania.entry.redScarf=川普の红领巾
 botania.page.redScarf0=一去四年又四年,白发如丝生鬓间. 心魂一缕牵华夏,为国甘驻美利坚. 白头鹰徽悬身后,镰锤默然藏心间. 常怀故国苍生望,愿埋忠骨白宫前.
 botania.page.redScarf1=是你暴露了建国同志!
-
 botania.entry.flowerCollector=自动采花
 botania.page.flowerCollector0=想要得到神秘花,您可以选择 使用花肥以应对急需.然而如 果选择在闲逛地图时顺手采 集,这不是更令人高兴的事情 吗.很多人以取离自己几格远 的地方采花当成一种麻烦,那 么采花袋与&1自动采花&0的配合 将会让您十分愉快,您每次只 需要花费5&4魔力&0就可以自动采 集自己前后左右5格方块内的 神秘花进入您的采花袋.但是 特别地,您需要将采花袋放在 您的主手位置.
 botania.page.flowerCollector1=懒
+botania.entry.enderman=末影人改动(原版)
+botania.page.enderman0=末影人,在其他性质不变的情 况下,不能在史莱姆块和魔力 方块上瞬移.在原有的规则中, 末影人只能被船困住,但若想 让它们在你规定的范围内自 由活动,但又无法瞬移到其他 位置,这是很麻烦的.感谢百合 植物学作者的天才设计,让家 养末影人变得可能.
 
+#- esu
+botania.entry.+1srod=续命法杖
+botania.page.+1srod0=&1续命,简称+1s,&0是游戏《地球Online》 中角色:&6长者&0延长寿命的方式.  他是一位长者,常带黑框眼镜; 他很有姿势,会用特殊方法传 授经验;他非常风趣,人们总是 把他和一只可爱的动物联 系在一起;世纪之初,他对一位 晚辈的"关爱"被用视频记录,并 广为流传,衍生了诸多朗朗上 口的语录.如今,他已经退隐江 湖,但他曾经的谈笑风生会一 直被我们铭记.他,就是配音演 员:&6葛平老师&0。
+botania.page.+1srod1=&6垂死病中惊坐起, 谈笑风生又一年.
+botania.entry.oldeaterrod=啃老法杖
+botania.page.oldeaterrod0=&1刘女士&0大学肄业,没有工作可 找,只能依靠其父刘喜忠先生 养活.她的父亲在家附近的一 个小池沼钓鱼,被鱼咬死后留 下了一根&1法杖&0,这根法杖能帮 助刘女士继续啃别的老人.现 在她决定成为一名导演,录制 年度大戏&6《整治es券》&0,于是 他舍弃了这根法杖.如果您获 得了它,您就是刘女士的夜蝶 了!
+botania.page.oldeaterrod1=&6@说真话者难得善终
+botania.entry.expellorod=除你武器
+botania.page.expellorod0=&1除你武器权杖&0,可以让你指定 一个10个方块内的玩家,并丢 掉他手中的物品.
+botania.page.expellorod1=Expello Arma!
+
+#物品
+item.esuperbotany:+1srod.name=续命法杖
+item.esuperbotany:+1srod.lore=§a天若有情天亦老,我为长者续一秒
+item.esuperbotany:oldeaterrod.name=啃老法杖
+item.esuperbotany:oldeaterrod.lore=§e"果↑不↓其↑然↓呀"
+item.esuperbotany:expellorod.name=除你武器
 info.+1srod.failed1=§c对方阳寿未尽,不需要续命!
 info.+1srod.failed2=§c您的阳寿未尽,不需要续命!
 info.+1srod.failed3=§c您的Mana不足1926,无法续命!
 info.+1srod.success1=§a+1s
 info.+1srod.success2=§a+1s
-
 info.oldeaterrod.failed1=§c碴女士十分正义,不愿对血量过低的夜蝶下手!
 info.oldeaterrod.failed2=§c您的Mana不足1998,碴女士需要更多!
-info.oldeaterrod.success=§a您啃了夜蝶一口
-
-#其他物品
-item.esuperbotany:+1srod.name=续命法杖
-item.esuperbotany:+1srod.lore=§a天若有情天亦老,我为长者续一秒
-
-item.esuperbotany:oldeaterrod.name=啃老法杖
-item.esuperbotany:oldeaterrod.lore=§e"果↑不↓其↑然↓呀"
+info.oldeaterrod.success=§a碴女士啃了夜蝶一口
 
 item.esuperbotany:copper_ingot.name=铜锭
 tile.esuperbotany:copper_ore.name=铜矿石
@@ -79,10 +88,12 @@ item.esuperbotany:manaEmerald.name=魔力绿宝石
 tile.esuperbotany:manaemerald_block.name=魔力绿宝石块
 item.esuperbotany:mana_ingot.name=魔力锭
 tile.esuperbotany:manastorage.name=魔力方块
-
+tile.esuperbotany:manastorage.lore=§bMana: §9
 item.esuperbotany:netherAirBottle.name=瓶装地狱空气
 item.esuperbotany:lytPicture.name=龙图
 item.esuperbotany:pension.name=养老金
+item.esuperbotany:inftorch.name=无限火把
+item.esuperbotany:resourceBag.name=随机的植物魔法材料
 
 item.esuperbotany:redScarf.name=川普の红领巾
 item.esuperbotany:flowey.name=小花
@@ -105,12 +116,14 @@ advancements.esuper.lytpicture.description=精灵会将钻石换成龙石,那会
 advancements.esuper.redscarf.title=川建国
 advancements.esuper.redscarf.description=中国儿女的好同志
 advancements.esuper.stinkyarmor.title=压力马斯内
-advancements.esuper.redscarf.description=这么鉴的衣服有穿的必要吗
+advancements.esuper.stinkyarmor.description=这么鉴的衣服有穿的必要吗
 
 advancements.esuper.time.title=抓紧时间
 advancements.esuper.time.description=稻花香里说丰年
 advancements.esuper.oldeater.title=睿站事我家
 advancements.esuper.oldeater.description=一个刘泽倒下去,千万个喜忠站起来
+advancements.esuper.expellorod.title=除你武器
+advancements.esuper.expellorod.description=不要在地狱对他人使用!
 
 advancements.esuper.emperor.title=植魔大皇帝
 advancements.esuper.emperor.description=用传统的箱子储存魔力是工业化重要的一步

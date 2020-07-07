@@ -4,11 +4,10 @@ import net.lawaxi.esuperbotany.block.BlockCopperBlock;
 import net.lawaxi.esuperbotany.block.BlockCopperOre;
 import net.lawaxi.esuperbotany.block.BlockManaEmeraldBlock;
 import net.lawaxi.esuperbotany.block.BlockManaStorage;
-import net.lawaxi.esuperbotany.item.ItemCopperIngot;
-import net.lawaxi.esuperbotany.item.ItemCosmetic;
-import net.lawaxi.esuperbotany.item.ItemResource;
+import net.lawaxi.esuperbotany.item.*;
 import net.lawaxi.esuperbotany.item.relic.CommonItemRelic;
 import net.lawaxi.esuperbotany.item.relic.Item1srod;
+import net.lawaxi.esuperbotany.item.relic.ItemExpelloRod;
 import net.lawaxi.esuperbotany.item.relic.ItemOldEater;
 import net.lawaxi.esuperbotany.utils.names.FuctionalFlora;
 import net.lawaxi.esuperbotany.utils.names.GeneratingFlora;
@@ -38,11 +37,14 @@ public class EsuCommons {
     public static Item COPPERINGOT;
     public static ItemResource RESOURCE;
     public static ItemCosmetic COSMETIC;
+    public static ItemLootBag LOOTBAG;
 
     public static Block MANAEMERALDBLOCK;
     public static Block MANASTORAGE;
     public static CommonItemRelic ONESROD;
     public static CommonItemRelic OLDEATER;
+    public static CommonItemRelic EXPELLOROD;
+    public static Item INFTORCH;
 
     public static final HashSet<Item> items = new HashSet<>();
 
@@ -54,6 +56,7 @@ public class EsuCommons {
                 GeneratingFlora.LILY,
                 GeneratingFlora.YANHUANG,
                 FuctionalFlora.LOTUSPEONY,
+                FuctionalFlora.IRRIGATOR,
                 FuctionalFlora.JOESSR
         }));
 
@@ -79,10 +82,13 @@ public class EsuCommons {
         //魔法材料
         RESOURCE = new ItemResource();
         COSMETIC = new ItemCosmetic();
+        LOOTBAG = new ItemLootBag();
 
         //趣味道具
         ONESROD = new Item1srod();
         OLDEATER = new ItemOldEater();
+        EXPELLOROD = new ItemExpelloRod();
+        INFTORCH = new ItemInfTorch();
 
         //ArmorStinky.build();
         //new debug();

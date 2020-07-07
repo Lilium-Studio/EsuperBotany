@@ -57,6 +57,7 @@ public class EsuPetalRecipe {
 
     //其他
     public static RecipePetals redScarf;
+    public static RecipePetals irrigator;
     public static RecipePetals flowerCollector;
     public static RecipePetals LEON;
 
@@ -70,6 +71,7 @@ public class EsuPetalRecipe {
 
         //功能花
         lotuspeony = BotaniaAPI.registerPetalRecipe(ItemBlockSpecialFlower.ofType(FuctionalFlora.LOTUSPEONY),red,green,red,runeSpring);
+        irrigator = BotaniaAPI.registerPetalRecipe(ItemBlockSpecialFlower.ofType(FuctionalFlora.IRRIGATOR),blue,blue,blue,lightBlue,lightBlue,lightBlue,runeWater);
 
         //其他
         redScarf = BotaniaAPI.registerPetalRecipe(new ItemStack(EsuCommons.COSMETIC,1,0),red,red,blue,white);

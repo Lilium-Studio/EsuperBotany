@@ -12,11 +12,15 @@ public class Joessr extends SubTileFunctional {
     @Override
     public void onUpdate() {
 
+        if(redstoneSignal>0){
+            return;
+        }
+
         super.onUpdate();
 
         if(delay==0) {
 
-            if (mana >= BlockManaStorage.per) {
+            if (mana >= BlockManaStorage.default_mana) {
 
                 BlockPos a= null;
 
@@ -40,7 +44,7 @@ public class Joessr extends SubTileFunctional {
                 if (a != null) {
                     getWorld().setBlockState(a, EsuCommons.MANASTORAGE.getDefaultState());
                     delay += 10;
-                    mana -= BlockManaStorage.per;
+                    mana -= BlockManaStorage.default_mana;
                 }
             }
         }
@@ -61,6 +65,11 @@ public class Joessr extends SubTileFunctional {
 
     @Override
     public int getMaxMana() {
-        return BlockManaStorage.per+20;
+        return BlockManaStorage.default_mana+20;
+    }
+
+    @Override
+    public boolean acceptsRedstone() {
+        return true;
     }
 }

@@ -1,4 +1,4 @@
-package net.lawaxi.esuperbotany.utils.register;
+package net.lawaxi.esuperbotany.utils.register.botania;
 
 import net.minecraft.util.text.TextFormatting;
 import vazkii.botania.api.BotaniaAPI;

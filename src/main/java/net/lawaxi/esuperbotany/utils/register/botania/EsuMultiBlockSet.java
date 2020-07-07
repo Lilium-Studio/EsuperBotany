@@ -12,10 +12,12 @@ import vazkii.botania.common.block.ModBlocks;
 public class EsuMultiBlockSet {
 
     public static MultiblockSet EMPEROR;
+    public static MultiblockSet EMPEROR2;
 
     public static void init(){
 
         EMPEROR = emperor();
+        EMPEROR2 = emperor2();
 
     }
 
@@ -31,6 +33,21 @@ public class EsuMultiBlockSet {
         a.addComponent(new BlockPos(2,-1,0),Blocks.REDSTONE_BLOCK.getDefaultState());
 
         return a.makeSet();
+    }
+
+    private static final MultiblockSet emperor2(){
+        Multiblock a = new Multiblock();
+
+        a.addComponent(new BlockPos(1,0,0), ModBlocks.pool.getDefaultState());
+        a.addComponent(new BlockPos(0,0,0),ModBlocks.specialFlower.getDefaultState());
+        a.addComponent(new BlockPos(-1,-1,+1),reFace(Blocks.REDSTONE_TORCH.getDefaultState(),EnumFacing.EAST));
+        a.addComponent(new BlockPos(-2,0,+1),Blocks.REDSTONE_WIRE.getDefaultState());
+        a.addComponent(new BlockPos(-2,0,+2),Blocks.STONE.getDefaultState());
+        a.addComponent(new BlockPos(-2,1,+2),reFace(Blocks.PISTON.getDefaultState(),EnumFacing.EAST));
+        a.addComponent(new BlockPos(-1,0,+2),reFace(Blocks.PISTON.getDefaultState(),EnumFacing.SOUTH));
+
+        return a.makeSet();
+
     }
 
     private static final IBlockState reFace(IBlockState pre,EnumFacing facing){

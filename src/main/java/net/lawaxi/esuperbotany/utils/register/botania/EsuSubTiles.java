@@ -1,5 +1,6 @@
-package net.lawaxi.esuperbotany.utils.register;
+package net.lawaxi.esuperbotany.utils.register.botania;
 
+import net.lawaxi.esuperbotany.block.flora.fuctional.Irrigator;
 import net.lawaxi.esuperbotany.block.flora.fuctional.Joessr;
 import net.lawaxi.esuperbotany.block.flora.fuctional.LotusPeony;
 import net.lawaxi.esuperbotany.block.flora.generating.Lily;
@@ -12,7 +13,7 @@ import vazkii.botania.api.BotaniaAPI;
 import vazkii.botania.api.BotaniaAPIClient;
 import vazkii.botania.api.subtile.SubTileEntity;
 
-public class EsuFlora {
+public class EsuSubTiles {
 
     public static void init(){
 
@@ -23,6 +24,7 @@ public class EsuFlora {
         //功能花
         registerSubTile(FuctionalFlora.LOTUSPEONY, LotusPeony.class);
         registerSubTile(FuctionalFlora.JOESSR, Joessr.class);
+        registerSubTile(FuctionalFlora.IRRIGATOR, Irrigator.class);
 
     }
 

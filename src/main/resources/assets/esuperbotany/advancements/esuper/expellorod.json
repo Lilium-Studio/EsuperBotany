@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "esuperbotany:expellorod"
+    },
+    "title": {
+      "translate": "advancements.esuper.expellorod.title"
+    },
+    "description": {
+      "translate": "advancements.esuper.expellorod.description"
+    }
+  },
+  "parent": "esuperbotany:esuper/oldeater",
+  "criteria": {
+    "getit": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "esuperbotany:expellorod"
+          }
+        ]
+      }
+    }
+  }
+}

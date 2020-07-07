@@ -28,7 +28,7 @@ public class Item1srod extends CommonItemRelic implements IManaUsingItem, IRelic
     private static final float per = 2.0F;
 
     public Item1srod() {
-        super("esuperbotany:+1srod",true,1);
+        super("esuperbotany:+1srod",true,DamgeType.HURT);
         MinecraftForge.EVENT_BUS.register(this);
     }
 
@@ -43,13 +43,13 @@ public class Item1srod extends CommonItemRelic implements IManaUsingItem, IRelic
 
                     if (ManaItemHandler.requestManaExactForTool(e.getItemStack(), e.getEntityPlayer(), cost, false)) {
 
+                        spawnParticles(e.getEntity());
+
                         if(!e.getWorld().isRemote){
                             e.getEntityPlayer().heal(per);
-
-                        }else{
-                            spawnParticles(e.getEntity());
+                        }else
                             e.getEntityPlayer().swingArm(e.getHand());
-                        }
+
 
                         Helper.sendActionBar(e.getEntityPlayer(), "info.+1srod.success2");
 
@@ -65,6 +65,8 @@ public class Item1srod extends CommonItemRelic implements IManaUsingItem, IRelic
             }
         }
     }
+
+
     @SubscribeEvent
     public void rightClick(PlayerInteractEvent.RightClickBlock e) {
 
@@ -96,7 +98,6 @@ public class Item1srod extends CommonItemRelic implements IManaUsingItem, IRelic
     public boolean usesMana(ItemStack itemStack) {
         return true;
     }
-
 
     @Override
     public boolean itemInteractionForEntity(ItemStack stack, EntityPlayer playerIn, EntityLivingBase target, EnumHand hand) {

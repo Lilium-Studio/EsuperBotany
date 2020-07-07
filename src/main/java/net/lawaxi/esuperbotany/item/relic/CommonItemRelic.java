@@ -22,7 +22,7 @@ import java.util.UUID;
 
 public class CommonItemRelic extends CommonItem implements IRelic {
 
-    public CommonItemRelic(String name, boolean hasLore, int damgeType) {
+    public CommonItemRelic(String name, boolean hasLore, DamgeType damgeType) {
 
         super(name);
         this.hasLore = hasLore;
@@ -32,8 +32,7 @@ public class CommonItemRelic extends CommonItem implements IRelic {
     }
 
     private final boolean hasLore;
-    private final int damgeType;
-    //0: 伤害 1:丢弃
+    private final DamgeType damgeType;
 
 
     @SideOnly(Side.CLIENT)
@@ -98,11 +97,11 @@ public class CommonItemRelic extends CommonItem implements IRelic {
             }
 
             // 根据惩罚形式惩罚
-            if(damgeType==0){
+            if(damgeType==DamgeType.HURT){
                 //伤害
                 entityIn.attackEntityFrom(new DamageSource("botania-relic"), 2);
 
-            }else if(damgeType==1){
+            }else if(damgeType==DamgeType.DROP){
 
                 //丢弃
                 if(entityIn instanceof EntityPlayer){

@@ -1,0 +1,46 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "esuperbotany",
+  "pattern": [
+    "ABX",
+    "CDE",
+    "XFG"
+  ],
+  "key": {
+    "A": {
+      "item": "botania:rune",
+      "data": 9
+    },
+    "B": {
+      "item": "botania:rune",
+      "data": 10
+    },
+    "C": {
+      "item": "botania:rune",
+      "data": 11
+    },
+    "D": {
+      "item": "botania:rune",
+      "data": 12
+    },
+    "E": {
+      "item": "botania:rune",
+      "data": 13
+    },
+    "F": {
+      "item": "botania:rune",
+      "data": 14
+    },
+    "G": {
+      "item": "botania:rune",
+      "data": 15
+    },
+    "X": {
+      "item": "botania:manaresource",
+      "data": 14
+    }
+  },
+  "result": {
+    "item": "esuperbotany:expellorod"
+  }
+}

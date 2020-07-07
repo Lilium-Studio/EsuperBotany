@@ -20,7 +20,7 @@ public class Helper {
     public static final ItemStack gethead(String name){
         ItemStack head = new ItemStack(Items.SKULL,1,3);
         NBTTagCompound nbt = new NBTTagCompound();
-        nbt.setString("SkullOwner","Lawaxi");
+        nbt.setString("SkullOwner",name);
         head.setTagCompound(nbt.copy());
         return head;
     }

@@ -9,7 +9,6 @@ public class CommonItem extends Item {
     public CommonItem(String name) {
         setUnlocalizedName(name);
         ForgeRegistries.ITEMS.register(this.setRegistryName(name));
-
         EsuCommons.items.add(this);
     }
 }

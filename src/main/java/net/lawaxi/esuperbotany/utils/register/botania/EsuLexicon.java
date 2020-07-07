@@ -1,5 +1,6 @@
 package net.lawaxi.esuperbotany.utils.register.botania;
 
+import net.lawaxi.esuperbotany.api.Helper;
 import net.lawaxi.esuperbotany.lexicon.CommonFloraLexicon;
 import net.lawaxi.esuperbotany.lexicon.CommonItemInfoLexicon;
 import net.lawaxi.esuperbotany.utils.names.FuctionalFlora;
@@ -25,6 +26,7 @@ public class EsuLexicon {
     public static LexiconEntry LILY;
     public static LexiconEntry YANHUANG;
     public static LexiconEntry LOTUSPEONY;
+    public static LexiconEntry IRRIGATOR;
     public static LexiconEntry JOESSR;
 
     public static void init(){
@@ -36,22 +38,24 @@ public class EsuLexicon {
         BotaniaAPI.addCategory(categoryESU);
 
         //产能花
-        LILY= new CommonFloraLexicon(GeneratingFlora.LILY, categoryESU,EsuPetalRecipe.lily);
-        YANHUANG= new CommonFloraLexicon(GeneratingFlora.YANHUANG, categoryESU, EsuPetalRecipe.yanhuang);
+        LILY = new CommonFloraLexicon(GeneratingFlora.LILY, BotaniaAPI.categoryGenerationFlowers,EsuPetalRecipe.lily);
+        YANHUANG = new CommonFloraLexicon(GeneratingFlora.YANHUANG, BotaniaAPI.categoryGenerationFlowers, EsuPetalRecipe.yanhuang);
 
         //功能花
-        LOTUSPEONY=new CommonFloraLexicon(FuctionalFlora.LOTUSPEONY,categoryESU,EsuPetalRecipe.lotuspeony);
+        LOTUSPEONY =new CommonFloraLexicon(FuctionalFlora.LOTUSPEONY,BotaniaAPI.categoryFunctionalFlowers,EsuPetalRecipe.lotuspeony);
+        IRRIGATOR = new CommonFloraLexicon(FuctionalFlora.IRRIGATOR,BotaniaAPI.categoryFunctionalFlowers,EsuPetalRecipe.irrigator);
 
         //其他
         new CommonItemInfoLexicon("+1srod",1,true,BotaniaAPI.relicKnowledge,new ItemStack(EsuCommons.ONESROD));
         new CommonItemInfoLexicon("oldeaterrod",1,true,BotaniaAPI.relicKnowledge,new ItemStack(EsuCommons.OLDEATER));
+        new CommonItemInfoLexicon("expellorod",1,true,BotaniaAPI.relicKnowledge,new ItemStack(EsuCommons.EXPELLOROD));
 
         JOESSR = new BasicLexiconEntry(FuctionalFlora.JOESSR,categoryESU);
         JOESSR.setIcon(ItemBlockSpecialFlower.ofType(FuctionalFlora.JOESSR));
         JOESSR.setKnowledgeType(BotaniaAPI.elvenKnowledge);
-        JOESSR.setLexiconPages(new LexiconPage[]{new PageText("0"),new PageElvenRecipe("1",EsuElvenTrade.JOESSR),new PageText("2"),new PageMultiblock("3",EsuMultiBlockSet.EMPEROR)});
+        JOESSR.setLexiconPages(new LexiconPage[]{new PageText("0"),new PageElvenRecipe("1",EsuElvenTrade.JOESSR),new PageText("2"),new PageMultiblock("3",EsuMultiBlockSet.EMPEROR),new PageMultiblock("4",EsuMultiBlockSet.EMPEROR2)});
 
-        LexiconEntry redscarf = new BasicLexiconEntry("redScarf",categoryESU);
+        LexiconEntry redscarf = new BasicLexiconEntry("redScarf",BotaniaAPI.categoryBaubles);
         redscarf.setIcon(new ItemStack(EsuCommons.COSMETIC,1,0));
         redscarf.setKnowledgeType(BotaniaAPI.basicKnowledge);
         redscarf.setLexiconPages(new LexiconPage[]{new PageText("0"),new PagePetalRecipe("1",EsuPetalRecipe.redScarf)});
@@ -60,6 +64,11 @@ public class EsuLexicon {
         flowerCollector.setIcon(new ItemStack(EsuCommons.COSMETIC,1,1));
         flowerCollector.setKnowledgeType(BotaniaAPI.basicKnowledge);
         flowerCollector.setLexiconPages(new LexiconPage[]{new PageText("0"),new PagePetalRecipe("1",EsuPetalRecipe.flowerCollector)});
+
+        LexiconEntry enderman = new BasicLexiconEntry("enderman",BotaniaAPI.categoryMisc);
+        enderman.setIcon(Helper.gethead("MHF_Enderman"));
+        enderman.setKnowledgeType(BotaniaAPI.basicKnowledge);
+        enderman.setLexiconPages(new LexiconPage[]{new PageText("0")});
 
     }
 }

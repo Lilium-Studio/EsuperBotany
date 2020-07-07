@@ -7,6 +7,7 @@ public class EsuBotaniaAll {
         EsuManaPool.init();
         EsuElvenTrade.init();
         EsuMultiBlockSet.init();
+        EsuKnowledgeType.init();
         EsuLexicon.init();
     }
 }

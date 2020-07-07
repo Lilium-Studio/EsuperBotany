@@ -36,7 +36,6 @@ public class ItemCosmetic extends CommonItem implements ICosmeticBauble, IBauble
         super("esuperbotany:cosmetic");
         setHasSubtypes(true);
         setMaxStackSize(1);
-        hasSubtypes = true;
     }
 
     /*
