@@ -1,0 +1,6 @@
+{
+    "parent": "item/bow",
+    "textures": {
+        "layer0": "esuperbotany:items/manabow_pulling_1"
+    }
+}

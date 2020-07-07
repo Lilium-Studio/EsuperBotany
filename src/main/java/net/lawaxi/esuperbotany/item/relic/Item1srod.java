@@ -1,5 +1,6 @@
 package net.lawaxi.esuperbotany.item.relic;
 
+import net.lawaxi.esuperbotany.api.EntityHelper;
 import net.lawaxi.esuperbotany.api.Helper;
 import net.lawaxi.esuperbotany.utils.register.EsuCommons;
 import net.minecraft.block.Block;
@@ -9,8 +10,11 @@ import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -32,38 +36,71 @@ public class Item1srod extends CommonItemRelic implements IManaUsingItem, IRelic
         MinecraftForge.EVENT_BUS.register(this);
     }
 
-    @SubscribeEvent
-    public void rightClick(PlayerInteractEvent.RightClickEmpty e) {
+    @Override
+    public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
 
-        if (!e.getItemStack().isEmpty()) {
+        ItemStack me = playerIn.getHeldItem(handIn);
+        EntityLivingBase target = EntityHelper.findTarget(playerIn,EntityLivingBase.class,10);
 
-            if (e.getItemStack().getItem() == this) {
+        if(me.isEmpty())
+            return new ActionResult<>(EnumActionResult.PASS,me);
 
-                if (e.getEntityPlayer().getHealth() < e.getEntityPlayer().getMaxHealth()) {
-
-                    if (ManaItemHandler.requestManaExactForTool(e.getItemStack(), e.getEntityPlayer(), cost, false)) {
-
-                        spawnParticles(e.getEntity());
-
-                        if(!e.getWorld().isRemote){
-                            e.getEntityPlayer().heal(per);
-                        }else
-                            e.getEntityPlayer().swingArm(e.getHand());
+        if(ManaItemHandler.requestManaExactForTool(me, playerIn, cost, false))
+        {
+            Helper.sendActionBar(playerIn, "info.+1srod.failed3");
+            return new ActionResult<>(EnumActionResult.FAIL,me);
+        }
 
 
-                        Helper.sendActionBar(e.getEntityPlayer(), "info.+1srod.success2");
+        if(target!=null){
+            //恢复别人
 
-                    } else {
+            if (target.getHealth() < target.getMaxHealth()) {
+                ManaItemHandler.requestManaExactForTool(me, playerIn, cost, true);
 
-                        Helper.sendActionBar(e.getEntityPlayer(), "info.+1srod.failed3");
-                    }
-                } else {
+                if(!playerIn.getEntityWorld().isRemote) {
+                    //服务端
+                    target.heal(per);
 
-                    Helper.sendActionBar(e.getEntityPlayer(), "info.+1srod.failed2");
+                }else{
+                    //客户端
+                    spawnParticles(target);
+                    playerIn.swingArm(handIn);
                 }
+                Helper.sendActionBar(playerIn, "info.+1srod.success1");
+                return new ActionResult<>(EnumActionResult.SUCCESS,me);
 
+            } else {
+
+                Helper.sendActionBar(playerIn, "info.+1srod.failed1");
+                return new ActionResult<>(EnumActionResult.FAIL,me);
+            }
+
+        }else{
+
+            //恢复自己
+            if (playerIn.getHealth() < playerIn.getMaxHealth()) {
+
+                ManaItemHandler.requestManaExactForTool(me, playerIn, cost, true);
+
+                spawnParticles(playerIn);
+
+                if(!worldIn.isRemote){
+                    playerIn.heal(per);
+                }else
+                    playerIn.swingArm(handIn);
+
+
+                Helper.sendActionBar(playerIn, "info.+1srod.success2");
+                return new ActionResult<>(EnumActionResult.SUCCESS,me);
+
+            } else {
+
+                Helper.sendActionBar(playerIn, "info.+1srod.failed2");
+                return new ActionResult<>(EnumActionResult.FAIL,me);
             }
         }
+
     }
 
 
@@ -98,37 +135,6 @@ public class Item1srod extends CommonItemRelic implements IManaUsingItem, IRelic
     public boolean usesMana(ItemStack itemStack) {
         return true;
     }
-
-    @Override
-    public boolean itemInteractionForEntity(ItemStack stack, EntityPlayer playerIn, EntityLivingBase target, EnumHand hand) {
-
-        if (target.getHealth() < target.getMaxHealth()) {
-            if (ManaItemHandler.requestManaExactForTool(stack, playerIn, cost, false)) {
-
-                if(!playerIn.getEntityWorld().isRemote) {
-                    //服务端
-                    target.heal(per);
-                }else{
-                    //客户端
-                    spawnParticles(target);
-                    playerIn.swingArm(hand);
-                }
-                Helper.sendActionBar(playerIn, "info.+1srod.success1");
-
-            } else {
-
-                Helper.sendActionBar(playerIn, "info.+1srod.failed3");
-            }
-        } else {
-
-            Helper.sendActionBar(playerIn, "info.+1srod.failed1");
-        }
-
-        //此处return ture就不会触发右击空气的事件
-
-        return true;
-    }
-
 
     // 改编自村民交易结束代码
 

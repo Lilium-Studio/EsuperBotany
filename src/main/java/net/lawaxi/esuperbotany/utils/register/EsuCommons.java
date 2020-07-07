@@ -5,10 +5,7 @@ import net.lawaxi.esuperbotany.block.BlockCopperOre;
 import net.lawaxi.esuperbotany.block.BlockManaEmeraldBlock;
 import net.lawaxi.esuperbotany.block.BlockManaStorage;
 import net.lawaxi.esuperbotany.item.*;
-import net.lawaxi.esuperbotany.item.relic.CommonItemRelic;
-import net.lawaxi.esuperbotany.item.relic.Item1srod;
-import net.lawaxi.esuperbotany.item.relic.ItemExpelloRod;
-import net.lawaxi.esuperbotany.item.relic.ItemOldEater;
+import net.lawaxi.esuperbotany.item.relic.*;
 import net.lawaxi.esuperbotany.utils.names.FuctionalFlora;
 import net.lawaxi.esuperbotany.utils.names.GeneratingFlora;
 import net.minecraft.block.Block;
@@ -44,6 +41,7 @@ public class EsuCommons {
     public static CommonItemRelic ONESROD;
     public static CommonItemRelic OLDEATER;
     public static CommonItemRelic EXPELLOROD;
+    public static ItemManaBow MANABOW;
     public static Item INFTORCH;
 
     public static final HashSet<Item> items = new HashSet<>();
@@ -88,6 +86,7 @@ public class EsuCommons {
         ONESROD = new Item1srod();
         OLDEATER = new ItemOldEater();
         EXPELLOROD = new ItemExpelloRod();
+        MANABOW = new ItemManaBow();
         INFTORCH = new ItemInfTorch();
 
         //ArmorStinky.build();

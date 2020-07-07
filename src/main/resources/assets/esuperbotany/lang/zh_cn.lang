@@ -65,6 +65,9 @@ botania.page.oldeaterrod1=&6@说真话者难得善终
 botania.entry.expellorod=除你武器
 botania.page.expellorod0=&1除你武器权杖&0,可以让你指定 一个10个方块内的玩家,并丢 掉他手中的物品.
 botania.page.expellorod1=Expello Arma!
+botania.entry.manabow=魔力弓
+botania.page.manabow0=未补充
+botania.page.manabow1=未补充
 
 #物品
 item.esuperbotany:+1srod.name=续命法杖
@@ -72,6 +75,7 @@ item.esuperbotany:+1srod.lore=§a天若有情天亦老,我为长者续一秒
 item.esuperbotany:oldeaterrod.name=啃老法杖
 item.esuperbotany:oldeaterrod.lore=§e"果↑不↓其↑然↓呀"
 item.esuperbotany:expellorod.name=除你武器
+item.esuperbotany:manabow.name=魔力弓
 info.+1srod.failed1=§c对方阳寿未尽,不需要续命!
 info.+1srod.failed2=§c您的阳寿未尽,不需要续命!
 info.+1srod.failed3=§c您的Mana不足1926,无法续命!

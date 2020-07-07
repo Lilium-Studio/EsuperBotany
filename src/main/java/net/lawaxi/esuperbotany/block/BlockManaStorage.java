@@ -119,7 +119,7 @@ public class BlockManaStorage extends Block {
         }
 
         private int getMana(ItemStack stack){
-            return ItemNBTHelper.getInt(stack,itemnbt,default_mana);
+            return Math.abs(ItemNBTHelper.getInt(stack,itemnbt,default_mana));
         }
 
         /*

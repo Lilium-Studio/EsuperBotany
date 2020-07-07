@@ -68,6 +68,7 @@ public class EsuCreativeTab {
         additem(EsuCommons.ONESROD);
         additem(EsuCommons.OLDEATER);
         additem(EsuCommons.EXPELLOROD);
+        additem(EsuCommons.MANABOW);
         additem(EsuCommons.INFTORCH);
 
         /*

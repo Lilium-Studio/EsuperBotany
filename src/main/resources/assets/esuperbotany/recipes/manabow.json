@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "esuperbotany",
+  "pattern": [
+    " XY",
+    "X Y",
+    " XY"
+  ],
+  "key": {
+    "X": {
+      "item": "botania:manaresource",
+      "data": 5
+    },
+    "Y": {
+      "item": "botania:manaresource",
+      "data": 13
+    }
+  },
+  "result": {
+    "item": "esuperbotany:manabow"
+  }
+}

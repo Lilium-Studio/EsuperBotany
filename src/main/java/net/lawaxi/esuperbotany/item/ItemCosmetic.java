@@ -158,7 +158,7 @@ public class ItemCosmetic extends CommonItem implements ICosmeticBauble, IBauble
                                     continue;
                                 }
 
-                                if (!ManaItemHandler.requestManaExactForTool(stack, (EntityPlayer) entityIn, FLOWERCOLLECTOR_cost, false)) {
+                                if (!ManaItemHandler.requestManaExactForTool(stack, (EntityPlayer) entityIn, FLOWERCOLLECTOR_cost, true)) {
                                     continue; //魔力不够了
                                 }
 

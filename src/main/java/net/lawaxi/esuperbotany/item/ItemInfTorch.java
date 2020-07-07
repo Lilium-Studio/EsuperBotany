@@ -42,7 +42,7 @@ public class ItemInfTorch extends CommonItem implements IManaUsingItem {
 
         ItemStack itemstack = player.getHeldItem(hand);
         if (!itemstack.isEmpty() && player.canPlayerEdit(pos, facing, itemstack) && worldIn.mayPlace(this.block, pos, false, facing, player)
-             && ManaItemHandler.requestManaExactForTool(itemstack, player, cost, false))
+             && ManaItemHandler.requestManaExactForTool(itemstack, player, cost, true))
         {
             int i = this.getMetadata(itemstack.getMetadata());
             IBlockState iblockstate1 = this.block.getStateForPlacement(worldIn, pos, facing, hitX, hitY, hitZ, i, player, hand);

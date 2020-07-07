@@ -31,18 +31,29 @@ public class LotusPeony extends SubTileFunctional {
             if(mana<10)
                 break;
 
-            boolean has = false;
+            float health = -1;
+
+            SHIT:
             for(PotionEffect e : player.getActivePotionEffects()){
                 if(e.getPotion() == MobEffects.HEALTH_BOOST){
-                    has = true;
+
+                    if(e.getDuration()>20)
+                        return;
+                    else {
+                        health = player.getHealth();
+                        player.removePotionEffect(MobEffects.HEALTH_BOOST);
+                    }
+
+                    break SHIT;
                 }
 
             }
 
-            if(!has) {
-                player.addPotionEffect(new PotionEffect(MobEffects.HEALTH_BOOST, 20*10, 2,false,false));
-                mana -= 500;
-            }
+            player.addPotionEffect(new PotionEffect(MobEffects.HEALTH_BOOST, 20*10, 2,false,false));
+            if(health!=-1)
+                player.setHealth(health);
+            mana -= 500;
+
         }
     }
 

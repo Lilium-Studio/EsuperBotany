@@ -20,7 +20,7 @@ public class ItemOldEater extends CommonItemRelic implements IManaUsingItem, IRe
     private static final float per = 4.0F;
 
     public ItemOldEater() {
-        super("esuperbotany:oldeaterrod",true,DamgeType.HURT);
+        super("esuperbotany:oldeaterrod",true,DamgeType.DROP);
     }
 
     @Override
@@ -38,7 +38,7 @@ public class ItemOldEater extends CommonItemRelic implements IManaUsingItem, IRe
                 return true;
             }
 
-            if (ManaItemHandler.requestManaExactForTool(stack, playerIn, cost, false)) {
+            if (ManaItemHandler.requestManaExactForTool(stack, playerIn, cost, true)) {
                 Helper.sendActionBar(playerIn, "info.oldeaterrod.success");
 
                 playerIn.swingArm(hand);
