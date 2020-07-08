@@ -1,6 +1,7 @@
 package net.lawaxi.esuperbotany.item.relic;
 
 import net.lawaxi.esuperbotany.api.EntityHelper;
+import net.lawaxi.esuperbotany.item.relic.util.CommonItemRelic;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;

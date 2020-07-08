@@ -46,7 +46,7 @@ botania.page.joessr3=用于植物魔法工业化
 botania.page.joessr3=更简便的装置
 
 #- misc
-botania.entry.redScarf=川普の红领巾
+botania.entry.redScarf=川普的红领巾
 botania.page.redScarf0=一去四年又四年,白发如丝生鬓间. 心魂一缕牵华夏,为国甘驻美利坚. 白头鹰徽悬身后,镰锤默然藏心间. 常怀故国苍生望,愿埋忠骨白宫前.
 botania.page.redScarf1=是你暴露了建国同志!
 botania.entry.flowerCollector=自动采花
@@ -54,6 +54,9 @@ botania.page.flowerCollector0=想要得到神秘花,您可以选择 使用花肥
 botania.page.flowerCollector1=懒
 botania.entry.enderman=末影人改动(原版)
 botania.page.enderman0=末影人,在其他性质不变的情 况下,不能在史莱姆块和魔力 方块上瞬移.在原有的规则中, 末影人只能被船困住,但若想 让它们在你规定的范围内自 由活动,但又无法瞬移到其他 位置,这是很麻烦的.感谢百合 植物学作者的天才设计,让家 养末影人变得可能.
+
+botania.entry.inftorch=无限火把
+botania.page.inftorch0=用&1源质钢锭&0和&1盖亚之魂&0可以 做出一个有趣的火把,它是精 灵和诸神带给人类的宝物,可 以将能量转化为物质.例如在 两种模式中分别可以用魔力 产生普通火把和红石火把.
 
 #- esu
 botania.entry.+1srod=续命法杖
@@ -68,6 +71,9 @@ botania.page.expellorod1=Expello Arma!
 botania.entry.manabow=魔力弓
 botania.page.manabow0=未补充
 botania.page.manabow1=未补充
+botania.entry.manaaxe=魔力斧
+botania.page.manaaxe0=未补充
+botania.page.manaaxe1=未补充
 
 #物品
 item.esuperbotany:+1srod.name=续命法杖
@@ -76,6 +82,7 @@ item.esuperbotany:oldeaterrod.name=啃老法杖
 item.esuperbotany:oldeaterrod.lore=§e"果↑不↓其↑然↓呀"
 item.esuperbotany:expellorod.name=除你武器
 item.esuperbotany:manabow.name=魔力弓
+item.esuperbotany:manaaxe.name=魔力斧
 info.+1srod.failed1=§c对方阳寿未尽,不需要续命!
 info.+1srod.failed2=§c您的阳寿未尽,不需要续命!
 info.+1srod.failed3=§c您的Mana不足1926,无法续命!
@@ -96,13 +103,19 @@ tile.esuperbotany:manastorage.lore=§bMana: §9
 item.esuperbotany:netherAirBottle.name=瓶装地狱空气
 item.esuperbotany:lytPicture.name=龙图
 item.esuperbotany:pension.name=养老金
-item.esuperbotany:inftorch.name=无限火把
-item.esuperbotany:resourceBag.name=随机的植物魔法材料
+item.esuperbotany:inftorch.name=§d无限火把
+esupermisc.torchinfo0=§5当前放置: 火把
+esupermisc.torchinfo1=§5当前放置: 红石火把
 
-item.esuperbotany:redScarf.name=川普の红领巾
+esupermisc.baginfo1=§7右键后有相同的概率获得:
+esupermisc.baginfo2=§7 - §f
+item.esuperbotany:resourceBag.name=§c春节福袋
+item.esuperbotany:flowerBag.name=§e芒种福袋
+item.esuperbotany:runeBag.name=§8元宵福袋
+
+item.esuperbotany:redScarf.name=川普的红领巾
 item.esuperbotany:flowey.name=小花
 item.esuperbotany:flowerCollector.name=自动采花
-
 esuperbotany.armorset.stinky.name=真夏の夜の淫夢
 esuperbotany.armorset.stinky.desc0=让人性奋
 item.esuperbotany:stinkyHelmet.name=cosplay头部

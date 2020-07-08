@@ -10,7 +10,7 @@
       "translate": "advancements.esuper.stinkyarmor.description"
     }
   },
-  "parent": "esuperbotany:esuper/emerald",
+  "parent": "esuperbotany:esuper/root",
   "criteria": {
     "shit1": {
       "trigger": "minecraft:inventory_changed",

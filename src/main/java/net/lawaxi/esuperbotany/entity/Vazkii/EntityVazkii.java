@@ -1,5 +1,6 @@
 package net.lawaxi.esuperbotany.entity.Vazkii;
 
+import io.netty.buffer.ByteBuf;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.util.ResourceLocation;
@@ -7,6 +8,7 @@ import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.BossInfo;
 import net.minecraft.world.BossInfoServer;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.registry.IEntityAdditionalSpawnData;
 import vazkii.botania.api.boss.IBotaniaBoss;
 import vazkii.botania.api.internal.ShaderCallback;
 import vazkii.botania.common.Botania;
@@ -15,7 +17,7 @@ import vazkii.botania.common.lib.LibEntityNames;
 import java.awt.*;
 import java.util.UUID;
 
-public class EntityVazkii extends EntityLiving implements IBotaniaBoss{
+public class EntityVazkii extends EntityLiving implements IBotaniaBoss, IEntityAdditionalSpawnData {
 
     private BossInfoServer bossinfo;
 
@@ -25,6 +27,8 @@ public class EntityVazkii extends EntityLiving implements IBotaniaBoss{
         Botania.proxy.addBoss(this);
 
         bossinfo = (BossInfoServer)(new BossInfoServer(new TextComponentTranslation("entity." + LibEntityNames.DOPPLEGANGER_REGISTRY + ".name", new Object[0]), BossInfo.Color.PINK, BossInfo.Overlay.PROGRESS)).setCreateFog(true);
+        if(worldIn.isRemote)
+            Botania.proxy.addBoss(this);
     }
 
     @Override
@@ -63,4 +67,13 @@ public class EntityVazkii extends EntityLiving implements IBotaniaBoss{
         return null;
     }
 
+    @Override
+    public void writeSpawnData(ByteBuf buffer) {
+
+    }
+
+    @Override
+    public void readSpawnData(ByteBuf additionalData) {
+
+    }
 }

@@ -2,12 +2,12 @@ package net.lawaxi.esuperbotany.item;
 
 import baubles.api.BaubleType;
 import baubles.api.IBauble;
+import net.lawaxi.esuperbotany.utils.register.EsuCommons;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
@@ -125,58 +125,63 @@ public class ItemCosmetic extends CommonItem implements ICosmeticBauble, IBauble
     private static final int FLOWERCOLLECTOR_range = 5;
 
     @Override
-    public void onUpdate(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
+    public void onWornTick(ItemStack stack, EntityLivingBase entity) {
 
+        if(!(entity instanceof EntityPlayer))
+            return;
+
+        EntityPlayer player = (EntityPlayer) entity;
+        World world = player.getEntityWorld();
+        BlockPos position = player.getPosition();
 
         switch (stack.getMetadata()){
             case 1:{
 
-                if(entityIn instanceof EntityPlayer) {
+                ItemStack stack1 = player.getHeldItemMainhand();
 
-                    ItemStack stack1 = ((EntityPlayer) entityIn).getHeldItemMainhand();
+                //需要手持采花袋
+                if (stack1.getItem() == ModItems.flowerBag) {
 
-                    //需要手持采花袋
-                    if (stack1.getItem() == ModItems.flowerBag) {
+                    for (int i = -FLOWERCOLLECTOR_range; i <= FLOWERCOLLECTOR_range; i++) {
+                        for (int j = -FLOWERCOLLECTOR_range; j <= FLOWERCOLLECTOR_range; j++) {
 
-                        BlockPos a = entityIn.getPosition();
-                        for (int i = -FLOWERCOLLECTOR_range; i <= FLOWERCOLLECTOR_range; i++) {
-                            for (int j = -FLOWERCOLLECTOR_range; j <= FLOWERCOLLECTOR_range; j++) {
+                            BlockPos pos = position.add(i, 0, j);
 
-                                BlockPos pos = a.add(i, 0, j);
+                            if (world.isAirBlock(pos))
+                                continue;
 
-                                if (worldIn.isAirBlock(pos))
-                                    continue;
-
-                                IBlockState b = worldIn.getBlockState(pos);
-                                if (b.getBlock() != ModBlocks.flower) {
-                                    continue;
-                                }
+                            IBlockState b = world.getBlockState(pos);
+                            if (b.getBlock() != ModBlocks.flower) {
+                                continue;
+                            }
 
 
-                                int color = b.getBlock().getMetaFromState(b);
-                                if (color > 15) {
-                                    continue;
-                                }
+                            int color = b.getBlock().getMetaFromState(b);
+                            if (color > 15) {
+                                continue;
+                            }
 
-                                if (!ManaItemHandler.requestManaExactForTool(stack, (EntityPlayer) entityIn, FLOWERCOLLECTOR_cost, true)) {
-                                    continue; //魔力不够了
-                                }
+                            if (!ManaItemHandler.requestManaExactForTool(stack, player, FLOWERCOLLECTOR_cost, true)) {
+                                continue; //魔力不够了
+                            }
 
-                                IItemHandler bagInv = (IItemHandler) stack1.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, (EnumFacing) null);
-                                ItemStack result = bagInv.insertItem(color, new ItemStack(Item.getItemFromBlock(ModBlocks.flower), 1, color), false);
-                                if (result.getCount() == 1) {
-                                    continue; //包装不下了
-                                }
+                            IItemHandler bagInv = stack1.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, (EnumFacing) null);
+                            ItemStack result = bagInv.insertItem(color, new ItemStack(Item.getItemFromBlock(ModBlocks.flower), 1, color), false);
+                            if (result.getCount() == 1) {
+                                continue; //包装不下了
+                            }
 
-                                worldIn.playEvent(2001, pos, Block.getStateId(b));
-                                worldIn.setBlockToAir(pos);
+                            world.playEvent(2001, pos, Block.getStateId(b));
+                            world.setBlockToAir(pos);
+
+                            //10%概率额外获得一个随机神秘花袋
+                            if(itemRand.nextInt(10)==0){
+                                player.addItemStackToInventory(new ItemStack(EsuCommons.LOOTBAG,1,1));
                             }
                         }
                     }
                 }
             }
         }
-
-        super.onUpdate(stack, worldIn, entityIn, itemSlot, isSelected);
     }
 }

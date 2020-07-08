@@ -7,48 +7,36 @@ import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import vazkii.botania.api.mana.IManaUsingItem;
+import vazkii.botania.api.mana.ManaItemHandler;
+
 import javax.annotation.Nullable;
 import java.util.List;
 
 public class CommonArmor extends ItemArmor implements IManaUsingItem {
 
-    private static String name;
+    private final String name;
+    private final int repairCost;
 
-    public CommonArmor(String n, ArmorMaterial material,int type) {
+    public CommonArmor(String n, ArmorMaterial material,EQUIP type, int repairCost) {
 
-        super(material,material.ordinal(), EQUIPMENT_SLOT(type));
+        super(material,material.ordinal(), EQUIP.switchh(type));
 
         this.name = n;
-        String name = "esuperbotany:"+n+EQUIPMENT[type];
+        this.repairCost = repairCost;
+
+        String name = "esuperbotany:"+n+type.name();
+
         this.setUnlocalizedName(name);
         ForgeRegistries.ITEMS.register(this.setRegistryName(name));
-
         EsuCommons.items.add(this);
     }
 
-    public static final String[] EQUIPMENT = {"Helmet","Chestplate","Leggings","Boots"};
-
-    public static EntityEquipmentSlot EQUIPMENT_SLOT(int type)
-    {
-        switch(type)
-        {
-            case 0:
-                return EntityEquipmentSlot.HEAD;
-            case 1:
-                return EntityEquipmentSlot.CHEST;
-            case 2:
-                return EntityEquipmentSlot.LEGS;
-            default:
-                return EntityEquipmentSlot.FEET;
-        }
-    }
 
 
     @Override
@@ -78,9 +66,9 @@ public class CommonArmor extends ItemArmor implements IManaUsingItem {
             }
 
             //hasArmorSetItem
-            for(int i=0;i<4;i++){
+            for(EQUIP equip : EQUIP.values()){
 
-                String a = "esuperbotany:"+this.name+EQUIPMENT[i];
+                String a = "esuperbotany:"+this.name+equip.name();
 
                 if(Item.getByNameOrId(a)!=null) {
                     tooltip.add(" - "+I18n.format("item."+a+".name"));
@@ -92,4 +80,14 @@ public class CommonArmor extends ItemArmor implements IManaUsingItem {
         }
     }
 
+    @Override
+    public void onArmorTick(World world, EntityPlayer player, ItemStack itemStack) {
+
+
+        if(!world.isRemote && itemStack.getItemDamage()>=1 && ManaItemHandler.requestManaExactForTool(itemStack,player,repairCost,true))
+        {
+            itemStack.setItemDamage(itemStack.getItemDamage()-1);
+        }
+            super.onArmorTick(world, player, itemStack);
+    }
 }

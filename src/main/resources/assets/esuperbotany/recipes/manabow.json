@@ -9,11 +9,11 @@
   "key": {
     "X": {
       "item": "botania:manaresource",
-      "data": 5
+      "data": 13
     },
     "Y": {
       "item": "botania:manaresource",
-      "data": 13
+      "data": 5
     }
   },
   "result": {

@@ -1,5 +1,7 @@
-package net.lawaxi.esuperbotany.item.relic;
+package net.lawaxi.esuperbotany.item.relic.mana;
 
+import net.lawaxi.esuperbotany.item.relic.DamgeType;
+import net.lawaxi.esuperbotany.item.relic.util.CommonItemBowRelic;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -7,7 +9,6 @@ import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.init.Enchantments;
 import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
-import net.minecraft.item.EnumAction;
 import net.minecraft.item.ItemArrow;
 import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
@@ -19,26 +20,15 @@ import net.minecraft.world.World;
 import vazkii.botania.api.mana.IManaUsingItem;
 import vazkii.botania.api.mana.ManaItemHandler;
 
-public class ItemManaBow extends CommonItemRelic implements IManaUsingItem {
+public class ItemManaBow extends CommonItemBowRelic implements IManaUsingItem {
+
 
     public ItemManaBow() {
-        super("esuperbotany:manabow",false,DamgeType.HURT);
-    }
-
-
-    @Override
-    public int getMaxItemUseDuration(ItemStack stack)
-    {
-        return 72000;
-    }
-
-    @Override
-    public EnumAction getItemUseAction(ItemStack stack)
-    {
-        return EnumAction.BOW;
+        super("esuperbotany:manabow", false, DamgeType.HURT);
     }
 
     private static final int cost = 5000;
+
 
     @Override
     public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn)
@@ -176,6 +166,7 @@ public class ItemManaBow extends CommonItemRelic implements IManaUsingItem {
             if (a1 != null && i1 != null) {
                 EntityArrow e1 = a1.createArrow(worldIn, i1, player);
                 e1.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, f * 3.0F, 1.0F);
+                setEnchant(me,e1,f==1.0F,inf);
                 worldIn.spawnEntity(e1);
             }
             if (a2 != null && i2 != null) {
@@ -183,6 +174,7 @@ public class ItemManaBow extends CommonItemRelic implements IManaUsingItem {
                 e2.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, f * 2.0F, 1.0F);
                 e2.motionY += 0.14999999664723873D;
                 e2.posY += 0.02500000037252903D;
+                setEnchant(me,e2,f==1.0F,inf);
                 worldIn.spawnEntity(e2);
             }
             if (a3 != null && i3 != null) {
@@ -190,6 +182,7 @@ public class ItemManaBow extends CommonItemRelic implements IManaUsingItem {
                 e3.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, f * 2.0F, 1.0F);
                 e3.motionY -= 0.14999999664723873D;
                 e3.posY -= 0.02500000037252903D;
+                setEnchant(me,e3,f==1.0F,inf);
                 worldIn.spawnEntity(e3);
             }
         }
@@ -208,7 +201,6 @@ public class ItemManaBow extends CommonItemRelic implements IManaUsingItem {
         }
 
         worldIn.playSound((EntityPlayer)null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_ARROW_SHOOT, SoundCategory.PLAYERS, 1.0F, 1.0F / (itemRand.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
-
     }
 
     @Override

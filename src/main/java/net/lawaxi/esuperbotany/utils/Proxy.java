@@ -1,9 +1,6 @@
 package net.lawaxi.esuperbotany.utils;
 
-import net.lawaxi.esuperbotany.utils.register.EsuCommons;
-import net.lawaxi.esuperbotany.utils.register.EsuCreativeTab;
-import net.lawaxi.esuperbotany.utils.register.EsuEntities;
-import net.lawaxi.esuperbotany.utils.register.EsuEvents;
+import net.lawaxi.esuperbotany.utils.register.*;
 import net.lawaxi.esuperbotany.utils.register.botania.EsuBotaniaAll;
 import net.lawaxi.esuperbotany.utils.register.botania.EsuSubTiles;
 import net.lawaxi.esuperbotany.world.WorldGenerator;
@@ -20,6 +17,7 @@ public class Proxy {
         GameRegistry.registerWorldGenerator(new WorldGenerator(), 3);
 
         EsuSubTiles.init();
+        EsuMaterial.init();
         EsuCommons.init();
         EsuCreativeTab.init();
         EsuEntities.init();
@@ -31,6 +29,7 @@ public class Proxy {
     }
 
     public void postInit(FMLPostInitializationEvent event) {
+
         EsuBotaniaAll.init();
     }
 }

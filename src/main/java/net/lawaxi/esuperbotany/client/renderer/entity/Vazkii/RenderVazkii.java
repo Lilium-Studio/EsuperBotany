@@ -6,7 +6,7 @@ import net.minecraft.client.renderer.entity.RenderBiped;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 
-public class RenderVazkii extends RenderBiped<EntityVazkii> {
+public class RenderVazkii extends RenderBiped<EntityVazkii>{
 
     private static final ResourceLocation SKIN = new ResourceLocation("esuperbotany:textures/entity/vazkii.png");
 

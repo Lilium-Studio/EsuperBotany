@@ -1,38 +1,36 @@
 package net.lawaxi.esuperbotany.block;
 
+import net.lawaxi.esuperbotany.block.tile.TileManaStorage;
+import net.lawaxi.esuperbotany.item.block.ItemManaStorage;
 import net.lawaxi.esuperbotany.utils.register.EsuCommons;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.client.resources.I18n;
-import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.oredict.OreDictionary;
-import vazkii.botania.api.item.IManaDissolvable;
-import vazkii.botania.api.mana.IManaPool;
-import vazkii.botania.common.core.helper.ItemNBTHelper;
-import vazkii.botania.common.network.PacketBotaniaEffect;
-import vazkii.botania.common.network.PacketHandler;
 
 import javax.annotation.Nullable;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class BlockManaStorage extends Block {
 
     public static final int default_mana = 50000;
-    private static final String itemnbt = "mana";
 //    private static final IProperty blockproperty = PropertyInteger.create("mana",Integer.MIN_VALUE,Integer.MAX_VALUE);
 
     public BlockManaStorage() {
@@ -59,12 +57,9 @@ public class BlockManaStorage extends Block {
 
         if (entityIn instanceof EntityLivingBase || entityIn instanceof EntityItem) {
 
-            IBlockState state = worldIn.getBlockState(entityIn.getPosition().add(0,1,0));
-            if(state.getBlock().equals(this))
-            {
-                if(getMana(state)!=default_mana)
-                    entityIn.motionY *= getMana(state)/default_mana;
-            }
+            int mana = getMana(worldIn,new BlockPos((int)entityIn.posX,(int)entityIn.posY,(int)entityIn.posZ).add(0,-1,0));
+            if(mana!=default_mana)
+                entityIn.motionY *= mana/default_mana;
 
             entityIn.motionY *= -1.2F;
             entityIn.fallDistance = 0;
@@ -75,67 +70,78 @@ public class BlockManaStorage extends Block {
     }
 
     @Override
-    public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune)
-    {
+    public Item getItemDropped(IBlockState state, Random rand, int fortune) {
+        return super.getItemDropped(state, rand, fortune);
+    }
+
+    @Override
+    public List<ItemStack> getDrops(IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
+        List<ItemStack> ret = new ArrayList<>();
         ItemStack a = new ItemStack(EsuCommons.MANASTORAGE);
-        int mana = getMana(state);
+        int mana = getMana(world,pos);
         if(mana!=default_mana){
-            ItemNBTHelper.setInt(a,itemnbt,mana);
+            ((ItemManaStorage)a.getItem()).setMana(a,mana);
+        }
+        ret.add(a);
+        return ret;
+    }
+
+    @Override
+    public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
+        ItemStack a = new ItemStack(EsuCommons.MANASTORAGE);
+        int mana = getMana(world,pos);
+        if(mana!=default_mana){
+            ((ItemManaStorage)a.getItem()).setMana(a,mana);
         }
         drops.add(a);
     }
 
-    private int getMana(IBlockState state){
-        /*
-        String string = state.getProperties().getOrDefault(blockproperty,default_mana).toString();
-        EsuperBotany.logger.warn(string);
-        return Integer.valueOf(string);*/
+    //创造模式鼠标中键点击
+    @Override
+    public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player) {
+
+        ItemStack a = new ItemStack(EsuCommons.MANASTORAGE);
+        int mana = getMana(world,pos);
+        if(mana!=default_mana){
+            ((ItemManaStorage)a.getItem()).setMana(a,mana);
+        }
+        return a;
+
+    }
+
+    @Override
+    public boolean hasTileEntity(IBlockState state) {
+        return true;
+    }
+
+    @Nullable
+    @Override
+    public TileEntity createTileEntity(World world, IBlockState state) {
+        return new TileManaStorage();
+    }
+
+    public int getMana(IBlockAccess world,BlockPos pos){
+
+        if(world.getTileEntity(pos) instanceof TileManaStorage){
+            TileManaStorage tile = (TileManaStorage)world.getTileEntity(pos);
+            return tile.mana;
+        }
         return default_mana;
     }
 
-    public class ItemManaStorage extends ItemBlock implements IManaDissolvable {
+    public boolean setMana(World world,BlockPos pos,int mana){
 
-        public ItemManaStorage(Block block) {
-            super(block);
+        if(world.getTileEntity(pos) instanceof TileManaStorage){
+            TileManaStorage tile = (TileManaStorage)world.getTileEntity(pos);
+            tile.mana = mana;
         }
 
-        @Override
-        public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
-            tooltip.add(I18n.format("tile.esuperbotany:manastorage.lore")+getMana(stack));
-        }
-
-        //执行方法参见 TilePool.class
-        //噢我的天哪 这代码抄的与黑莲花有什么区别
-
-        @Override
-        public void onDissolveTick(IManaPool iManaPool, ItemStack itemStack, EntityItem entityItem) {
-
-            if (!iManaPool.isFull() && !entityItem.world.isRemote) {
-
-                PacketHandler.sendToNearby(entityItem.world, entityItem.getPosition(), new PacketBotaniaEffect(PacketBotaniaEffect.EffectType.BLACK_LOTUS_DISSOLVE, entityItem.getPosition().getX(), entityItem.getPosition().getY() + 0.5, entityItem.getPosition().getZ()));
-                iManaPool.recieveMana(getMana(itemStack));
-                itemStack.shrink(1);
-            }
-        }
-
-        private int getMana(ItemStack stack){
-            return Math.abs(ItemNBTHelper.getInt(stack,itemnbt,default_mana));
-        }
-
-        /*
-        @Override
-        public boolean placeBlockAt(ItemStack stack, EntityPlayer player, World world, BlockPos pos, EnumFacing side, float hitX, float hitY, float hitZ, IBlockState newState) {
-
-
-            boolean a = super.placeBlockAt(stack, player, world, pos, side, hitX, hitY, hitZ, newState);
-            if(a)
-            {
-                if(getMana(stack)!=default_mana){
-                    world.setBlockState(pos, newState.withProperty(blockproperty,getMana(stack)), 11);
-                }
-            }
-            return a;
-        }*/
+        return false;
     }
 
+    @Override
+    public void onBlockPlacedBy(World worldIn, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack) {
+        super.onBlockPlacedBy(worldIn, pos, state, placer, stack);
+        setMana(worldIn,pos,((ItemManaStorage)stack.getItem()).getMana(stack));
+    }
 }

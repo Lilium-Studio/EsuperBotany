@@ -14,10 +14,7 @@ import vazkii.botania.api.lexicon.LexiconEntry;
 import vazkii.botania.api.lexicon.LexiconPage;
 import vazkii.botania.common.item.block.ItemBlockSpecialFlower;
 import vazkii.botania.common.lexicon.BasicLexiconEntry;
-import vazkii.botania.common.lexicon.page.PageElvenRecipe;
-import vazkii.botania.common.lexicon.page.PageMultiblock;
-import vazkii.botania.common.lexicon.page.PagePetalRecipe;
-import vazkii.botania.common.lexicon.page.PageText;
+import vazkii.botania.common.lexicon.page.*;
 
 public class EsuLexicon {
 
@@ -50,6 +47,7 @@ public class EsuLexicon {
         new CommonItemInfoLexicon("oldeaterrod",1,true,BotaniaAPI.relicKnowledge,new ItemStack(EsuCommons.OLDEATER));
         new CommonItemInfoLexicon("expellorod",1,true,BotaniaAPI.relicKnowledge,new ItemStack(EsuCommons.EXPELLOROD));
         new CommonItemInfoLexicon("manabow",1,true,BotaniaAPI.relicKnowledge,new ItemStack(EsuCommons.MANABOW));
+        //new CommonItemInfoLexicon("manaaxe",1,true,BotaniaAPI.relicKnowledge,new ItemStack(EsuCommons.MANAAXE));
 
         JOESSR = new BasicLexiconEntry(FuctionalFlora.JOESSR,categoryESU);
         JOESSR.setIcon(ItemBlockSpecialFlower.ofType(FuctionalFlora.JOESSR));
@@ -70,6 +68,11 @@ public class EsuLexicon {
         enderman.setIcon(Helper.gethead("MHF_Enderman"));
         enderman.setKnowledgeType(BotaniaAPI.basicKnowledge);
         enderman.setLexiconPages(new LexiconPage[]{new PageText("0")});
+
+        LexiconEntry inftorch = new BasicLexiconEntry("inftorch",BotaniaAPI.categoryTools);
+        inftorch.setIcon(new ItemStack(EsuCommons.INFTORCH));
+        inftorch.setKnowledgeType(BotaniaAPI.elvenKnowledge);
+        inftorch.setLexiconPages(new LexiconPage[]{new PageText("0"),new PageCraftingRecipe("1",new ResourceLocation("esuperbotany","inftorch"))});
 
     }
 }

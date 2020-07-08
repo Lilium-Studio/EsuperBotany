@@ -1,6 +1,7 @@
 package net.lawaxi.esuperbotany.item.relic;
 
 import net.lawaxi.esuperbotany.api.Helper;
+import net.lawaxi.esuperbotany.item.relic.util.CommonItemRelic;
 import net.lawaxi.esuperbotany.utils.register.EsuCommons;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -61,12 +62,19 @@ public class ItemOldEater extends CommonItemRelic implements IManaUsingItem, IRe
     }
 
 
-    private static final String[] moneys = {"diamond","gold_ingot","iron_ingot","esuperbotany:copper_ingot","emerald","x"};
+    private static final String[] moneys = {"diamond","gold_ingot","iron_ingot","esuperbotany:copper_ingot","emerald","x","y"};
     private static final ItemStack getStack(String name){
-        if(name.equalsIgnoreCase("x"))
-            return new ItemStack(EsuCommons.LOOTBAG,1,0);
-        else
-            return new ItemStack(Item.getByNameOrId(name));
+
+        switch (name){
+            case "x":
+                return new ItemStack(EsuCommons.LOOTBAG,1,0);
+            case "y":
+                return new ItemStack(EsuCommons.LOOTBAG,1,2);
+            default:
+                return new ItemStack(Item.getByNameOrId(name));
+
+
+        }
 
     }
 }

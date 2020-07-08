@@ -2,6 +2,7 @@ package net.lawaxi.esuperbotany.item.relic;
 
 import net.lawaxi.esuperbotany.api.EntityHelper;
 import net.lawaxi.esuperbotany.api.Helper;
+import net.lawaxi.esuperbotany.item.relic.util.CommonItemRelic;
 import net.lawaxi.esuperbotany.utils.register.EsuCommons;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
@@ -10,14 +11,9 @@ import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.EnumActionResult;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.util.*;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.entity.player.PlayerInteractEvent;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import vazkii.botania.api.item.IRelic;
@@ -33,19 +29,18 @@ public class Item1srod extends CommonItemRelic implements IManaUsingItem, IRelic
 
     public Item1srod() {
         super("esuperbotany:+1srod",true,DamgeType.HURT);
-        MinecraftForge.EVENT_BUS.register(this);
     }
 
     @Override
     public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
 
         ItemStack me = playerIn.getHeldItem(handIn);
-        EntityLivingBase target = EntityHelper.findTarget(playerIn,EntityLivingBase.class,10);
+        EntityLivingBase target = EntityHelper.findTarget(playerIn,EntityLivingBase.class,2);
 
         if(me.isEmpty())
             return new ActionResult<>(EnumActionResult.PASS,me);
 
-        if(ManaItemHandler.requestManaExactForTool(me, playerIn, cost, false))
+        if(!ManaItemHandler.requestManaExactForTool(me, playerIn, cost, false))
         {
             Helper.sendActionBar(playerIn, "info.+1srod.failed3");
             return new ActionResult<>(EnumActionResult.FAIL,me);
@@ -103,33 +98,41 @@ public class Item1srod extends CommonItemRelic implements IManaUsingItem, IRelic
 
     }
 
+    @Override
+    public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 
-    @SubscribeEvent
-    public void rightClick(PlayerInteractEvent.RightClickBlock e) {
 
+        ItemStack me = player.getHeldItem(hand);
 
-        if (!e.getItemStack().isEmpty()) {
-            if (e.getItemStack().getItem() == this && e.getWorld().getBlockState(e.getPos()).getBlock() == Blocks.GOLD_BLOCK) {
+        if (!me.isEmpty()) {
+            if ( worldIn.getBlockState(pos).getBlock() == Blocks.GOLD_BLOCK) {
 
-                e.getWorld().playEvent(2001, e.getPos(), Block.getStateId(Blocks.GOLD_BLOCK.getDefaultState()));
+                worldIn.playEvent(2001, pos, Block.getStateId(Blocks.GOLD_BLOCK.getDefaultState()));
 
-                if (!e.getWorld().isRemote) {
+                if (!worldIn.isRemote) {
 
                     //破化金块
-                    e.getWorld().setBlockToAir(e.getPos());
+                    worldIn.setBlockToAir(pos);
 
                     //生成养老金
-                    Entity a = new EntityItem(e.getWorld(), e.getPos().getX(), e.getPos().getY(), e.getPos().getZ(), new ItemStack(EsuCommons.RESOURCE, 1, 3));
+                    Entity a = new EntityItem(worldIn, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(EsuCommons.RESOURCE, 1, 3));
                     ((EntityItem) a).setDefaultPickupDelay();
-                    e.getWorld().spawnEntity(a);
+                    worldIn.spawnEntity(a);
 
                 } else {
-                    e.getEntityPlayer().swingArm(e.getHand());
+                    player.swingArm(hand);
                 }
 
+                return EnumActionResult.SUCCESS;
+
             }
+
+            return EnumActionResult.FAIL;
         }
+
+        return EnumActionResult.PASS;
     }
+
 
     @Override
     public boolean usesMana(ItemStack itemStack) {

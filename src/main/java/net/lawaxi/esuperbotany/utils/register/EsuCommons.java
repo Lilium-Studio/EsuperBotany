@@ -4,8 +4,15 @@ import net.lawaxi.esuperbotany.block.BlockCopperBlock;
 import net.lawaxi.esuperbotany.block.BlockCopperOre;
 import net.lawaxi.esuperbotany.block.BlockManaEmeraldBlock;
 import net.lawaxi.esuperbotany.block.BlockManaStorage;
+import net.lawaxi.esuperbotany.block.tile.TileManaStorage;
 import net.lawaxi.esuperbotany.item.*;
-import net.lawaxi.esuperbotany.item.relic.*;
+import net.lawaxi.esuperbotany.item.relic.Item1srod;
+import net.lawaxi.esuperbotany.item.relic.ItemExpelloRod;
+import net.lawaxi.esuperbotany.item.relic.ItemOldEater;
+import net.lawaxi.esuperbotany.item.relic.mana.ItemManaBow;
+import net.lawaxi.esuperbotany.item.relic.util.CommonItemAxeRelic;
+import net.lawaxi.esuperbotany.item.relic.util.CommonItemBowRelic;
+import net.lawaxi.esuperbotany.item.relic.util.CommonItemRelic;
 import net.lawaxi.esuperbotany.utils.names.FuctionalFlora;
 import net.lawaxi.esuperbotany.utils.names.GeneratingFlora;
 import net.minecraft.block.Block;
@@ -13,6 +20,8 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import vazkii.botania.common.block.BlockSpecialFlower;
 import vazkii.botania.common.item.block.ItemBlockSpecialFlower;
 
@@ -37,16 +46,20 @@ public class EsuCommons {
     public static ItemLootBag LOOTBAG;
 
     public static Block MANAEMERALDBLOCK;
-    public static Block MANASTORAGE;
+    public static BlockManaStorage MANASTORAGE;
+    public static Item INFTORCH;
+
     public static CommonItemRelic ONESROD;
     public static CommonItemRelic OLDEATER;
     public static CommonItemRelic EXPELLOROD;
-    public static ItemManaBow MANABOW;
-    public static Item INFTORCH;
+    public static CommonItemAxeRelic MANAAXE;
+    public static CommonItemBowRelic MANABOW;
 
     public static final HashSet<Item> items = new HashSet<>();
 
     public static void init(){
+
+        GameRegistry.registerTileEntity(TileManaStorage.class,new ResourceLocation("esuperbotany","manastorage"));
 
         //花朵
 
@@ -81,13 +94,20 @@ public class EsuCommons {
         RESOURCE = new ItemResource();
         COSMETIC = new ItemCosmetic();
         LOOTBAG = new ItemLootBag();
+        INFTORCH = new ItemInfTorch();
 
         //趣味道具
         ONESROD = new Item1srod();
         OLDEATER = new ItemOldEater();
         EXPELLOROD = new ItemExpelloRod();
         MANABOW = new ItemManaBow();
-        INFTORCH = new ItemInfTorch();
+        //MANAAXE = new ItemManaAxe();
+
+        /*
+        new ArmorStinky(EQUIP.Helmet);
+        new ArmorStinky(EQUIP.Chestplate);
+        new ArmorStinky(EQUIP.Leggings);
+        new ArmorStinky(EQUIP.Boots);*/
 
         //ArmorStinky.build();
         //new debug();
