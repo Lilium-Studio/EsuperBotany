@@ -1,10 +1,12 @@
 package net.lawaxi.esuperbotany.entity;
 
+import net.lawaxi.esuperbotany.utils.register.EsuCommons;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.block.state.pattern.BlockStateMatcher;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
@@ -18,12 +20,22 @@ import java.util.stream.Collectors;
 
 public class EntityHellAirBottle extends EntityEnderAirBottle {
 
+    public final ItemStack bottle;
+
     public EntityHellAirBottle(World world) {
         super(world);
+        this.bottle = new ItemStack(EsuCommons.RESOURCE,1,1);
+    }
+
+
+    public EntityHellAirBottle(World world, EntityPlayer player,ItemStack stack) {
+        super(world,player);
+        this.bottle = stack;
     }
 
     public EntityHellAirBottle(World world, EntityPlayer player) {
         super(world,player);
+        this.bottle = new ItemStack(EsuCommons.RESOURCE,1,1);
     }
 
     @Override

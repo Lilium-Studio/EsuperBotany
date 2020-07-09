@@ -111,7 +111,8 @@ public class CommonItemAxeRelic extends ItemAxe implements IRelic {
 
                 //丢弃
                 if(entityIn instanceof EntityPlayer){
-                    ((EntityPlayer) entityIn).dropItem(true);
+                    if(((EntityPlayer) entityIn).inventory.getCurrentItem() == stack)
+                        ((EntityPlayer) entityIn).dropItem(true);
                 }
             }
         }

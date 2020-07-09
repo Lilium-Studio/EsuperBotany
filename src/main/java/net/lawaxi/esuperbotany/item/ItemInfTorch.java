@@ -17,6 +17,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import vazkii.botania.api.mana.IManaUsingItem;
 import vazkii.botania.api.mana.ManaItemHandler;
 import vazkii.botania.common.core.helper.ItemNBTHelper;
@@ -63,8 +65,6 @@ public class ItemInfTorch extends CommonItem implements IManaUsingItem {
 
             IBlockState iblockstate1 = torch.getStateForPlacement(worldIn, pos, facing, hitX, hitY, hitZ, 0, player, hand);
             worldIn.setBlockState(pos, iblockstate1);
-            //worldIn.setBlockState(pos, iblockstate1,11);
-
             SoundType soundtype = iblockstate1.getBlock().getSoundType(iblockstate1, worldIn, pos, player);
             worldIn.playSound(player, pos, soundtype.getPlaceSound(), SoundCategory.BLOCKS, (soundtype.getVolume() + 1.0F) / 2.0F, soundtype.getPitch() * 0.8F);
 
@@ -72,6 +72,8 @@ public class ItemInfTorch extends CommonItem implements IManaUsingItem {
         } else
             return EnumActionResult.FAIL;
     }
+
+
 
     @Override
     public boolean showDurabilityBar(ItemStack stack) {
@@ -94,6 +96,7 @@ public class ItemInfTorch extends CommonItem implements IManaUsingItem {
         ItemNBTHelper.setBoolean(stack, "redstone", !getTorch(stack));
     }
 
+    @SideOnly(Side.CLIENT)
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
 

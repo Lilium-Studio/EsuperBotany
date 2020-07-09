@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "esuperbotany",
+  "pattern": [
+    "Y X",
+    "X X"
+  ],
+  "key": {
+    "X": {
+      "item": "botania:manaresource",
+      "data": 12
+    },
+    "Y": {
+      "item": "botania:terrasteelboots"
+    }
+  },
+  "result": {
+    "item": "esuperbotany:xtboots"
+  }
+}

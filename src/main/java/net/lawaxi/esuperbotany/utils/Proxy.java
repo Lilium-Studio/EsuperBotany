@@ -17,6 +17,7 @@ public class Proxy {
         GameRegistry.registerWorldGenerator(new WorldGenerator(), 3);
 
         EsuSubTiles.init();
+        EsuSounds.init();
         EsuMaterial.init();
         EsuCommons.init();
         EsuCreativeTab.init();

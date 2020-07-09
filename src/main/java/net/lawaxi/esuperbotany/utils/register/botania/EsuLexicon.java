@@ -6,6 +6,7 @@ import net.lawaxi.esuperbotany.lexicon.CommonItemInfoLexicon;
 import net.lawaxi.esuperbotany.utils.names.FuctionalFlora;
 import net.lawaxi.esuperbotany.utils.names.GeneratingFlora;
 import net.lawaxi.esuperbotany.utils.register.EsuCommons;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import vazkii.botania.api.BotaniaAPI;
@@ -67,12 +68,21 @@ public class EsuLexicon {
         LexiconEntry enderman = new BasicLexiconEntry("enderman",BotaniaAPI.categoryMisc);
         enderman.setIcon(Helper.gethead("MHF_Enderman"));
         enderman.setKnowledgeType(BotaniaAPI.basicKnowledge);
-        enderman.setLexiconPages(new LexiconPage[]{new PageText("0")});
+        enderman.setLexiconPages(new LexiconPage[]{new PageText("0"),new PageImage("1","textures/gui/entries/enderman.png")});
 
         LexiconEntry inftorch = new BasicLexiconEntry("inftorch",BotaniaAPI.categoryTools);
         inftorch.setIcon(new ItemStack(EsuCommons.INFTORCH));
         inftorch.setKnowledgeType(BotaniaAPI.elvenKnowledge);
         inftorch.setLexiconPages(new LexiconPage[]{new PageText("0"),new PageCraftingRecipe("1",new ResourceLocation("esuperbotany","inftorch"))});
 
+
+        LexiconEntry xt = new BasicLexiconEntry("xtarmor",categoryESU);
+        xt.setIcon(new ItemStack(Item.getByNameOrId("esuperbotany:xthelmet")));
+        xt.setKnowledgeType(BotaniaAPI.basicKnowledge);
+        xt.setLexiconPages(new LexiconPage[]{new PageText("0")
+                ,new PageCraftingRecipe("1", new ResourceLocation("esuperbotany","xthelmet"))
+                ,new PageCraftingRecipe("1", new ResourceLocation("esuperbotany","xtchestplate"))
+                ,new PageCraftingRecipe("1", new ResourceLocation("esuperbotany","xtleggings"))
+                ,new PageCraftingRecipe("1", new ResourceLocation("esuperbotany","xtboots"))});
     }
 }

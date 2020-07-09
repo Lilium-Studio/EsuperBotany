@@ -145,38 +145,42 @@ public class ItemCosmetic extends CommonItem implements ICosmeticBauble, IBauble
                     for (int i = -FLOWERCOLLECTOR_range; i <= FLOWERCOLLECTOR_range; i++) {
                         for (int j = -FLOWERCOLLECTOR_range; j <= FLOWERCOLLECTOR_range; j++) {
 
-                            BlockPos pos = position.add(i, 0, j);
+                            int[] ks = {-1,0,+1};
+                            for(int k : ks){
 
-                            if (world.isAirBlock(pos))
-                                continue;
+                                BlockPos pos = position.add(i, k, j);
 
-                            IBlockState b = world.getBlockState(pos);
-                            if (b.getBlock() != ModBlocks.flower) {
-                                continue;
-                            }
+                                if (world.isAirBlock(pos))
+                                    continue;
+
+                                IBlockState b = world.getBlockState(pos);
+                                if (b.getBlock() != ModBlocks.flower) {
+                                    continue;
+                                }
 
 
-                            int color = b.getBlock().getMetaFromState(b);
-                            if (color > 15) {
-                                continue;
-                            }
+                                int color = b.getBlock().getMetaFromState(b);
+                                if (color > 15) {
+                                    continue;
+                                }
 
-                            if (!ManaItemHandler.requestManaExactForTool(stack, player, FLOWERCOLLECTOR_cost, true)) {
-                                continue; //魔力不够了
-                            }
+                                if (!ManaItemHandler.requestManaExactForTool(stack, player, FLOWERCOLLECTOR_cost, true)) {
+                                    continue; //魔力不够了
+                                }
 
-                            IItemHandler bagInv = stack1.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, (EnumFacing) null);
-                            ItemStack result = bagInv.insertItem(color, new ItemStack(Item.getItemFromBlock(ModBlocks.flower), 1, color), false);
-                            if (result.getCount() == 1) {
-                                continue; //包装不下了
-                            }
+                                IItemHandler bagInv = stack1.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, (EnumFacing) null);
+                                ItemStack result = bagInv.insertItem(color, new ItemStack(Item.getItemFromBlock(ModBlocks.flower), 1, color), false);
+                                if (result.getCount() == 1) {
+                                    continue; //包装不下了
+                                }
 
-                            world.playEvent(2001, pos, Block.getStateId(b));
-                            world.setBlockToAir(pos);
+                                world.playEvent(2001, pos, Block.getStateId(b));
+                                world.setBlockToAir(pos);
 
-                            //10%概率额外获得一个随机神秘花袋
-                            if(itemRand.nextInt(10)==0){
-                                player.addItemStackToInventory(new ItemStack(EsuCommons.LOOTBAG,1,1));
+                                //10%概率额外获得一个随机神秘花袋
+                                if(itemRand.nextInt(10)==0){
+                                    player.addItemStackToInventory(new ItemStack(EsuCommons.LOOTBAG,1,1));
+                                }
                             }
                         }
                     }

@@ -64,7 +64,7 @@ public class ItemResource extends CommonItem implements IFlowerComponent {
 
                 if (!worldIn.isRemote) {
                     //服务端
-                    EntityEnderAirBottle b = new EntityHellAirBottle(worldIn, playerIn);
+                    EntityEnderAirBottle b = new EntityHellAirBottle(worldIn, playerIn,stack);
                     b.shoot(playerIn, playerIn.rotationPitch, playerIn.rotationYaw, 0.0F, 1.5F, 1.0F);
                     worldIn.spawnEntity(b);
 

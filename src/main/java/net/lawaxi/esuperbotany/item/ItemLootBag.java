@@ -95,7 +95,7 @@ public class ItemLootBag extends CommonItem{
                 case 1:{
 
                     for(int i : flowers){
-                        addInfo(tooltip,new ItemStack(ModItems.flowerBag,1,i));
+                        addInfo(tooltip,new ItemStack(ModBlocks.flower,1,i));
                     }
                     break;
                 }

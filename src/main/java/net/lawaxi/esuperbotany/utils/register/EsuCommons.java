@@ -6,6 +6,8 @@ import net.lawaxi.esuperbotany.block.BlockManaEmeraldBlock;
 import net.lawaxi.esuperbotany.block.BlockManaStorage;
 import net.lawaxi.esuperbotany.block.tile.TileManaStorage;
 import net.lawaxi.esuperbotany.item.*;
+import net.lawaxi.esuperbotany.item.equipment.ArmorXT;
+import net.lawaxi.esuperbotany.item.equipment.EQUIP;
 import net.lawaxi.esuperbotany.item.relic.Item1srod;
 import net.lawaxi.esuperbotany.item.relic.ItemExpelloRod;
 import net.lawaxi.esuperbotany.item.relic.ItemOldEater;
@@ -108,6 +110,11 @@ public class EsuCommons {
         new ArmorStinky(EQUIP.Chestplate);
         new ArmorStinky(EQUIP.Leggings);
         new ArmorStinky(EQUIP.Boots);*/
+
+        new ArmorXT(EQUIP.Helmet);
+        new ArmorXT(EQUIP.Chestplate);
+        new ArmorXT(EQUIP.Leggings);
+        new ArmorXT(EQUIP.Boots);
 
         //ArmorStinky.build();
         //new debug();
