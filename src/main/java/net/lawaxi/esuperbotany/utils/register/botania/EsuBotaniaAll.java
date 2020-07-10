@@ -1,5 +1,7 @@
 package net.lawaxi.esuperbotany.utils.register.botania;
 
+import net.lawaxi.esuperbotany.utils.register.EsuLexicon;
+
 public class EsuBotaniaAll {
 
     public static void init(){

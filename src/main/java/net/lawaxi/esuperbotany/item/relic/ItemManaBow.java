@@ -1,6 +1,5 @@
-package net.lawaxi.esuperbotany.item.relic.mana;
+package net.lawaxi.esuperbotany.item.relic;
 
-import net.lawaxi.esuperbotany.item.relic.DamgeType;
 import net.lawaxi.esuperbotany.item.relic.util.CommonItemBowRelic;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EntityLivingBase;
@@ -19,6 +18,7 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 import vazkii.botania.api.mana.IManaUsingItem;
 import vazkii.botania.api.mana.ManaItemHandler;
+import vazkii.botania.common.core.helper.ItemNBTHelper;
 
 public class ItemManaBow extends CommonItemBowRelic implements IManaUsingItem {
 
@@ -205,6 +205,6 @@ public class ItemManaBow extends CommonItemBowRelic implements IManaUsingItem {
 
     @Override
     public boolean usesMana(ItemStack itemStack) {
-        return true;
+        return ItemNBTHelper.getInt(itemStack,"cost",1)!=0;
     }
 }

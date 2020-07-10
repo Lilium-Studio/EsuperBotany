@@ -1,5 +1,6 @@
-package net.lawaxi.esuperbotany.utils.register.botania;
+package net.lawaxi.esuperbotany.utils.register;
 
+import net.lawaxi.esuperbotany.block.flora.fuctional.Degausser;
 import net.lawaxi.esuperbotany.block.flora.fuctional.Irrigator;
 import net.lawaxi.esuperbotany.block.flora.fuctional.Joessr;
 import net.lawaxi.esuperbotany.block.flora.fuctional.LotusPeony;
@@ -25,6 +26,7 @@ public class EsuSubTiles {
         registerSubTile(FuctionalFlora.LOTUSPEONY, LotusPeony.class);
         registerSubTile(FuctionalFlora.JOESSR, Joessr.class);
         registerSubTile(FuctionalFlora.IRRIGATOR, Irrigator.class);
+        registerSubTile(FuctionalFlora.DEGAUSSER, Degausser.class);
 
     }
 

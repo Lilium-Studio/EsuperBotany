@@ -11,12 +11,12 @@ public class EntityXTHand extends EntityThrowable {
 
     public EntityXTHand(World world, EntityPlayer player) {
         super(world,player);
-        this.setSize(0.5F,0.5F);
+        this.setSize(0.25F,0.25F);
     }
 
     public EntityXTHand(World worldIn) {
         super(worldIn);
-        this.setSize(0.5F, 0.5F);
+        this.setSize(0.25F, 0.25F);
     }
 
 
@@ -29,14 +29,11 @@ public class EntityXTHand extends EntityThrowable {
     @Override
     protected void onImpact(RayTraceResult result)
     {
-        if (result.entityHit != null)
+        if (result.entityHit != null && result.entityHit!=thrower)
         {
-            if(!world.isRemote) {
-
-                result.entityHit.attackEntityFrom(DamageSource.MAGIC, 1F);
-                result.entityHit.setFire(5);
-                this.setDead();
-            }
+            result.entityHit.attackEntityFrom(DamageSource.MAGIC, 1F);
+            result.entityHit.setFire(5);
+            this.setDead();
         }
     }
 

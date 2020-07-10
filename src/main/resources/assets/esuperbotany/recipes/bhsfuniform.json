@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "esuperbotany",
+  "pattern": [
+    "A C",
+    "BYD",
+    "XXX"
+  ],
+  "key": {
+    "X": {
+      "item": "botania:manaresource",
+      "data": 14
+    },
+    "A": {
+      "item": "botania:rune",
+      "data": 4
+    },
+    "B": {
+      "item": "botania:rune",
+      "data": 5
+    },
+    "C": {
+      "item": "botania:rune",
+      "data": 6
+    },
+    "D": {
+      "item": "botania:rune",
+      "data": 7
+    },
+    "Y": {
+      "item": "botania:terrasteelchest"
+    }
+  },
+  "result": {
+    "item": "esuperbotany:bhsfuniform"
+  }
+}

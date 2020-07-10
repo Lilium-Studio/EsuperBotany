@@ -12,6 +12,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import vazkii.botania.api.mana.IManaUsingItem;
 import vazkii.botania.api.mana.ManaItemHandler;
 
@@ -19,11 +21,12 @@ import javax.annotation.Nullable;
 
 public class ArmorXT extends CommonArmor implements IManaUsingItem {
 
-    public ArmorXT(EQUIP type) {
-        super("xt", EsuMaterial.ARMOR_XT, type,85);
+    public ArmorXT(EntityEquipmentSlot type) {
+        super("xt",null, EsuMaterial.ARMOR_XT, type,85);
         MinecraftForge.EVENT_BUS.register(this);
     }
 
+    @SideOnly(Side.CLIENT)
     @Nullable
     @Override
     public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, EntityEquipmentSlot armorSlot, ModelBiped _default) {
@@ -32,12 +35,6 @@ public class ArmorXT extends CommonArmor implements IManaUsingItem {
             return  models.get(armorSlot);
         else
             return models.put(armorSlot,new ModelArmorXT(armorSlot));
-    }
-
-    @Nullable
-    @Override
-    public String getArmorTexture(ItemStack stack, Entity entity, EntityEquipmentSlot slot, String type) {
-        return "esuperbotany:textures/models/armor/xt.png";
     }
 
 
@@ -65,4 +62,13 @@ public class ArmorXT extends CommonArmor implements IManaUsingItem {
     public boolean usesMana(ItemStack itemStack) {
         return true;
     }
+
+
+    @SideOnly(Side.CLIENT)
+    @Nullable
+    @Override
+    public String getArmorTexture(ItemStack stack, Entity entity, EntityEquipmentSlot slot, String type) {
+        return "esuperbotany:textures/models/armor/xt.png";
+    }
+
 }

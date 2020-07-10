@@ -4,6 +4,7 @@ import net.lawaxi.esuperbotany.api.Helper;
 import net.lawaxi.esuperbotany.utils.names.FuctionalFlora;
 import net.lawaxi.esuperbotany.utils.names.GeneratingFlora;
 import net.lawaxi.esuperbotany.utils.register.EsuCommons;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import vazkii.botania.api.BotaniaAPI;
 import vazkii.botania.api.recipe.RecipePetals;
@@ -51,13 +52,13 @@ public class EsuPetalRecipe {
     public static RecipePetals lily;
     public static RecipePetals yanhuang;
 
-
     // 功能花
     public static RecipePetals lotuspeony;
+    public static RecipePetals irrigator;
+    public static RecipePetals degausser;
 
     //其他
     public static RecipePetals redScarf;
-    public static RecipePetals irrigator;
     public static RecipePetals flowerCollector;
     public static RecipePetals LEON;
 
@@ -72,6 +73,7 @@ public class EsuPetalRecipe {
         //功能花
         lotuspeony = BotaniaAPI.registerPetalRecipe(ItemBlockSpecialFlower.ofType(FuctionalFlora.LOTUSPEONY),red,green,red,runeSpring);
         irrigator = BotaniaAPI.registerPetalRecipe(ItemBlockSpecialFlower.ofType(FuctionalFlora.IRRIGATOR),blue,blue,blue,lightBlue,lightBlue,lightBlue,runeWater);
+        degausser = BotaniaAPI.registerPetalRecipe(ItemBlockSpecialFlower.ofType(FuctionalFlora.DEGAUSSER),new ItemStack(Items.COMPASS),new ItemStack(Items.COMPASS),new ItemStack(Items.COMPASS),runeSloth);
 
         //其他
         redScarf = BotaniaAPI.registerPetalRecipe(new ItemStack(EsuCommons.COSMETIC,1,0),red,red,blue,white);

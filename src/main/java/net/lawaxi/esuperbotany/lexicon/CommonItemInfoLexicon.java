@@ -1,6 +1,6 @@
 package net.lawaxi.esuperbotany.lexicon;
 
-import net.lawaxi.esuperbotany.utils.register.botania.EsuLexicon;
+import net.lawaxi.esuperbotany.utils.register.EsuLexicon;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import vazkii.botania.api.lexicon.KnowledgeType;

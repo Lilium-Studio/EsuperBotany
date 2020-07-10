@@ -1,11 +1,9 @@
-package net.lawaxi.esuperbotany.item.relic.mana;
+package net.lawaxi.esuperbotany.item.relic;
 
 import net.lawaxi.esuperbotany.api.EntityHelper;
 import net.lawaxi.esuperbotany.item.ItemLootBag;
-import net.lawaxi.esuperbotany.item.relic.DamgeType;
 import net.lawaxi.esuperbotany.item.relic.util.CommonItemAxeRelic;
 import net.lawaxi.esuperbotany.utils.register.EsuCommons;
-import net.lawaxi.esuperbotany.utils.register.EsuMaterial;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.effect.EntityLightningBolt;
@@ -24,7 +22,7 @@ public class ItemManaAxe extends CommonItemAxeRelic implements IManaUsingItem {
 
     public ItemManaAxe() {
 
-        super(EsuMaterial.MANA,"esuperbotany:manaaxe",false, DamgeType.HURT);
+        super(ToolMaterial.DIAMOND,"esuperbotany:manaaxe",false, DamgeType.HURT);
         MinecraftForge.EVENT_BUS.register(this);
     }
 

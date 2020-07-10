@@ -1,7 +1,8 @@
 {
   "display": {
     "icon": {
-      "item": "esuperbotany:manaemerald_block"
+      "item": "esuperbotany:resource",
+      "data": 0
     },
     "title": {
       "translate": "advancements.esuper.emerald.title"
@@ -17,7 +18,8 @@
       "conditions": {
         "items": [
           {
-            "item": "esuperbotany:manaemerald_block"
+            "item": "esuperbotany:resource",
+            "data": 0
           }
         ]
       }

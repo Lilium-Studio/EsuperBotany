@@ -6,12 +6,13 @@ import net.lawaxi.esuperbotany.block.BlockManaEmeraldBlock;
 import net.lawaxi.esuperbotany.block.BlockManaStorage;
 import net.lawaxi.esuperbotany.block.tile.TileManaStorage;
 import net.lawaxi.esuperbotany.item.*;
+import net.lawaxi.esuperbotany.item.equipment.ArmorBHSFUniform;
 import net.lawaxi.esuperbotany.item.equipment.ArmorXT;
-import net.lawaxi.esuperbotany.item.equipment.EQUIP;
+import net.lawaxi.esuperbotany.item.record.ItemRecordBHSF;
 import net.lawaxi.esuperbotany.item.relic.Item1srod;
 import net.lawaxi.esuperbotany.item.relic.ItemExpelloRod;
+import net.lawaxi.esuperbotany.item.relic.ItemManaBow;
 import net.lawaxi.esuperbotany.item.relic.ItemOldEater;
-import net.lawaxi.esuperbotany.item.relic.mana.ItemManaBow;
 import net.lawaxi.esuperbotany.item.relic.util.CommonItemAxeRelic;
 import net.lawaxi.esuperbotany.item.relic.util.CommonItemBowRelic;
 import net.lawaxi.esuperbotany.item.relic.util.CommonItemRelic;
@@ -19,6 +20,7 @@ import net.lawaxi.esuperbotany.utils.names.FuctionalFlora;
 import net.lawaxi.esuperbotany.utils.names.GeneratingFlora;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
@@ -70,7 +72,8 @@ public class EsuCommons {
                 GeneratingFlora.YANHUANG,
                 FuctionalFlora.LOTUSPEONY,
                 FuctionalFlora.IRRIGATOR,
-                FuctionalFlora.JOESSR
+                FuctionalFlora.JOESSR,
+                FuctionalFlora.DEGAUSSER
         }));
 
         FLORA = new BlockSpecialFlower(){
@@ -103,21 +106,15 @@ public class EsuCommons {
         OLDEATER = new ItemOldEater();
         EXPELLOROD = new ItemExpelloRod();
         MANABOW = new ItemManaBow();
-        //MANAAXE = new ItemManaAxe();
 
-        /*
-        new ArmorStinky(EQUIP.Helmet);
-        new ArmorStinky(EQUIP.Chestplate);
-        new ArmorStinky(EQUIP.Leggings);
-        new ArmorStinky(EQUIP.Boots);*/
+        new ArmorXT(EntityEquipmentSlot.HEAD);
+        new ArmorXT(EntityEquipmentSlot.CHEST);
+        new ArmorXT(EntityEquipmentSlot.LEGS);
+        new ArmorXT(EntityEquipmentSlot.FEET);
 
-        new ArmorXT(EQUIP.Helmet);
-        new ArmorXT(EQUIP.Chestplate);
-        new ArmorXT(EQUIP.Leggings);
-        new ArmorXT(EQUIP.Boots);
+        new ArmorBHSFUniform();
+        new ItemRecordBHSF();
 
-        //ArmorStinky.build();
-        //new debug();
     }
 
 

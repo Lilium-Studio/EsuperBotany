@@ -1,0 +1,29 @@
+{
+  "display": {
+    "icon": {
+      "item": "esuperbotany:bhsfuniform"
+    },
+    "title": {
+      "translate": "advancements.esuper.bhsf.title"
+    },
+    "description": {
+      "translate": "advancements.esuper.bhsf.description"
+    }
+  },
+  "parent": "esuperbotany:esuper/emerald",
+  "criteria": {
+    "getit": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "esuperbotany:bhsfuniform"
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "loot": ["esuperbotany:loot_table/bhsf.json"]
+  }
+}

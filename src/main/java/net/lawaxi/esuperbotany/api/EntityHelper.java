@@ -3,11 +3,13 @@ package net.lawaxi.esuperbotany.api;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.AxisAlignedBB;
 import vazkii.botania.common.core.helper.Vector3;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class EntityHelper {
 
@@ -39,5 +41,20 @@ public class EntityHelper {
         }
 
         return null;
+    }
+
+
+    private static final Random rand = new Random();
+
+
+    public static void particleAround(Entity entity, EnumParticleTypes type)
+    {
+        for (int i = 0; i < 5; ++i)
+        {
+            double d0 = rand.nextGaussian() * 0.02D;
+            double d1 = rand.nextGaussian() * 0.02D;
+            double d2 = rand.nextGaussian() * 0.02D;
+            entity.world.spawnParticle(type, entity.posX + (double)(rand.nextFloat() * entity.width * 2.0F) - (double)entity.width, entity.posY + 1.0D + (double)(rand.nextFloat() * entity.height), entity.posZ + (double)(rand.nextFloat() * entity.width * 2.0F) - (double)entity.width, d0, d1, d2);
+        }
     }
 }

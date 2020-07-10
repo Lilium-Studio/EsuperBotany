@@ -2,16 +2,16 @@
   "display": {
     "icon": {
       "item": "botania:specialFlower",
-      "nbt": "{\"type\": \"joessr\"}"
+      "nbt": "{\"type\": \"degausser\"}"
     },
     "title": {
-      "translate": "advancements.esuper.emperor.title"
+      "translate": "advancements.esuper.degausser.title"
     },
     "description": {
-      "translate": "advancements.esuper.emperor.description"
+      "translate": "advancements.esuper.degausser.description"
     }
   },
-  "parent": "esuperbotany:esuper/lotuspeony",
+  "parent": "esuperbotany:esuper/emperor",
   "criteria": {
     "getit": {
       "trigger": "minecraft:inventory_changed",
@@ -19,7 +19,7 @@
         "items": [
           {
             "item": "botania:specialFlower",
-            "nbt": "{\"type\": \"joessr\"}"
+            "nbt": "{\"type\": \"degausser\"}"
           }
         ]
       }

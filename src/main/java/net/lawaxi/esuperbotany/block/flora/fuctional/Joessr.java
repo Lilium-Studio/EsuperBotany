@@ -2,7 +2,7 @@ package net.lawaxi.esuperbotany.block.flora.fuctional;
 
 import net.lawaxi.esuperbotany.block.BlockManaStorage;
 import net.lawaxi.esuperbotany.utils.register.EsuCommons;
-import net.lawaxi.esuperbotany.utils.register.botania.EsuLexicon;
+import net.lawaxi.esuperbotany.utils.register.EsuLexicon;
 import net.minecraft.util.math.BlockPos;
 import vazkii.botania.api.lexicon.LexiconEntry;
 import vazkii.botania.api.subtile.SubTileFunctional;

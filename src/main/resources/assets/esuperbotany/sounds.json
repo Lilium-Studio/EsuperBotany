@@ -4,6 +4,11 @@
     "subtitle": "esuperbotany.114514",
     "sounds": [ "esuperbotany:114514" ]
   },
+  "bhsf": {
+    "category": "record",
+    "subtitle": "esuperbotany.bhsf",
+    "sounds": [ "esuperbotany:bhsf" ]
+  },
   "114514_short": {
     "category": "block",
     "subtitle": "esuperbotany.114514_short",

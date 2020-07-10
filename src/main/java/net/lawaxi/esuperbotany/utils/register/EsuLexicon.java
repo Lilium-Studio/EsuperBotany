@@ -1,11 +1,13 @@
-package net.lawaxi.esuperbotany.utils.register.botania;
+package net.lawaxi.esuperbotany.utils.register;
 
 import net.lawaxi.esuperbotany.api.Helper;
 import net.lawaxi.esuperbotany.lexicon.CommonFloraLexicon;
 import net.lawaxi.esuperbotany.lexicon.CommonItemInfoLexicon;
 import net.lawaxi.esuperbotany.utils.names.FuctionalFlora;
 import net.lawaxi.esuperbotany.utils.names.GeneratingFlora;
-import net.lawaxi.esuperbotany.utils.register.EsuCommons;
+import net.lawaxi.esuperbotany.utils.register.botania.EsuElvenTrade;
+import net.lawaxi.esuperbotany.utils.register.botania.EsuMultiBlockSet;
+import net.lawaxi.esuperbotany.utils.register.botania.EsuPetalRecipe;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
@@ -26,6 +28,7 @@ public class EsuLexicon {
     public static LexiconEntry LOTUSPEONY;
     public static LexiconEntry IRRIGATOR;
     public static LexiconEntry JOESSR;
+    public static LexiconEntry DEGAUSSER;
 
     public static void init(){
 
@@ -36,12 +39,19 @@ public class EsuLexicon {
         BotaniaAPI.addCategory(categoryESU);
 
         //产能花
-        LILY = new CommonFloraLexicon(GeneratingFlora.LILY, BotaniaAPI.categoryGenerationFlowers,EsuPetalRecipe.lily);
+        LILY = new CommonFloraLexicon(GeneratingFlora.LILY, BotaniaAPI.categoryGenerationFlowers, EsuPetalRecipe.lily);
         YANHUANG = new CommonFloraLexicon(GeneratingFlora.YANHUANG, BotaniaAPI.categoryGenerationFlowers, EsuPetalRecipe.yanhuang);
 
         //功能花
         LOTUSPEONY =new CommonFloraLexicon(FuctionalFlora.LOTUSPEONY,BotaniaAPI.categoryFunctionalFlowers,EsuPetalRecipe.lotuspeony);
         IRRIGATOR = new CommonFloraLexicon(FuctionalFlora.IRRIGATOR,BotaniaAPI.categoryFunctionalFlowers,EsuPetalRecipe.irrigator);
+        DEGAUSSER = new CommonFloraLexicon(FuctionalFlora.DEGAUSSER,BotaniaAPI.categoryFunctionalFlowers,EsuPetalRecipe.degausser);
+
+
+        JOESSR = new BasicLexiconEntry(FuctionalFlora.JOESSR,categoryESU);
+        JOESSR.setIcon(ItemBlockSpecialFlower.ofType(FuctionalFlora.JOESSR));
+        JOESSR.setKnowledgeType(BotaniaAPI.elvenKnowledge);
+        JOESSR.setLexiconPages(new LexiconPage[]{new PageText("0"),new PageElvenRecipe("1", EsuElvenTrade.JOESSR),new PageText("2"),new PageMultiblock("3", EsuMultiBlockSet.EMPEROR),new PageMultiblock("4",EsuMultiBlockSet.EMPEROR2)});
 
         //其他
         new CommonItemInfoLexicon("+1srod",1,true,BotaniaAPI.relicKnowledge,new ItemStack(EsuCommons.ONESROD));
@@ -49,11 +59,6 @@ public class EsuLexicon {
         new CommonItemInfoLexicon("expellorod",1,true,BotaniaAPI.relicKnowledge,new ItemStack(EsuCommons.EXPELLOROD));
         new CommonItemInfoLexicon("manabow",1,true,BotaniaAPI.relicKnowledge,new ItemStack(EsuCommons.MANABOW));
         //new CommonItemInfoLexicon("manaaxe",1,true,BotaniaAPI.relicKnowledge,new ItemStack(EsuCommons.MANAAXE));
-
-        JOESSR = new BasicLexiconEntry(FuctionalFlora.JOESSR,categoryESU);
-        JOESSR.setIcon(ItemBlockSpecialFlower.ofType(FuctionalFlora.JOESSR));
-        JOESSR.setKnowledgeType(BotaniaAPI.elvenKnowledge);
-        JOESSR.setLexiconPages(new LexiconPage[]{new PageText("0"),new PageElvenRecipe("1",EsuElvenTrade.JOESSR),new PageText("2"),new PageMultiblock("3",EsuMultiBlockSet.EMPEROR),new PageMultiblock("4",EsuMultiBlockSet.EMPEROR2)});
 
         LexiconEntry redscarf = new BasicLexiconEntry("redScarf",BotaniaAPI.categoryBaubles);
         redscarf.setIcon(new ItemStack(EsuCommons.COSMETIC,1,0));
@@ -68,7 +73,7 @@ public class EsuLexicon {
         LexiconEntry enderman = new BasicLexiconEntry("enderman",BotaniaAPI.categoryMisc);
         enderman.setIcon(Helper.gethead("MHF_Enderman"));
         enderman.setKnowledgeType(BotaniaAPI.basicKnowledge);
-        enderman.setLexiconPages(new LexiconPage[]{new PageText("0"),new PageImage("1","textures/gui/entries/enderman.png")});
+        enderman.setLexiconPages(new LexiconPage[]{new PageText("0"),new PageImage("1","esuperbotany:textures/gui/entries/enderman.png")});
 
         LexiconEntry inftorch = new BasicLexiconEntry("inftorch",BotaniaAPI.categoryTools);
         inftorch.setIcon(new ItemStack(EsuCommons.INFTORCH));
@@ -77,12 +82,14 @@ public class EsuLexicon {
 
 
         LexiconEntry xt = new BasicLexiconEntry("xtarmor",categoryESU);
-        xt.setIcon(new ItemStack(Item.getByNameOrId("esuperbotany:xthelmet")));
+        xt.setIcon(new ItemStack(Item.getByNameOrId("esuperbotany:xtchestplate")));
         xt.setKnowledgeType(BotaniaAPI.basicKnowledge);
         xt.setLexiconPages(new LexiconPage[]{new PageText("0")
                 ,new PageCraftingRecipe("1", new ResourceLocation("esuperbotany","xthelmet"))
                 ,new PageCraftingRecipe("1", new ResourceLocation("esuperbotany","xtchestplate"))
                 ,new PageCraftingRecipe("1", new ResourceLocation("esuperbotany","xtleggings"))
                 ,new PageCraftingRecipe("1", new ResourceLocation("esuperbotany","xtboots"))});
+
+        new CommonItemInfoLexicon("bhsfuniform",1,true,BotaniaAPI.basicKnowledge,new ItemStack(Item.getByNameOrId("esuperbotany:bhsfuniform")));
     }
 }

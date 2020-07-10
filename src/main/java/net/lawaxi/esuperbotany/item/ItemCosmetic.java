@@ -87,17 +87,19 @@ public class ItemCosmetic extends CommonItem implements ICosmeticBauble, IBauble
         switch (itemStack.getMetadata()) {
             case 0: {
 
-                Helper.translateToChest();
-                Helper.defaultTransforms();
+                if(renderType.equals(RenderType.BODY)) {
+                    Helper.translateToChest();
+                    Helper.defaultTransforms();
 
 
-                //x:向左为正 y:向上为正 z:向身前为正
-                GlStateManager.translate(0.0, -0.15, +0.15); //位置
+                    //x:向左为正 y:向上为正 z:向身前为正
+                    GlStateManager.translate(0.0, -0.15, +0.15); //位置
 
-                //x:左右 y:上下 z:前后 都应为正 否则物品将会颠倒
-                GlStateManager.scale(1.0F, 1.0F, 0.0F);       //缩放倍数
+                    //x:左右 y:上下 z:前后 都应为正 否则物品将会颠倒
+                    GlStateManager.scale(1.0F, 1.0F, 0.0F);       //缩放倍数
 
-                renderItem(entityPlayer,itemStack);
+                    renderItem(entityPlayer, itemStack);
+                }
                 break;
             }
             /*
@@ -137,50 +139,52 @@ public class ItemCosmetic extends CommonItem implements ICosmeticBauble, IBauble
         switch (stack.getMetadata()){
             case 1:{
 
-                ItemStack stack1 = player.getHeldItemMainhand();
 
-                //需要手持采花袋
-                if (stack1.getItem() == ModItems.flowerBag) {
+                ItemStack stack1;
+                if(player.getHeldItemMainhand().getItem() == ModItems.flowerBag)
+                    stack1 = player.getHeldItemMainhand();
+                else if(player.getHeldItemOffhand().getItem() == ModItems.flowerBag)
+                    stack1 = player.getHeldItemOffhand();
+                else return;
 
-                    for (int i = -FLOWERCOLLECTOR_range; i <= FLOWERCOLLECTOR_range; i++) {
-                        for (int j = -FLOWERCOLLECTOR_range; j <= FLOWERCOLLECTOR_range; j++) {
+                for (int i = -FLOWERCOLLECTOR_range; i <= FLOWERCOLLECTOR_range; i++) {
+                    for (int j = -FLOWERCOLLECTOR_range; j <= FLOWERCOLLECTOR_range; j++) {
 
-                            int[] ks = {-1,0,+1};
-                            for(int k : ks){
+                        int[] ks = {-1,0,+1};
+                        for(int k : ks){
 
-                                BlockPos pos = position.add(i, k, j);
+                            BlockPos pos = position.add(i, k, j);
 
-                                if (world.isAirBlock(pos))
-                                    continue;
+                            if (world.isAirBlock(pos))
+                                continue;
 
-                                IBlockState b = world.getBlockState(pos);
-                                if (b.getBlock() != ModBlocks.flower) {
-                                    continue;
-                                }
+                            IBlockState b = world.getBlockState(pos);
+                            if (b.getBlock() != ModBlocks.flower) {
+                                continue;
+                            }
 
 
-                                int color = b.getBlock().getMetaFromState(b);
-                                if (color > 15) {
-                                    continue;
-                                }
+                            int color = b.getBlock().getMetaFromState(b);
+                            if (color > 15) {
+                                continue;
+                            }
 
-                                if (!ManaItemHandler.requestManaExactForTool(stack, player, FLOWERCOLLECTOR_cost, true)) {
-                                    continue; //魔力不够了
-                                }
+                            if (!ManaItemHandler.requestManaExactForTool(stack, player, FLOWERCOLLECTOR_cost, true)) {
+                                continue; //魔力不够了
+                            }
 
-                                IItemHandler bagInv = stack1.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, (EnumFacing) null);
-                                ItemStack result = bagInv.insertItem(color, new ItemStack(Item.getItemFromBlock(ModBlocks.flower), 1, color), false);
-                                if (result.getCount() == 1) {
-                                    continue; //包装不下了
-                                }
+                            IItemHandler bagInv = stack1.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, (EnumFacing) null);
+                            ItemStack result = bagInv.insertItem(color, new ItemStack(Item.getItemFromBlock(ModBlocks.flower), 1, color), false);
+                            if (result.getCount() == 1) {
+                                continue; //包装不下了
+                            }
 
-                                world.playEvent(2001, pos, Block.getStateId(b));
-                                world.setBlockToAir(pos);
+                            world.playEvent(2001, pos, Block.getStateId(b));
+                            world.setBlockToAir(pos);
 
-                                //10%概率额外获得一个随机神秘花袋
-                                if(itemRand.nextInt(10)==0){
-                                    player.addItemStackToInventory(new ItemStack(EsuCommons.LOOTBAG,1,1));
-                                }
+                            //10%概率额外获得一个随机神秘花袋
+                            if(itemRand.nextInt(10)==0){
+                                player.addItemStackToInventory(new ItemStack(EsuCommons.LOOTBAG,1,1));
                             }
                         }
                     }

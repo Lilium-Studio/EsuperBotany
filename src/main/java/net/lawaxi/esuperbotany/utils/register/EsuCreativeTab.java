@@ -4,7 +4,6 @@ import net.lawaxi.esuperbotany.item.ItemCosmetic;
 import net.lawaxi.esuperbotany.item.ItemLootBag;
 import net.lawaxi.esuperbotany.item.ItemResource;
 import net.lawaxi.esuperbotany.utils.names.GeneratingFlora;
-import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -12,12 +11,18 @@ import net.minecraft.util.NonNullList;
 import vazkii.botania.common.core.helper.ItemNBTHelper;
 import vazkii.botania.common.item.block.ItemBlockSpecialFlower;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class EsuCreativeTab {
 
     public static CreativeTabs TAB;
+    public static final ArrayList<String> items = new ArrayList<>();
 
 
     public static void init(){
+
+        addItems();
 
         //构建
         TAB = new CreativeTabs("esuperbotany") {
@@ -37,55 +42,85 @@ public class EsuCreativeTab {
 
                 EsuCommons.FLORA.getSubBlocks(this,list);
 
-                for(int i = 0; i< ItemResource.names.length; i++){
-                    list.add(new ItemStack(EsuCommons.RESOURCE,1,i));
+
+                for(String item:items){
+
+                    String a1[] = item.split(":");
+                    a1[0] = "esuperbotany:"+a1[0];
+
+                    if(a1.length==1)
+                        list.add(new ItemStack(Item.getByNameOrId(a1[0])));
+
+                    else if (a1.length==2)
+                        list.add(new ItemStack(Item.getByNameOrId(a1[0]),1,Integer.valueOf(a1[1])));
+
+                    else{
+                        ItemStack stack;
+                        if(a1[1].equalsIgnoreCase(""))
+                            stack = new ItemStack(Item.getByNameOrId(a1[0]));
+                        else
+                            stack = new ItemStack(Item.getByNameOrId(a1[0]),1,Integer.valueOf(a1[1]));
+
+                        String a2[] = a1[2].split("--");
+                        for(String nbt:a2){
+                            String a3[] = nbt.split("-");
+                            ItemNBTHelper.setInt(stack,a3[0],Integer.valueOf(a3[1]));
+                        }
+                        list.add(stack);
+
+                    }
+
                 }
 
-                for(int i = 0; i< ItemLootBag.names.length; i++){
-                    list.add(new ItemStack(EsuCommons.LOOTBAG,1,i));
-                }
 
-                for(int i = 0; i< ItemCosmetic.names.length; i++){
-                    list.add(new ItemStack(EsuCommons.COSMETIC,1,i));
-                }
-
-                ItemStack a = new ItemStack(EsuCommons.MANASTORAGE);
-                ItemNBTHelper.setInt(a,"mana",Integer.MAX_VALUE);
-                list.add(a);
-
-                super.displayAllRelevantItems(list);
             }
         };
-        TAB.setNoTitle();
-        TAB.setBackgroundImageName("esuper.png");
-
-        additem(EsuCommons.COPPERINGOT);
-        addblock(EsuCommons.COPPERORE);
-        addblock(EsuCommons.COPPERBLOCK);
-        addblock(EsuCommons.MANAEMERALDBLOCK);
-        addblock(EsuCommons.MANASTORAGE);
-
-        additem(EsuCommons.ONESROD);
-        additem(EsuCommons.OLDEATER);
-        additem(EsuCommons.EXPELLOROD);
-        additem(EsuCommons.MANABOW);
-        additem(EsuCommons.INFTORCH);
-
-        additem(Item.getByNameOrId("esuperbotany:xtHelmet"));
-        additem(Item.getByNameOrId("esuperbotany:xtChestplate"));
-        additem(Item.getByNameOrId("esuperbotany:xtLeggings"));
-        additem(Item.getByNameOrId("esuperbotany:xtBoots"));
-        /*
-        additem(Item.getByNameOrId("esuperbotany:stinkyHelmet"));
-        additem(Item.getByNameOrId("esuperbotany:stinkyChestplate"));
-        additem(Item.getByNameOrId("esuperbotany:stinkyLeggings"));
-        additem(Item.getByNameOrId("esuperbotany:stinkyBoots"));*/
+        TAB.setNoTitle()
+            .setBackgroundImageName("esuper.png");
     }
 
+    private static void addItems(){
 
-    private static void additem(Item a){
-        a.setCreativeTab(TAB);
+        // id:meta:nbt
+        for(int i=0;i<ItemResource.names.length;i++){
+            items.add("resource:"+i);
+        }
+
+        items.addAll(Arrays.asList(new String[]{
+                "manaemerald_block",
+                "manastorage",
+                "manastorage::mana-"+Integer.MAX_VALUE,
+
+        }));
+
+        for(int i=0;i<ItemLootBag.names.length;i++){
+            items.add("lootbag:"+i);
+        }
+
+        for(int i=0;i<ItemCosmetic.names.length;i++){
+            items.add("cosmetic:"+i);
+        }
+
+        items.addAll(Arrays.asList(new String[]{
+                "copper_ingot",
+                "copper_ore",
+                "copper_block",
+                "inftorch",
+                "+1srod",
+                "oldeaterrod",
+                "expellorod",
+                "manabow",
+                "manabow::cost-0",
+                "xtHelmet",
+                "xtChestplate",
+                "xtLeggings",
+                "xtBoots",
+                "bhsfuniform"
+
+        }));
+
+        items.addAll(Arrays.asList(new String[]{
+                "record_bhsf"
+        }));
     }
-
-    private static void addblock(Block b){b.setCreativeTab(TAB);}
 }

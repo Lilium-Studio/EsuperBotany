@@ -1,7 +1,7 @@
 package net.lawaxi.esuperbotany.block.flora.generating;
 
 import net.lawaxi.esuperbotany.utils.register.EsuCommons;
-import net.lawaxi.esuperbotany.utils.register.botania.EsuLexicon;
+import net.lawaxi.esuperbotany.utils.register.EsuLexicon;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
@@ -36,7 +36,7 @@ public class YanHuang extends SubTileGenerating {
 
                 //掉落物
                 for(EntityItem item :
-                        supertile.getWorld().getEntitiesWithinAABB(EntityItem.class, new AxisAlignedBB(getPos().add(-3,-3,-3),getPos().add(4,4,4)))){
+                        getWorld().getEntitiesWithinAABB(EntityItem.class, new AxisAlignedBB(getPos().add(-3,-3,-3),getPos().add(4,4,4)))){
 
                     if(item.getItem().getItem() == EsuCommons.COPPERINGOT){
                         item.getItem().shrink(1);

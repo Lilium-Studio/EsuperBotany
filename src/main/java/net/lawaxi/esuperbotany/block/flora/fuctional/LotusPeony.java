@@ -1,6 +1,6 @@
 package net.lawaxi.esuperbotany.block.flora.fuctional;
 
-import net.lawaxi.esuperbotany.utils.register.botania.EsuLexicon;
+import net.lawaxi.esuperbotany.utils.register.EsuLexicon;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.potion.PotionEffect;

@@ -14,8 +14,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 import vazkii.botania.api.item.IRelic;
 import vazkii.botania.api.mana.IManaUsingItem;
 import vazkii.botania.api.mana.ManaItemHandler;
@@ -53,13 +51,12 @@ public class Item1srod extends CommonItemRelic implements IManaUsingItem, IRelic
             if (target.getHealth() < target.getMaxHealth()) {
                 ManaItemHandler.requestManaExactForTool(me, playerIn, cost, true);
 
+                EntityHelper.particleAround(target,EnumParticleTypes.VILLAGER_HAPPY);
+
                 if(!playerIn.getEntityWorld().isRemote) {
-                    //服务端
                     target.heal(per);
 
                 }else{
-                    //客户端
-                    spawnParticles(target);
                     playerIn.swingArm(handIn);
                 }
                 Helper.sendActionBar(playerIn, "info.+1srod.success1");
@@ -78,7 +75,7 @@ public class Item1srod extends CommonItemRelic implements IManaUsingItem, IRelic
 
                 ManaItemHandler.requestManaExactForTool(me, playerIn, cost, true);
 
-                spawnParticles(playerIn);
+                EntityHelper.particleAround(playerIn,EnumParticleTypes.VILLAGER_HAPPY);
 
                 if(!worldIn.isRemote){
                     playerIn.heal(per);
@@ -143,16 +140,5 @@ public class Item1srod extends CommonItemRelic implements IManaUsingItem, IRelic
 
     protected Random rand = new Random();
 
-    @SideOnly(Side.CLIENT)
-    private void spawnParticles(Entity entity)
-    {
-        for (int i = 0; i < 5; ++i)
-        {
-            double d0 = this.rand.nextGaussian() * 0.02D;
-            double d1 = this.rand.nextGaussian() * 0.02D;
-            double d2 = this.rand.nextGaussian() * 0.02D;
-            entity.world.spawnParticle(EnumParticleTypes.VILLAGER_HAPPY, entity.posX + (double)(this.rand.nextFloat() * entity.width * 2.0F) - (double)entity.width, entity.posY + 1.0D + (double)(this.rand.nextFloat() * entity.height), entity.posZ + (double)(this.rand.nextFloat() * entity.width * 2.0F) - (double)entity.width, d0, d1, d2);
-        }
-    }
 
 }
