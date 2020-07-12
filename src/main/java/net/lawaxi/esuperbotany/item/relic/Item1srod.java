@@ -2,7 +2,7 @@ package net.lawaxi.esuperbotany.item.relic;
 
 import net.lawaxi.esuperbotany.api.EntityHelper;
 import net.lawaxi.esuperbotany.api.Helper;
-import net.lawaxi.esuperbotany.item.relic.util.CommonItemRelic;
+import net.lawaxi.esuperbotany.item.util.CommonItemRelic;
 import net.lawaxi.esuperbotany.utils.register.EsuCommons;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
@@ -17,6 +17,7 @@ import net.minecraft.world.World;
 import vazkii.botania.api.item.IRelic;
 import vazkii.botania.api.mana.IManaUsingItem;
 import vazkii.botania.api.mana.ManaItemHandler;
+import vazkii.botania.common.block.ModBlocks;
 
 import java.util.Random;
 
@@ -51,7 +52,7 @@ public class Item1srod extends CommonItemRelic implements IManaUsingItem, IRelic
             if (target.getHealth() < target.getMaxHealth()) {
                 ManaItemHandler.requestManaExactForTool(me, playerIn, cost, true);
 
-                EntityHelper.particleAround(target,EnumParticleTypes.VILLAGER_HAPPY);
+                EntityHelper.particleAround(target,EnumParticleTypes.VILLAGER_HAPPY,(target.height>1F ? true : false));
 
                 if(!playerIn.getEntityWorld().isRemote) {
                     target.heal(per);
@@ -75,7 +76,7 @@ public class Item1srod extends CommonItemRelic implements IManaUsingItem, IRelic
 
                 ManaItemHandler.requestManaExactForTool(me, playerIn, cost, true);
 
-                EntityHelper.particleAround(playerIn,EnumParticleTypes.VILLAGER_HAPPY);
+                EntityHelper.particleAround(playerIn,EnumParticleTypes.VILLAGER_HAPPY,false);
 
                 if(!worldIn.isRemote){
                     playerIn.heal(per);
@@ -94,6 +95,7 @@ public class Item1srod extends CommonItemRelic implements IManaUsingItem, IRelic
         }
 
     }
+
 
     @Override
     public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
@@ -122,6 +124,15 @@ public class Item1srod extends CommonItemRelic implements IManaUsingItem, IRelic
 
                 return EnumActionResult.SUCCESS;
 
+            }
+            else if(worldIn.getBlockState(pos).getBlock() == ModBlocks.bifrost){
+                worldIn.setBlockState(pos,ModBlocks.bifrostPerm.getDefaultState());
+                EntityHelper.particleSimple(worldIn,pos,EnumParticleTypes.END_ROD);
+
+                if(worldIn.isRemote)
+                    player.swingArm(hand);
+
+                return EnumActionResult.SUCCESS;
             }
 
             return EnumActionResult.FAIL;

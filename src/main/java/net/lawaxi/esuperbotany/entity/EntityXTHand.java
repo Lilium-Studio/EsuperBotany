@@ -1,9 +1,13 @@
 package net.lawaxi.esuperbotany.entity;
 
+import net.lawaxi.esuperbotany.api.EntityHelper;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
@@ -19,29 +23,14 @@ public class EntityXTHand extends EntityThrowable {
         this.setSize(0.25F, 0.25F);
     }
 
+    @Override
+    protected void onImpact(RayTraceResult result) {
 
+    }
 
     @Override
     protected float getGravityVelocity() {
         return 0.0F;
-    }
-
-    @Override
-    protected void onImpact(RayTraceResult result)
-    {
-        if (result.entityHit != null && result.entityHit!=thrower)
-        {
-            result.entityHit.attackEntityFrom(DamageSource.MAGIC, 1F);
-            result.entityHit.setFire(5);
-            this.setDead();
-        }
-    }
-
-    @Override
-    public void onUpdate() {
-        this.world.spawnParticle(EnumParticleTypes.FLAME, this.posX, this.posY + 0.5D, this.posZ, 0.0D, 0.0D, 0.0D);
-        super.onUpdate();
-
     }
 
     @Override
@@ -54,5 +43,25 @@ public class EntityXTHand extends EntityThrowable {
         return false;
     }
 
+    private int delay = 20*5;
 
+    @Override
+    public void onEntityUpdate() {
+        super.onEntityUpdate();
+
+        EntityHelper.particleSimple(world,new BlockPos(posX,posY,posZ), EnumParticleTypes.FLAME);
+
+        delay--;
+        if(delay==0)
+            this.setDead();
+
+        for (EntityLivingBase entity : world.getEntitiesWithinAABB(EntityLivingBase.class, new AxisAlignedBB(posX + 0.5, posY + 0.5, posZ + 0.5, posX + 0.5, posY - 0.5, posZ - 0.5))) {
+            if (entity != thrower) {
+
+                entity.attackEntityFrom(DamageSource.causeMobDamage(thrower), 5);
+                entity.setFire(5);
+                delay = Math.min(delay, 5);
+            }
+        }
+    }
 }

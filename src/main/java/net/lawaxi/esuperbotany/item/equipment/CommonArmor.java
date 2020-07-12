@@ -25,8 +25,8 @@ import java.util.List;
 
 public class CommonArmor extends ItemArmor {
 
-    private static final HashMap<String, List<Item>> armors = new HashMap<>();
-    private final String group;
+    public static final HashMap<String, List<Item>> armors = new HashMap<>();
+    public final String group;
     private final int repairCost;
 
     protected final HashMap<EntityEquipmentSlot,ModelBiped> models = new HashMap<>();
@@ -93,7 +93,7 @@ public class CommonArmor extends ItemArmor {
 
             //hasArmorSetItem
             for(Item armor : armors.get(group)){
-                tooltip.add(" - "+I18n.format("item."+armor.getUnlocalizedName()+".name"));
+                tooltip.add(" - "+I18n.format(armor.getUnlocalizedName()+".name"));
             }
 
         }else{

@@ -29,6 +29,7 @@ public class EsuLexicon {
     public static LexiconEntry IRRIGATOR;
     public static LexiconEntry JOESSR;
     public static LexiconEntry DEGAUSSER;
+    public static LexiconEntry CUCURBIT;
 
     public static void init(){
 
@@ -46,7 +47,7 @@ public class EsuLexicon {
         LOTUSPEONY =new CommonFloraLexicon(FuctionalFlora.LOTUSPEONY,BotaniaAPI.categoryFunctionalFlowers,EsuPetalRecipe.lotuspeony);
         IRRIGATOR = new CommonFloraLexicon(FuctionalFlora.IRRIGATOR,BotaniaAPI.categoryFunctionalFlowers,EsuPetalRecipe.irrigator);
         DEGAUSSER = new CommonFloraLexicon(FuctionalFlora.DEGAUSSER,BotaniaAPI.categoryFunctionalFlowers,EsuPetalRecipe.degausser);
-
+        CUCURBIT = new CommonFloraLexicon(FuctionalFlora.CUCURBIT,BotaniaAPI.categoryFunctionalFlowers,EsuPetalRecipe.cucurbit);
 
         JOESSR = new BasicLexiconEntry(FuctionalFlora.JOESSR,categoryESU);
         JOESSR.setIcon(ItemBlockSpecialFlower.ofType(FuctionalFlora.JOESSR));
@@ -58,7 +59,8 @@ public class EsuLexicon {
         new CommonItemInfoLexicon("oldeaterrod",1,true,BotaniaAPI.relicKnowledge,new ItemStack(EsuCommons.OLDEATER));
         new CommonItemInfoLexicon("expellorod",1,true,BotaniaAPI.relicKnowledge,new ItemStack(EsuCommons.EXPELLOROD));
         new CommonItemInfoLexicon("manabow",1,true,BotaniaAPI.relicKnowledge,new ItemStack(EsuCommons.MANABOW));
-        //new CommonItemInfoLexicon("manaaxe",1,true,BotaniaAPI.relicKnowledge,new ItemStack(EsuCommons.MANAAXE));
+        new CommonItemInfoLexicon("bhsfuniform",1,true,BotaniaAPI.basicKnowledge,new ItemStack(Item.getByNameOrId("esuperbotany:bhsfuniform")));
+
 
         LexiconEntry redscarf = new BasicLexiconEntry("redScarf",BotaniaAPI.categoryBaubles);
         redscarf.setIcon(new ItemStack(EsuCommons.COSMETIC,1,0));
@@ -82,7 +84,7 @@ public class EsuLexicon {
 
 
         LexiconEntry xt = new BasicLexiconEntry("xtarmor",categoryESU);
-        xt.setIcon(new ItemStack(Item.getByNameOrId("esuperbotany:xtchestplate")));
+        xt.setIcon(new ItemStack(Item.getByNameOrId("esuperbotany:xthelmet")));
         xt.setKnowledgeType(BotaniaAPI.basicKnowledge);
         xt.setLexiconPages(new LexiconPage[]{new PageText("0")
                 ,new PageCraftingRecipe("1", new ResourceLocation("esuperbotany","xthelmet"))
@@ -90,6 +92,5 @@ public class EsuLexicon {
                 ,new PageCraftingRecipe("1", new ResourceLocation("esuperbotany","xtleggings"))
                 ,new PageCraftingRecipe("1", new ResourceLocation("esuperbotany","xtboots"))});
 
-        new CommonItemInfoLexicon("bhsfuniform",1,true,BotaniaAPI.basicKnowledge,new ItemStack(Item.getByNameOrId("esuperbotany:bhsfuniform")));
     }
 }

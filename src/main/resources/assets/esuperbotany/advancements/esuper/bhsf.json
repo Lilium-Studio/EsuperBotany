@@ -24,6 +24,6 @@
     }
   },
   "rewards": {
-    "loot": ["esuperbotany:loot_table/bhsf.json"]
+    "loot": "esuperbotany:advance/bhsf"
   }
 }

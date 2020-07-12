@@ -3,7 +3,9 @@ package net.lawaxi.esuperbotany.entity.Vazkii;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.BossInfo;
 import net.minecraft.world.BossInfoServer;
@@ -19,6 +21,7 @@ import java.util.UUID;
 
 public class EntityVazkii extends EntityLiving implements IBotaniaBoss, IEntityAdditionalSpawnData {
 
+    public int longNeck;
     private BossInfoServer bossinfo;
 
     public EntityVazkii(World worldIn) {
@@ -75,5 +78,30 @@ public class EntityVazkii extends EntityLiving implements IBotaniaBoss, IEntityA
     @Override
     public void readSpawnData(ByteBuf additionalData) {
 
+    }
+
+    @Override
+    public void onUpdate() {
+        super.onUpdate();
+
+        if(longNeck > 0)
+        {
+            longNeck--;
+        }else {
+
+
+            for (EntityPlayer player : world.getEntitiesWithinAABB(EntityPlayer.class, new AxisAlignedBB(posX - 5, posY - 0.5, posZ - 5, posX + 5, posY + 0.5, posZ + 5))) {
+
+                if (player.isCreative())
+                    continue;
+
+                if (!world.isRemote) {
+                    getLookHelper().setLookPositionWithEntity(player, 0.0F, -1.0F);
+                    longNeck = 20;
+                    break;
+                }
+
+            }
+        }
     }
 }

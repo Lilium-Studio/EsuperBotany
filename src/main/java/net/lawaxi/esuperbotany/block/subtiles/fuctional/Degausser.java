@@ -1,4 +1,4 @@
-package net.lawaxi.esuperbotany.block.flora.fuctional;
+package net.lawaxi.esuperbotany.block.subtiles.fuctional;
 
 import net.lawaxi.esuperbotany.api.EntityHelper;
 import net.lawaxi.esuperbotany.utils.register.EsuLexicon;
@@ -30,7 +30,7 @@ public class Degausser extends SubTileFunctional {
                 }else{
                     mana-= cost*item.getItem().getCount();
                     ItemNBTHelper.removeEntry(item.getItem(),TAG);
-                    EntityHelper.particleAround(item,EnumParticleTypes.END_ROD);
+                    EntityHelper.particleAround(item,EnumParticleTypes.END_ROD,true);
                 }
 
                 return;
@@ -43,7 +43,7 @@ public class Degausser extends SubTileFunctional {
 
     @Override
     public int getMaxMana() {
-        return 19950921;
+        return cost;
     }
 
 

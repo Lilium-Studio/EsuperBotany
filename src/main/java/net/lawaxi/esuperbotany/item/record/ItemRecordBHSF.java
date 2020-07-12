@@ -1,7 +1,7 @@
 package net.lawaxi.esuperbotany.item.record;
 
-import net.lawaxi.esuperbotany.item.CommonItemRecord;
-import net.lawaxi.esuperbotany.utils.register.EsuSounds;
+import net.lawaxi.esuperbotany.item.util.CommonItemRecord;
+import net.lawaxi.esuperbotany.utils.register.minecraft.EsuSounds;
 
 public class ItemRecordBHSF extends CommonItemRecord {
 

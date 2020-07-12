@@ -1,10 +1,11 @@
 {
   "pools": [
     {
+      "name": "main",
       "rolls": 1,
       "entries": [
         {
-          "type": "minecraft:item",
+          "type": "item",
           "name": "esuperbotany:record_bhsf",
           "weight": 100
         }

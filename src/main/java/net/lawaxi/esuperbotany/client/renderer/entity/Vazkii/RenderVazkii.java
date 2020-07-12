@@ -14,11 +14,16 @@ public class RenderVazkii extends RenderBiped<EntityVazkii>{
         super(renderManagerIn,
                 new ModelPlayer(0.0F, false),
                 0.0F);
-        //植物魔法的BOSS都没有影子诶
     }
 
     @Override
     public void doRender(EntityVazkii entity, double x, double y, double z, float entityYaw, float partialTicks) {
+
+        if(entity.longNeck > 0 ){
+            ((ModelPlayer)this.mainModel).bipedHead.offsetX+=5F;
+            ((ModelPlayer)this.mainModel).bipedHead.offsetX+=5F;
+        }
+
         super.doRender(entity, x, y, z, entityYaw, partialTicks);
     }
 

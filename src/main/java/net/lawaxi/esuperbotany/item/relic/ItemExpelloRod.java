@@ -1,7 +1,7 @@
 package net.lawaxi.esuperbotany.item.relic;
 
 import net.lawaxi.esuperbotany.api.EntityHelper;
-import net.lawaxi.esuperbotany.item.relic.util.CommonItemRelic;
+import net.lawaxi.esuperbotany.item.util.CommonItemRelic;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
@@ -43,6 +43,8 @@ public class ItemExpelloRod extends CommonItemRelic implements IManaUsingItem {
 
                     if(worldIn.isRemote)
                         player.swingArm(hand);
+
+                    player.getCooldownTracker().setCooldown(this,20*5);
 
                     return ActionResult.newResult(EnumActionResult.SUCCESS,me);
                 }

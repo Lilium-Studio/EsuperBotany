@@ -1,6 +1,6 @@
 package net.lawaxi.esuperbotany.item.equipment;
 
-import net.lawaxi.esuperbotany.utils.register.EsuMaterial;
+import net.lawaxi.esuperbotany.utils.register.minecraft.EsuMaterial;
 import net.minecraft.inventory.EntityEquipmentSlot;
 
 public class ArmorStinky extends CommonArmor {

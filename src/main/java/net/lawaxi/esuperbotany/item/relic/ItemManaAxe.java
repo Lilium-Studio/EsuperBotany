@@ -2,7 +2,7 @@ package net.lawaxi.esuperbotany.item.relic;
 
 import net.lawaxi.esuperbotany.api.EntityHelper;
 import net.lawaxi.esuperbotany.item.ItemLootBag;
-import net.lawaxi.esuperbotany.item.relic.util.CommonItemAxeRelic;
+import net.lawaxi.esuperbotany.item.util.CommonItemAxeRelic;
 import net.lawaxi.esuperbotany.utils.register.EsuCommons;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;

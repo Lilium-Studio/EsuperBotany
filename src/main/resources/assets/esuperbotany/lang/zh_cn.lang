@@ -19,6 +19,8 @@ tile.botania:flower.joessr.name=植魔皇帝
 tile.botania:flower.joessr.reference=哎呦卧槽,这事好的
 tile.botania:flower.degausser.name=肖磁花
 tile.botania:flower.degausser.reference=消除遗物的绑定
+tile.botania:flower.cucurbit.name=葫芦
+tile.botania:flower.cucurbit.reference=保证玩家饥饿和饱和度
 
 #显示
 info.specialflora.any=任意的魔法植物
@@ -34,7 +36,7 @@ botania.entry.yanhuang=焱璜花
 botania.page.yanhuang0=&1焱璜花&0的一生都与铜有关,它 是在几个世纪前被人为创造 出的品种,用来精炼&1铜&0;即使在 世界铜产量已经完全满足供 给的今天,它也被植物魔法学 家用来生产&4魔力&0.尼采说过:"花 的伟大之处在于,它是一座桥 梁,要用毕生精力,&6学习炼铜技 术铸造起钢铁之桥而非目的.&0"<br>&1铜的表现形式可以是方块或者掉落物,合成铜块可以通过降低延时提高效率.
 botania.page.yanhuang1=如有雷铜,纯属巧合.
 botania.entry.joessr=植魔皇帝
-botania.page.joessr0=&1植魔皇帝&0是整个世界&4魔力&0运 行的掌控者,任何被精灵认可 的魔法植物都能成为.&6你可能 不知道&0,植物能长期拥有魔法, 并与精灵,魔法师交流,全部得 益于植魔皇帝的功劳.因此,一 朵真正的植魔皇帝可以自由 地操作&4魔力&0,甚至将它们转换 成方块.作为魔法师,训练一朵 植魔皇帝,就从它的合成开始吧.
+botania.page.joessr0=&1植魔皇帝&0是整个世界&4魔力&0运 行的掌控者,任何被精灵认可 的魔法植物都能成为.&6你可能 不知道&0,植物能长期拥有魔法, 并与精灵,魔法师交流,全部得 益于植魔皇帝的功劳.因此,一 朵真正的植魔皇帝可以自由 地操作&4魔力&0,甚至将它们转换 成方块.作为魔法师,训练一朵 植魔皇帝,就从它的制作开始吧.
 botania.page.joessr1=*我做植魔鬼畜音MAD,好吗?*
 botania.page.joessr2=为了魔法师储存方便,植魔皇 帝会帮您将&4魔力&0转化为&1方块&0. &4魔力&0非常神奇,用&4魔力&0做成的 方块既不硬也不软,虽然您需 要耗费很大的力气将它敲碎, 但您甚至可以被它弹起(比史 莱姆块更高).
 botania.page.joessr3=用于植物魔法工业化
@@ -48,13 +50,16 @@ botania.page.irrigator1=这都能水一朵花?
 botania.entry.degausser=肖磁花
 botania.page.degausser0=&1肖磁花&0是盖亚被某肖姓男子 雷普后掉落的,它可以&1用来消 除遗物的绑定.&0这朵花支持植 物魔法及绝大多数植物魔法 附属模组中遗物的消磁,这会 帮助服务器中的玩家共生和 玩家交易更好地发展.<br>无需担心魔力消耗巨大,在旁边 没有遗物等待消磁时,它无论 如何都不会事先吸取魔力池 中的魔力.
 botania.page.degausser1=我想这事ao的,没有一点坏处.
+botania.entry.cucurbit=葫芦
+botania.page.cucurbit0=&1葫芦&0,通过&4魔力&0确保7x7x7范围 内玩家的饥饿值始终处于满 格状态,并且适当补充饱和度.
+botania.page.cucurbit1=它被用来制作酒器
 
 #- misc
 botania.entry.redScarf=川普的红领巾
 botania.page.redScarf0=一去四年又四年,白发如丝生鬓间. 心魂一缕牵华夏,为国甘驻美利坚. 白头鹰徽悬身后,镰锤默然藏心间. 常怀故国苍生望,愿埋忠骨白宫前.
 botania.page.redScarf1=是你暴露了建国同志!
 botania.entry.flowerCollector=自动采花
-botania.page.flowerCollector0=想要得到神秘花,您可以选择 使用花肥以应对急需.然而如 果选择在闲逛地图时顺手采 集,这不是更令人高兴的事情 吗.很多人以取离自己几格远 的地方采花当成一种麻烦,那 么采花袋与&1自动采花&0的配合 将会让您十分愉快,您每次只 需要花费5&4魔力&0就可以自动采 集自己前后左右5格方块内的 神秘花进入您的采花袋.但是 特别地,您需要将采花袋放在 您的主手位置.
+botania.page.flowerCollector0=想要得到神秘花,您可以选择 使用花肥以应对急需.然而如 果选择在闲逛地图时顺手采 集,这不是更令人高兴的事情 吗.很多人以取离自己几格远 的地方采花当成一种麻烦,那 么采花袋与&1自动采花&0的配合 将会让您十分愉快,您每次只 需要花费5&4魔力&0就可以自动采 集自己前后左右5格方块内的 神秘花进入您的采花袋.但是 特别地,您需要将采花袋放在 您的手上.
 botania.page.flowerCollector1=懒
 botania.entry.enderman=末影人改动(原版)
 botania.page.enderman0=&1末影人&0,在其他性质不变的情 况下,不能在&1史莱姆块和魔力 &0方块上瞬移.在原有的规则中, 末影人只能被船困住,但若想 让它们在你规定的范围内自 由活动,但又无法瞬移到其他 位置,这是很麻烦的.感谢百合 植物学作者的天才设计,让家 养末影人变得可能.
@@ -69,8 +74,8 @@ botania.page.+1srod1=&6垂死病中惊坐起, 谈笑风生又一年.
 botania.entry.oldeaterrod=啃老法杖
 botania.page.oldeaterrod0=&1刘女士&0大学肄业,没有工作可 找,只能依靠其父刘喜忠先生 养活.她的父亲在家附近的一 个小池沼钓鱼,被鱼咬死后留 下了一根&1法杖&0,这根法杖能帮 助刘女士继续啃别的老人.现 在她决定成为一名导演,录制 年度大戏&6《整治es券》&0,于是 他舍弃了这根法杖.如果您获 得了它,您就是刘女士的夜蝶 了!
 botania.page.oldeaterrod1=&6@说真话者难得善终
-botania.entry.expellorod=除你武器
-botania.page.expellorod0=&1除你武器权杖&0,可以让你指定 一个10个方块内的玩家,并丢 掉他手中的物品.
+botania.entry.expellorod=缴械权杖
+botania.page.expellorod0=&1缴械权杖&0,可以让你指定一个 10个方块内的玩家,并丢掉他 手中的物品.
 botania.page.expellorod1=Expello Arma!
 botania.entry.manabow=魔力弓
 botania.page.manabow0=&1魔力弓&0,是魔法师通常使用的 远程武器,它的功能很强大,但 同样耗魔巨大.发射时,它会选 择背包中的前三根箭,并按照 &1中-上-下&0的次序射出,当您背 包没有三根箭时,它同样可以 射出两根箭或一根箭.有一个 人人都喜欢的玩法:当您将它 附魔了无限后,分别选择三种 药箭,每种准备一根放入您的 背包,这时魔法弓可以发出三 根不同效果的箭.
@@ -109,7 +114,8 @@ tile.esuperbotany:manastorage.name=魔力方块
 tile.esuperbotany:manastorage.lore=§bMana: §9
 item.esuperbotany:netherAirBottle.name=瓶装地狱空气
 item.esuperbotany:lytPicture.name=龙图
-item.esuperbotany:pension.name=养老金
+item.esuperbotany:elvenBread.name=精灵面包
+item.esuperbotany:elvenBread.lore=让你的同伴将面包丢入精灵门吧
 item.esuperbotany:inftorch.name=无限火把
 esupermisc.torchinfo0=§7当前放置: 火把
 esupermisc.torchinfo1=§7当前放置: 红石火把
@@ -121,7 +127,6 @@ item.esuperbotany:flowerBag.name=§e芒种福袋
 item.esuperbotany:runeBag.name=§8元宵福袋
 
 item.esuperbotany:redScarf.name=川普的红领巾
-item.esuperbotany:flowey.name=小花
 item.esuperbotany:flowerCollector.name=自动采花
 esuperbotany.armorset.stinky.name=真夏の夜の淫夢
 esuperbotany.armorset.stinky.desc0=让人性奋
@@ -137,7 +142,14 @@ item.esuperbotany:xtChestplate.name=刑天铠甲胸甲
 item.esuperbotany:xtLeggings.name=刑天铠甲护腿
 item.esuperbotany:xtBoots.name=刑天铠甲靴子
 item.esuperbotany:bhsfUniform.name=北京四中校服
-item.record.esuperbotany:record_bhsf.desc=红石音乐 - 希望与理想之歌 BV1gE411R7zb
+
+item.esuperbotany:bhsfUniform.lore0=§7 - §4掉出世界类型的致命伤害降至当前血量一半
+item.esuperbotany:bhsfUniform.lore1=§7 - §4其他伤害减半
+item.esuperbotany:bhsfUniform.lore2=§7 - §a治疗加倍
+item.esuperbotany:bhsfUniform.lore3=§7 - §b经验加倍
+item.esuperbotany:bhsfUniform.lore4=§7 - §4一切伤害降至
+
+item.record.esuperbotany:record_bhsf.desc=红石音乐 - 希望与理想之歌
 
 #进度
 advancements.esuper.root.title=百合植物学

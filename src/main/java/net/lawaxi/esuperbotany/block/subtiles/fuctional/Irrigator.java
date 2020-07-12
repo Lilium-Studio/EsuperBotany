@@ -1,4 +1,4 @@
-package net.lawaxi.esuperbotany.block.flora.fuctional;
+package net.lawaxi.esuperbotany.block.subtiles.fuctional;
 
 import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.init.Blocks;

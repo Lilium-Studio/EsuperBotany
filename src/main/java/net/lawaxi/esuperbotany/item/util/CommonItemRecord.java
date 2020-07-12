@@ -1,4 +1,4 @@
-package net.lawaxi.esuperbotany.item;
+package net.lawaxi.esuperbotany.item.util;
 
 import net.lawaxi.esuperbotany.utils.register.EsuCommons;
 import net.minecraft.item.ItemRecord;

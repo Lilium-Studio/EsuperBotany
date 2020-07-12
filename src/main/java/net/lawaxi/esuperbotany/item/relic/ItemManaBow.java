@@ -1,6 +1,6 @@
 package net.lawaxi.esuperbotany.item.relic;
 
-import net.lawaxi.esuperbotany.item.relic.util.CommonItemBowRelic;
+import net.lawaxi.esuperbotany.item.util.CommonItemBowRelic;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;

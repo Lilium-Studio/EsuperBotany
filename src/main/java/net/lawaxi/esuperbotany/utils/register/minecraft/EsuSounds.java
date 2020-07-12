@@ -1,4 +1,4 @@
-package net.lawaxi.esuperbotany.utils.register;
+package net.lawaxi.esuperbotany.utils.register.minecraft;
 
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;

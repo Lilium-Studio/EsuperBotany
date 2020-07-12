@@ -56,6 +56,7 @@ public class EsuPetalRecipe {
     public static RecipePetals lotuspeony;
     public static RecipePetals irrigator;
     public static RecipePetals degausser;
+    public static RecipePetals cucurbit;
 
     //其他
     public static RecipePetals redScarf;
@@ -71,9 +72,10 @@ public class EsuPetalRecipe {
         yanhuang = BotaniaAPI.registerPetalRecipe(ItemBlockSpecialFlower.ofType(GeneratingFlora.YANHUANG),red,yellow,red,runeLust);
 
         //功能花
-        lotuspeony = BotaniaAPI.registerPetalRecipe(ItemBlockSpecialFlower.ofType(FuctionalFlora.LOTUSPEONY),red,green,red,runeSpring);
+        lotuspeony = BotaniaAPI.registerPetalRecipe(ItemBlockSpecialFlower.ofType(FuctionalFlora.LOTUSPEONY),red,red,red,green,green,green,runeSpring);
         irrigator = BotaniaAPI.registerPetalRecipe(ItemBlockSpecialFlower.ofType(FuctionalFlora.IRRIGATOR),blue,blue,blue,lightBlue,lightBlue,lightBlue,runeWater);
         degausser = BotaniaAPI.registerPetalRecipe(ItemBlockSpecialFlower.ofType(FuctionalFlora.DEGAUSSER),new ItemStack(Items.COMPASS),new ItemStack(Items.COMPASS),new ItemStack(Items.COMPASS),runeSloth);
+        cucurbit = BotaniaAPI.registerPetalRecipe(ItemBlockSpecialFlower.ofType(FuctionalFlora.CUCURBIT),green,green,green,purple,purple,purple,runeSummer);
 
         //其他
         redScarf = BotaniaAPI.registerPetalRecipe(new ItemStack(EsuCommons.COSMETIC,1,0),red,red,blue,white);
@@ -81,3 +83,4 @@ public class EsuPetalRecipe {
     }
 
 }
+

@@ -5,8 +5,11 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 import vazkii.botania.common.core.helper.Vector3;
 
+import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -47,14 +50,19 @@ public class EntityHelper {
     private static final Random rand = new Random();
 
 
-    public static void particleAround(Entity entity, EnumParticleTypes type)
+    public static void particleAround(Entity entity, EnumParticleTypes type, boolean little)
     {
+
         for (int i = 0; i < 5; ++i)
         {
             double d0 = rand.nextGaussian() * 0.02D;
             double d1 = rand.nextGaussian() * 0.02D;
             double d2 = rand.nextGaussian() * 0.02D;
-            entity.world.spawnParticle(type, entity.posX + (double)(rand.nextFloat() * entity.width * 2.0F) - (double)entity.width, entity.posY + 1.0D + (double)(rand.nextFloat() * entity.height), entity.posZ + (double)(rand.nextFloat() * entity.width * 2.0F) - (double)entity.width, d0, d1, d2);
+            entity.world.spawnParticle(type, entity.posX + (double)(rand.nextFloat() * entity.width * 2.0F) - (double)entity.width, entity.posY + (little ? 0.0D : 1.0D) + (double)(rand.nextFloat() * entity.height), entity.posZ + (double)(rand.nextFloat() * entity.width * 2.0F) - (double)entity.width, d0, d1, d2);
         }
+    }
+
+    public static void particleSimple(World world, BlockPos pos, EnumParticleTypes type){
+        world.spawnParticle(type, pos.getX(), pos.getY() + 0.5D, pos.getZ(), 0.0D, 0.0D, 0.0D);
     }
 }

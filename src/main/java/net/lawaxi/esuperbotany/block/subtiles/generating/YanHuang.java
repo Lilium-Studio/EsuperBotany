@@ -1,4 +1,4 @@
-package net.lawaxi.esuperbotany.block.flora.generating;
+package net.lawaxi.esuperbotany.block.subtiles.generating;
 
 import net.lawaxi.esuperbotany.utils.register.EsuCommons;
 import net.lawaxi.esuperbotany.utils.register.EsuLexicon;

@@ -1,11 +1,8 @@
 package net.lawaxi.esuperbotany.utils.register;
 
-import net.lawaxi.esuperbotany.block.flora.fuctional.Degausser;
-import net.lawaxi.esuperbotany.block.flora.fuctional.Irrigator;
-import net.lawaxi.esuperbotany.block.flora.fuctional.Joessr;
-import net.lawaxi.esuperbotany.block.flora.fuctional.LotusPeony;
-import net.lawaxi.esuperbotany.block.flora.generating.Lily;
-import net.lawaxi.esuperbotany.block.flora.generating.YanHuang;
+import net.lawaxi.esuperbotany.block.subtiles.fuctional.*;
+import net.lawaxi.esuperbotany.block.subtiles.generating.Lily;
+import net.lawaxi.esuperbotany.block.subtiles.generating.YanHuang;
 import net.lawaxi.esuperbotany.utils.names.FuctionalFlora;
 import net.lawaxi.esuperbotany.utils.names.GeneratingFlora;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -27,6 +24,7 @@ public class EsuSubTiles {
         registerSubTile(FuctionalFlora.JOESSR, Joessr.class);
         registerSubTile(FuctionalFlora.IRRIGATOR, Irrigator.class);
         registerSubTile(FuctionalFlora.DEGAUSSER, Degausser.class);
+        registerSubTile(FuctionalFlora.CUCURBIT, Cucurbit.class);
 
     }
 

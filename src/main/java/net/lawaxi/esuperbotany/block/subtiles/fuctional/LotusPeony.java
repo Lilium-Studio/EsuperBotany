@@ -1,4 +1,4 @@
-package net.lawaxi.esuperbotany.block.flora.fuctional;
+package net.lawaxi.esuperbotany.block.subtiles.fuctional;
 
 import net.lawaxi.esuperbotany.utils.register.EsuLexicon;
 import net.minecraft.entity.player.EntityPlayer;
@@ -26,7 +26,7 @@ public class LotusPeony extends SubTileFunctional {
         super.onUpdate();
 
         for(EntityPlayer player :
-                supertile.getWorld().getEntitiesWithinAABB(EntityPlayer.class, new AxisAlignedBB(getPos().add(-3,-3,-3),getPos().add(3,3,3)))){
+                getWorld().getEntitiesWithinAABB(EntityPlayer.class, new AxisAlignedBB(getPos().add(-3,-3,-3),getPos().add(3,3,3)))){
 
             if(mana<10)
                 break;

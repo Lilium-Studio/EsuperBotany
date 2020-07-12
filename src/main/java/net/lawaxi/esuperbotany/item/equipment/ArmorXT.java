@@ -2,7 +2,7 @@ package net.lawaxi.esuperbotany.item.equipment;
 
 import net.lawaxi.esuperbotany.client.model.armor.ModelArmorXT;
 import net.lawaxi.esuperbotany.entity.EntityXTHand;
-import net.lawaxi.esuperbotany.utils.register.EsuMaterial;
+import net.lawaxi.esuperbotany.utils.register.minecraft.EsuMaterial;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -50,10 +50,10 @@ public class ArmorXT extends CommonArmor implements IManaUsingItem {
 
         EntityPlayer player = e.getEntityPlayer();
 
-        if(wearAll(player) && ManaItemHandler.requestManaExactForTool(player.inventory.armorInventory.get(0), player, cost, true)){
+        if(!e.getWorld().isRemote && wearAll(player) && ManaItemHandler.requestManaExactForTool(player.inventory.armorInventory.get(0), player, cost, true)){
 
             EntityXTHand hand = new EntityXTHand(e.getWorld(),e.getEntityPlayer());
-            hand.shoot(player,player.rotationPitch,player.rotationYaw,0.0F, 0.8F, 1.0F);
+            hand.shoot(player,player.rotationPitch,player.rotationYaw,0.0F, 0.5F, 1.0F);
             e.getWorld().spawnEntity(hand);
         }
     }

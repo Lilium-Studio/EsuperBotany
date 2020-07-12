@@ -13,9 +13,9 @@ import net.lawaxi.esuperbotany.item.relic.Item1srod;
 import net.lawaxi.esuperbotany.item.relic.ItemExpelloRod;
 import net.lawaxi.esuperbotany.item.relic.ItemManaBow;
 import net.lawaxi.esuperbotany.item.relic.ItemOldEater;
-import net.lawaxi.esuperbotany.item.relic.util.CommonItemAxeRelic;
-import net.lawaxi.esuperbotany.item.relic.util.CommonItemBowRelic;
-import net.lawaxi.esuperbotany.item.relic.util.CommonItemRelic;
+import net.lawaxi.esuperbotany.item.util.CommonItemBowRelic;
+import net.lawaxi.esuperbotany.item.util.CommonItemRelic;
+import net.lawaxi.esuperbotany.item.util.CommonItemRecord;
 import net.lawaxi.esuperbotany.utils.names.FuctionalFlora;
 import net.lawaxi.esuperbotany.utils.names.GeneratingFlora;
 import net.minecraft.block.Block;
@@ -48,6 +48,9 @@ public class EsuCommons {
     public static ItemResource RESOURCE;
     public static ItemCosmetic COSMETIC;
     public static ItemLootBag LOOTBAG;
+    public static ItemFood FOOD;
+
+    public static CommonItemRecord RECORDBHSF;
 
     public static Block MANAEMERALDBLOCK;
     public static BlockManaStorage MANASTORAGE;
@@ -56,8 +59,13 @@ public class EsuCommons {
     public static CommonItemRelic ONESROD;
     public static CommonItemRelic OLDEATER;
     public static CommonItemRelic EXPELLOROD;
-    public static CommonItemAxeRelic MANAAXE;
     public static CommonItemBowRelic MANABOW;
+
+    public static ArmorXT XT0;
+    public static ArmorXT XT1;
+    public static ArmorXT XT2;
+    public static ArmorXT XT3;
+    public static ArmorBHSFUniform BHSFUNIFORM;
 
     public static final HashSet<Item> items = new HashSet<>();
 
@@ -73,7 +81,8 @@ public class EsuCommons {
                 FuctionalFlora.LOTUSPEONY,
                 FuctionalFlora.IRRIGATOR,
                 FuctionalFlora.JOESSR,
-                FuctionalFlora.DEGAUSSER
+                FuctionalFlora.DEGAUSSER,
+                FuctionalFlora.CUCURBIT
         }));
 
         FLORA = new BlockSpecialFlower(){
@@ -86,34 +95,31 @@ public class EsuCommons {
             }
         };
 
-
-        //铜
         COPPERINGOT = new ItemCopperIngot();
-
         COPPERORE = new BlockCopperOre();
         COPPERBLOCK = new BlockCopperBlock();
         MANAEMERALDBLOCK = new BlockManaEmeraldBlock();
         MANASTORAGE = new BlockManaStorage();
 
-        //魔法材料
+        RECORDBHSF = new ItemRecordBHSF();
+
         RESOURCE = new ItemResource();
         COSMETIC = new ItemCosmetic();
         LOOTBAG = new ItemLootBag();
+        FOOD = new ItemFood();
         INFTORCH = new ItemInfTorch();
 
-        //趣味道具
         ONESROD = new Item1srod();
         OLDEATER = new ItemOldEater();
         EXPELLOROD = new ItemExpelloRod();
         MANABOW = new ItemManaBow();
 
-        new ArmorXT(EntityEquipmentSlot.HEAD);
-        new ArmorXT(EntityEquipmentSlot.CHEST);
-        new ArmorXT(EntityEquipmentSlot.LEGS);
-        new ArmorXT(EntityEquipmentSlot.FEET);
+        XT0 = new ArmorXT(EntityEquipmentSlot.HEAD);
+        XT1 = new ArmorXT(EntityEquipmentSlot.CHEST);
+        XT2 = new ArmorXT(EntityEquipmentSlot.LEGS);
+        XT3 = new ArmorXT(EntityEquipmentSlot.FEET);
 
-        new ArmorBHSFUniform();
-        new ItemRecordBHSF();
+        BHSFUNIFORM = new ArmorBHSFUniform();
 
     }
 

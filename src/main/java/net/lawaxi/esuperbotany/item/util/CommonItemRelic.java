@@ -1,6 +1,6 @@
-package net.lawaxi.esuperbotany.item.relic.util;
+package net.lawaxi.esuperbotany.item.util;
 
-import net.lawaxi.esuperbotany.item.CommonItem;
+import net.lawaxi.esuperbotany.item.util.CommonItem;
 import net.lawaxi.esuperbotany.api.Helper;
 import net.lawaxi.esuperbotany.item.relic.DamgeType;
 import net.minecraft.client.Minecraft;

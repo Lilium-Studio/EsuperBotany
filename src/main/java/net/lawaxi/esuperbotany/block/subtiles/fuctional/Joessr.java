@@ -1,4 +1,4 @@
-package net.lawaxi.esuperbotany.block.flora.fuctional;
+package net.lawaxi.esuperbotany.block.subtiles.fuctional;
 
 import net.lawaxi.esuperbotany.block.BlockManaStorage;
 import net.lawaxi.esuperbotany.utils.register.EsuCommons;

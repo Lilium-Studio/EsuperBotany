@@ -2,6 +2,7 @@ package net.lawaxi.esuperbotany.item;
 
 import baubles.api.BaubleType;
 import baubles.api.IBauble;
+import net.lawaxi.esuperbotany.item.util.CommonItem;
 import net.lawaxi.esuperbotany.utils.register.EsuCommons;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
@@ -102,17 +103,6 @@ public class ItemCosmetic extends CommonItem implements ICosmeticBauble, IBauble
                 }
                 break;
             }
-            /*
-            case 1:{
-
-                //Helper.translateToHeadLevel(entityPlayer);
-                Helper.translateToFace();
-                Helper.defaultTransforms();
-
-                GlStateManager.translate(0.0, +0.5, +0.15);
-                GlStateManager.scale(2.0F, 2.0F, 0.0F);
-                break;
-            }*/
         }
 
     }
@@ -189,6 +179,7 @@ public class ItemCosmetic extends CommonItem implements ICosmeticBauble, IBauble
                         }
                     }
                 }
+                break;
             }
         }
     }

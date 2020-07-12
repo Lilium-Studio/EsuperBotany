@@ -1,5 +1,6 @@
-package net.lawaxi.esuperbotany.utils.register;
+package net.lawaxi.esuperbotany.utils.register.minecraft;
 
+import net.lawaxi.esuperbotany.utils.register.EsuCommons;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 

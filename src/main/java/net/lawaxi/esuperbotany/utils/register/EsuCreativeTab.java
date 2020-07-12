@@ -1,6 +1,7 @@
 package net.lawaxi.esuperbotany.utils.register;
 
 import net.lawaxi.esuperbotany.item.ItemCosmetic;
+import net.lawaxi.esuperbotany.item.ItemFood;
 import net.lawaxi.esuperbotany.item.ItemLootBag;
 import net.lawaxi.esuperbotany.item.ItemResource;
 import net.lawaxi.esuperbotany.utils.names.GeneratingFlora;
@@ -93,6 +94,10 @@ public class EsuCreativeTab {
 
         }));
 
+        for(int i = 0; i< ItemFood.names.length; i++){
+            items.add("food:"+i);
+        }
+
         for(int i=0;i<ItemLootBag.names.length;i++){
             items.add("lootbag:"+i);
         }
@@ -115,7 +120,8 @@ public class EsuCreativeTab {
                 "xtChestplate",
                 "xtLeggings",
                 "xtBoots",
-                "bhsfuniform"
+                "bhsfuniform",
+                "bhsfuniform::custom-0"
 
         }));
 

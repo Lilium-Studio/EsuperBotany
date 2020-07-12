@@ -22,8 +22,8 @@ public class EsuElvenTrade {
         BotaniaAPI.registerElvenTradeRecipe(new ItemStack(ModItems.manaResource,1,13),new ItemStack(ModItems.manaResource,1,3));
         BotaniaAPI.registerElvenTradeRecipe(new ItemStack(EsuCommons.RESOURCE,1,2),new ItemStack(Items.PAINTING));
 
-        ItemStack a = new ItemStack(Item.getByNameOrId("mana:specialflower"));
-        try {
+        ItemStack a = new ItemStack(Item.getByNameOrId("specialflower"));
+        try{
             a.setStackDisplayName(I18n.format("info.specialflora.any"));
         }catch (Error e){
 
@@ -31,12 +31,15 @@ public class EsuElvenTrade {
         JOESSR = BotaniaAPI.registerElvenTradeRecipe(ItemBlockSpecialFlower.ofType(FuctionalFlora.JOESSR), a);
 
 
+        /*
         ItemStack b = new ItemStack(Items.SKULL);
         try{
             b.setStackDisplayName(I18n.format("info.playerskull.any"));
         }catch (Error e){
 
         }
-        LAWAXI = BotaniaAPI.registerElvenTradeRecipe(Helper.gethead("Lawaxi"),b);
+        LAWAXI = BotaniaAPI.registerElvenTradeRecipe(Helper.gethead("Lawaxi"),b);*/
+
+        LAWAXI = BotaniaAPI.registerElvenTradeRecipe(Helper.gethead("Lawaxi"),new ItemStack(Items.SKULL));
     }
 }

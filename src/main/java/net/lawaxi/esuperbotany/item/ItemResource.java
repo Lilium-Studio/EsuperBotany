@@ -1,6 +1,7 @@
 package net.lawaxi.esuperbotany.item;
 
 import net.lawaxi.esuperbotany.entity.EntityHellAirBottle;
+import net.lawaxi.esuperbotany.item.util.CommonItem;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.entity.player.EntityPlayer;

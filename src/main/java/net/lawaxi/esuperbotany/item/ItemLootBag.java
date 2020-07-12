@@ -1,6 +1,7 @@
 package net.lawaxi.esuperbotany.item;
 
 import net.lawaxi.esuperbotany.api.Helper;
+import net.lawaxi.esuperbotany.item.util.CommonItem;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
@@ -16,7 +17,7 @@ import vazkii.botania.common.item.ModItems;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class ItemLootBag extends CommonItem{
+public class ItemLootBag extends CommonItem {
 
 
     public static final String[] names = {"resourceBag","flowerBag","runeBag"};
@@ -53,6 +54,7 @@ public class ItemLootBag extends CommonItem{
                     player.addItemStackToInventory(new ItemStack(ModItems.manaResource, 1, resources[itemRand.nextInt(resources.length)]));
                 } else
                     player.swingArm(hand);
+                break;
 
             }
             case 1:{
@@ -62,6 +64,7 @@ public class ItemLootBag extends CommonItem{
                     player.addItemStackToInventory(new ItemStack(ModBlocks.flower,1,flowers[itemRand.nextInt(flowers.length)]));
                 }else
                     player.swingArm(hand);
+                break;
             }
             case 2:{
                 if(!worldIn.isRemote){
@@ -69,6 +72,7 @@ public class ItemLootBag extends CommonItem{
                     player.addItemStackToInventory(new ItemStack(ModItems.rune,1,runes[itemRand.nextInt(runes.length)]));
                 }else
                     player.swingArm(hand);
+                break;
             }
         }
         return ActionResult.newResult(EnumActionResult.SUCCESS, me);
