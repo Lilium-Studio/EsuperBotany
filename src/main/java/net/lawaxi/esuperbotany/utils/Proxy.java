@@ -26,6 +26,7 @@ public class Proxy {
     public void init(FMLInitializationEvent event) {
 
         MinecraftForge.EVENT_BUS.register(new EsuEvents());
+        EsuNetworkReg.init();
     }
 
     public void postInit(FMLPostInitializationEvent event) {

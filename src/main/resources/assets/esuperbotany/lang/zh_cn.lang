@@ -28,6 +28,9 @@ info.playerskull.any=任意的玩家头颅
 
 #植物魔法辞典
 
+botania.entry.esuperia=关于百合植物学
+botania.page.esuperia0=我们欢迎诚意参与本模组设 计,或者愿意关注本模组更新 消息的一般或二般通过,请加 &4qq群: 1085311625<br>&0感谢您下载了百合植物学的 beta1版本,已经包含2个产能花 和5个功能花了,虽然有一部分 花的功能挺谔谔的,但是毕竟 我们第一次做,还请大家多多 包涵.我们站在了巨人的肩膀 上,开发附属显的容易很多,我 们也希望在日后的版本能够 做出特色.
+
 #- flora
 botania.entry.lily=百合花
 botania.page.lily0=&1百合&0喜好食用&1死人&0,这事它们 产出&4魔力&0的唯一方法.它们常 说:&6"有的人活着,但他已经死了." &0在它们尚有灵性的2017年,它 们只会食用这种人.但如今植 物魔法学家有了掌控它们的 权力,因此它们会听从您的指 示,不论您喂给它们什么,或者 是用&1红石信号&0让它们停止工作.
@@ -49,7 +52,7 @@ botania.page.irrigator0=&1灌水花&0是一种靠&4魔力&0趋势水 贴的花�
 botania.page.irrigator1=这都能水一朵花?
 botania.entry.degausser=肖磁花
 botania.page.degausser0=&1肖磁花&0是盖亚被某肖姓男子 雷普后掉落的,它可以&1用来消 除遗物的绑定.&0这朵花支持植 物魔法及绝大多数植物魔法 附属模组中遗物的消磁,这会 帮助服务器中的玩家共生和 玩家交易更好地发展.<br>无需担心魔力消耗巨大,在旁边 没有遗物等待消磁时,它无论 如何都不会事先吸取魔力池 中的魔力.
-botania.page.degausser1=我想这事ao的,没有一点坏处.
+botania.page.degausser1=磁盘操作系统
 botania.entry.cucurbit=葫芦
 botania.page.cucurbit0=&1葫芦&0,通过&4魔力&0确保7x7x7范围 内玩家的饥饿值始终处于满 格状态,并且适当补充饱和度.
 botania.page.cucurbit1=它被用来制作酒器
@@ -66,6 +69,10 @@ botania.page.enderman0=&1末影人&0,在其他性质不变的情 况下,不能�
 botania.page.enderman1=世上第一只家养末影人的灵位
 botania.entry.inftorch=无限火把
 botania.page.inftorch0=用&1源质钢锭&0和&1盖亚之魂&0可以 做出一个有趣的火把,它是精 灵和诸神带给人类的宝物,可 以将能量转化为物质.例如在 两种模式中分别可以用魔力 产生普通火把和红石火把.
+botania.page.inftorch1=无限火把的合成
+botania.entry.voidwalker=虚空旅行杖
+botania.page.voidwalker0=&1虚空旅行杖&0可以借助&4魔力&0,让 您在某一高度停留,而不是掉 下去.拿着它,您可以始终保持 在刚拿起时的高度,并且在魔 力耗费光之前不会掉下去.除 了刚拿起时,您并不需要消耗 太多的&4魔力&0.
+botania.page.voidwalker1=虚空旅行杖的合成
 
 #- esu
 botania.entry.+1srod=续命法杖
@@ -114,9 +121,11 @@ tile.esuperbotany:manastorage.name=魔力方块
 tile.esuperbotany:manastorage.lore=§bMana: §9
 item.esuperbotany:netherAirBottle.name=瓶装地狱空气
 item.esuperbotany:lytPicture.name=龙图
+item.esuperbotany:pension.name=养老金
 item.esuperbotany:elvenBread.name=精灵面包
 item.esuperbotany:elvenBread.lore=让你的同伴将面包丢入精灵门吧
 item.esuperbotany:inftorch.name=无限火把
+item.esuperbotany:voidwalker.name=虚空旅行杖
 esupermisc.torchinfo0=§7当前放置: 火把
 esupermisc.torchinfo1=§7当前放置: 红石火把
 
@@ -128,12 +137,6 @@ item.esuperbotany:runeBag.name=§8元宵福袋
 
 item.esuperbotany:redScarf.name=川普的红领巾
 item.esuperbotany:flowerCollector.name=自动采花
-esuperbotany.armorset.stinky.name=真夏の夜の淫夢
-esuperbotany.armorset.stinky.desc0=让人性奋
-item.esuperbotany:stinkyHelmet.name=cosplay头部
-item.esuperbotany:stinkyChestplate.name=白色T恤
-item.esuperbotany:stinkyLeggings.name=深蓝色裤子
-item.esuperbotany:stinkyBoots.name=沾有红茶渍的拖鞋
 esuperbotany.armorset.xt.name=刑天铠甲
 esuperbotany.armorset.xt.desc0=天地无法阻挡
 esuperbotany.armorset.xt.desc1=左键发射火刑风云掌

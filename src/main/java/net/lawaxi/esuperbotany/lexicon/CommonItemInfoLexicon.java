@@ -4,6 +4,7 @@ import net.lawaxi.esuperbotany.utils.register.EsuLexicon;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import vazkii.botania.api.lexicon.KnowledgeType;
+import vazkii.botania.api.lexicon.LexiconCategory;
 import vazkii.botania.api.lexicon.LexiconPage;
 import vazkii.botania.common.lexicon.BasicLexiconEntry;
 import vazkii.botania.common.lexicon.page.PageCraftingRecipe;
@@ -14,9 +15,9 @@ import java.util.ArrayList;
 
 public class CommonItemInfoLexicon extends BasicLexiconEntry {
 
-    public CommonItemInfoLexicon(String unlocalizedName, int page, boolean hasRecipe, KnowledgeType type, @Nullable ItemStack icon) {
+    public CommonItemInfoLexicon(String unlocalizedName, int page, boolean hasRecipe, KnowledgeType type, @Nullable ItemStack icon, @Nullable LexiconCategory category) {
 
-        super(unlocalizedName, EsuLexicon.categoryESU);
+        super(unlocalizedName, category== null ? EsuLexicon.categoryESU : category);
         setKnowledgeType(type);
 
         //文章

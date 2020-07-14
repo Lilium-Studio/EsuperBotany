@@ -8,7 +8,8 @@
     },
     "description": {
       "translate": "advancements.esuper.expellorod.description"
-    }
+    },
+    "frame": "goal"
   },
   "parent": "esuperbotany:esuper/oldeater",
   "criteria": {

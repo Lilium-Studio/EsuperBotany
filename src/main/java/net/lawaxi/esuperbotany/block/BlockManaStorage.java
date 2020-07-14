@@ -1,5 +1,6 @@
 package net.lawaxi.esuperbotany.block;
 
+import net.lawaxi.esuperbotany.EsuperBotany;
 import net.lawaxi.esuperbotany.block.tile.TileManaStorage;
 import net.lawaxi.esuperbotany.item.block.ItemManaStorage;
 import net.lawaxi.esuperbotany.utils.register.EsuCommons;
@@ -18,6 +19,7 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
+import net.minecraft.world.Explosion;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
@@ -31,7 +33,6 @@ import java.util.Random;
 public class BlockManaStorage extends Block {
 
     public static final int default_mana = 50000;
-//    private static final IProperty blockproperty = PropertyInteger.create("mana",Integer.MIN_VALUE,Integer.MAX_VALUE);
 
     public BlockManaStorage() {
 
@@ -69,27 +70,12 @@ public class BlockManaStorage extends Block {
         }
     }
 
-    @Override
-    public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-        return super.getItemDropped(state, rand, fortune);
-    }
-
-    @Override
-    public List<ItemStack> getDrops(IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
-        List<ItemStack> ret = new ArrayList<>();
-        ItemStack a = new ItemStack(EsuCommons.MANASTORAGE);
-        int mana = getMana(world,pos);
-        if(mana!=default_mana){
-            ((ItemManaStorage)a.getItem()).setMana(a,mana);
-        }
-        ret.add(a);
-        return ret;
-    }
-
+    //挖掘掉落
     @Override
     public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
         ItemStack a = new ItemStack(EsuCommons.MANASTORAGE);
         int mana = getMana(world,pos);
+        EsuperBotany.logger.warn(mana);
         if(mana!=default_mana){
             ((ItemManaStorage)a.getItem()).setMana(a,mana);
         }

@@ -111,6 +111,7 @@ public class EsuCreativeTab {
                 "copper_ore",
                 "copper_block",
                 "inftorch",
+                "voidwalker",
                 "+1srod",
                 "oldeaterrod",
                 "expellorod",

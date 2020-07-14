@@ -1,6 +1,7 @@
 package net.lawaxi.esuperbotany.entity;
 
 import net.lawaxi.esuperbotany.api.EntityHelper;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityThrowable;
@@ -10,8 +11,11 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.registry.IThrowableEntity;
 
-public class EntityXTHand extends EntityThrowable {
+import javax.annotation.Nullable;
+
+public class EntityXTHand extends EntityThrowable implements IThrowableEntity {
 
     public EntityXTHand(World world, EntityPlayer player) {
         super(world,player);
@@ -63,5 +67,18 @@ public class EntityXTHand extends EntityThrowable {
                 delay = Math.min(delay, 5);
             }
         }
+    }
+
+    @Nullable
+    @Override
+    public EntityLivingBase getThrower() {
+        return thrower;
+    }
+
+    @Override
+    public void setThrower(Entity entity) {
+
+        if(entity instanceof EntityLivingBase)
+            thrower = (EntityLivingBase) entity;
     }
 }

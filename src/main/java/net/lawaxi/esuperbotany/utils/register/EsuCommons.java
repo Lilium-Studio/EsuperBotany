@@ -55,6 +55,7 @@ public class EsuCommons {
     public static Block MANAEMERALDBLOCK;
     public static BlockManaStorage MANASTORAGE;
     public static Item INFTORCH;
+    public static Item VOIDWALKER;
 
     public static CommonItemRelic ONESROD;
     public static CommonItemRelic OLDEATER;
@@ -108,6 +109,7 @@ public class EsuCommons {
         LOOTBAG = new ItemLootBag();
         FOOD = new ItemFood();
         INFTORCH = new ItemInfTorch();
+        VOIDWALKER = new ItemVoidWalker();
 
         ONESROD = new Item1srod();
         OLDEATER = new ItemOldEater();

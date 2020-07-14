@@ -8,6 +8,7 @@ import net.lawaxi.esuperbotany.utils.names.GeneratingFlora;
 import net.lawaxi.esuperbotany.utils.register.botania.EsuElvenTrade;
 import net.lawaxi.esuperbotany.utils.register.botania.EsuMultiBlockSet;
 import net.lawaxi.esuperbotany.utils.register.botania.EsuPetalRecipe;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
@@ -33,11 +34,24 @@ public class EsuLexicon {
 
     public static void init(){
 
+
+
         //自定义菜单
         categoryESU = new LexiconCategory("category.Botania:esu");
         categoryESU.setIcon(new ResourceLocation("esuperbotany","textures/gui/categories/esu.png"));
         categoryESU.setPriority(0);
         BotaniaAPI.addCategory(categoryESU);
+
+
+
+
+
+
+        //广告
+        LexiconEntry adver = new BasicLexiconEntry("esuperia",categoryESU);
+        adver.setIcon(new ItemStack(Blocks.TALLGRASS,1,1));
+        adver.setKnowledgeType(BotaniaAPI.basicKnowledge);
+        adver.setLexiconPages(new LexiconPage[]{new PageText("0")});
 
         //产能花
         LILY = new CommonFloraLexicon(GeneratingFlora.LILY, BotaniaAPI.categoryGenerationFlowers, EsuPetalRecipe.lily);
@@ -55,12 +69,13 @@ public class EsuLexicon {
         JOESSR.setLexiconPages(new LexiconPage[]{new PageText("0"),new PageElvenRecipe("1", EsuElvenTrade.JOESSR),new PageText("2"),new PageMultiblock("3", EsuMultiBlockSet.EMPEROR),new PageMultiblock("4",EsuMultiBlockSet.EMPEROR2)});
 
         //其他
-        new CommonItemInfoLexicon("+1srod",1,true,BotaniaAPI.relicKnowledge,new ItemStack(EsuCommons.ONESROD));
-        new CommonItemInfoLexicon("oldeaterrod",1,true,BotaniaAPI.relicKnowledge,new ItemStack(EsuCommons.OLDEATER));
-        new CommonItemInfoLexicon("expellorod",1,true,BotaniaAPI.relicKnowledge,new ItemStack(EsuCommons.EXPELLOROD));
-        new CommonItemInfoLexicon("manabow",1,true,BotaniaAPI.relicKnowledge,new ItemStack(EsuCommons.MANABOW));
-        new CommonItemInfoLexicon("bhsfuniform",1,true,BotaniaAPI.basicKnowledge,new ItemStack(Item.getByNameOrId("esuperbotany:bhsfuniform")));
-
+        new CommonItemInfoLexicon("+1srod",1,true,BotaniaAPI.relicKnowledge,new ItemStack(EsuCommons.ONESROD),null);
+        new CommonItemInfoLexicon("oldeaterrod",1,true,BotaniaAPI.relicKnowledge,new ItemStack(EsuCommons.OLDEATER),null);
+        new CommonItemInfoLexicon("expellorod",1,true,BotaniaAPI.relicKnowledge,new ItemStack(EsuCommons.EXPELLOROD),null);
+        new CommonItemInfoLexicon("manabow",1,true,BotaniaAPI.relicKnowledge,new ItemStack(EsuCommons.MANABOW),null);
+        new CommonItemInfoLexicon("bhsfuniform",1,true,BotaniaAPI.basicKnowledge,new ItemStack(Item.getByNameOrId("esuperbotany:bhsfuniform")),null);
+        new CommonItemInfoLexicon("inftorch",1,true,BotaniaAPI.basicKnowledge,new ItemStack(EsuCommons.INFTORCH),BotaniaAPI.categoryTools);
+        new CommonItemInfoLexicon("voidwalker",1,true,BotaniaAPI.elvenKnowledge,new ItemStack(EsuCommons.VOIDWALKER),BotaniaAPI.categoryTools);
 
         LexiconEntry redscarf = new BasicLexiconEntry("redScarf",BotaniaAPI.categoryBaubles);
         redscarf.setIcon(new ItemStack(EsuCommons.COSMETIC,1,0));
@@ -77,12 +92,6 @@ public class EsuLexicon {
         enderman.setKnowledgeType(BotaniaAPI.basicKnowledge);
         enderman.setLexiconPages(new LexiconPage[]{new PageText("0"),new PageImage("1","esuperbotany:textures/gui/entries/enderman.png")});
 
-        LexiconEntry inftorch = new BasicLexiconEntry("inftorch",BotaniaAPI.categoryTools);
-        inftorch.setIcon(new ItemStack(EsuCommons.INFTORCH));
-        inftorch.setKnowledgeType(BotaniaAPI.elvenKnowledge);
-        inftorch.setLexiconPages(new LexiconPage[]{new PageText("0"),new PageCraftingRecipe("1",new ResourceLocation("esuperbotany","inftorch"))});
-
-
         LexiconEntry xt = new BasicLexiconEntry("xtarmor",categoryESU);
         xt.setIcon(new ItemStack(Item.getByNameOrId("esuperbotany:xthelmet")));
         xt.setKnowledgeType(BotaniaAPI.basicKnowledge);
@@ -91,6 +100,7 @@ public class EsuLexicon {
                 ,new PageCraftingRecipe("1", new ResourceLocation("esuperbotany","xtchestplate"))
                 ,new PageCraftingRecipe("1", new ResourceLocation("esuperbotany","xtleggings"))
                 ,new PageCraftingRecipe("1", new ResourceLocation("esuperbotany","xtboots"))});
+
 
     }
 }

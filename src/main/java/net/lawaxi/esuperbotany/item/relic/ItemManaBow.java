@@ -66,7 +66,7 @@ public class ItemManaBow extends CommonItemBowRelic implements IManaUsingItem {
             }
         }
 
-        if(!ManaItemHandler.requestManaExactForTool(me, playerIn, cost, false))
+        if(usesMana(me) && !ManaItemHandler.requestManaExactForTool(me, playerIn, cost, false))
             flag = false;
 
         if(flag){
@@ -157,7 +157,8 @@ public class ItemManaBow extends CommonItemBowRelic implements IManaUsingItem {
         int i = this.getMaxItemUseDuration(me) - timeLeft;
         float f = ItemBow.getArrowVelocity(i);
 
-        ManaItemHandler.requestManaExactForTool(me, player, cost, true);
+        if(usesMana(me))
+            ManaItemHandler.requestManaExactForTool(me, player, cost, true);
 
         if(!worldIn.isRemote) {
 

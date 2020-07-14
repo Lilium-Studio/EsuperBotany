@@ -13,7 +13,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
-import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import vazkii.botania.api.mana.IManaUsingItem;
 import vazkii.botania.api.mana.ManaItemHandler;
@@ -75,25 +74,26 @@ public class ItemManaAxe extends CommonItemAxeRelic implements IManaUsingItem {
             return super.hitEntity(stack, target, attacker);
     }
 
-    @SubscribeEvent
-    public void leftClick(PlayerInteractEvent.LeftClickEmpty e) {
+    @Override
+    public boolean onEntitySwing(EntityLivingBase entityLiving, ItemStack stack) {
 
+        if(entityLiving instanceof EntityPlayer) {
 
-        if (e.getItemStack().getItem() == this) {
-
-            EntityLivingBase target = EntityHelper.findTarget(e.getEntityPlayer(), EntityLivingBase.class, 20);
-            if (target != null && ManaItemHandler.requestManaExactForTool(e.getItemStack(), e.getEntityPlayer(), cost, true)) {
+            EntityLivingBase target = EntityHelper.findTarget((EntityPlayer) entityLiving, EntityLivingBase.class, 20);
+            if (target != null && ManaItemHandler.requestManaExactForTool(stack, (EntityPlayer) entityLiving, cost, true)) {
 
                 //e.getEntityPlayer().attackTargetEntityWithCurrentItem(target);
 
                 World world = target.getEntityWorld();
-                EntityLightningBolt lightningBolt = new EntityLightningBolt(world,target.posX,target.posY,target.posZ,false);
+                EntityLightningBolt lightningBolt = new EntityLightningBolt(world, target.posX, target.posY, target.posZ, false);
                 world.spawnEntity(lightningBolt);
 
+                return true;
             }
         }
-    }
 
+        return false;
+    }
 
     @SubscribeEvent
     public void onEntityDrops(LivingDropsEvent event) {

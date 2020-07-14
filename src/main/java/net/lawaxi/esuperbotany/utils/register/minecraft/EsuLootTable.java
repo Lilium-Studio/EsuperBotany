@@ -6,6 +6,6 @@ import net.minecraft.world.storage.loot.LootTableList;
 public class EsuLootTable {
 
     public static void init(){
-        LootTableList.register(new ResourceLocation("esuperbotany:advance/bhsf"));
+        LootTableList.register(new ResourceLocation("esuperbotany:bhsf"));
     }
 }

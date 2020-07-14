@@ -8,7 +8,8 @@
     },
     "description": {
       "translate": "advancements.esuper.bhsf.description"
-    }
+    },
+    "frame": "challenge"
   },
   "parent": "esuperbotany:esuper/emerald",
   "criteria": {
@@ -24,6 +25,7 @@
     }
   },
   "rewards": {
-    "loot": "esuperbotany:advance/bhsf"
+    "loot": ["esuperbotany:bhsf"],
+    "experience": 100
   }
 }

@@ -6,6 +6,7 @@ import net.minecraft.block.SoundType;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
@@ -15,9 +16,6 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.entity.player.PlayerInteractEvent;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import vazkii.botania.api.mana.IManaUsingItem;
@@ -32,11 +30,18 @@ public class ItemInfTorch extends CommonItem implements IManaUsingItem {
     public ItemInfTorch() {
         super("esuperbotany:inftorch");
         setMaxStackSize(1);
-        MinecraftForge.EVENT_BUS.register(this);
     }
 
     private static final int cost = 50;
     private static final int cost_red = 400;
+
+    private boolean getTorch(ItemStack stack) {
+        return ItemNBTHelper.getBoolean(stack, "redstone", false);
+    }
+
+    private void switchTorch(ItemStack stack) {
+        ItemNBTHelper.setBoolean(stack, "redstone", !getTorch(stack));
+    }
 
     @Override
     public boolean usesMana(ItemStack itemStack) {
@@ -69,12 +74,30 @@ public class ItemInfTorch extends CommonItem implements IManaUsingItem {
             SoundType soundtype = iblockstate1.getBlock().getSoundType(iblockstate1, worldIn, pos, player);
             worldIn.playSound(player, pos, soundtype.getPlaceSound(), SoundCategory.BLOCKS, (soundtype.getVolume() + 1.0F) / 2.0F, soundtype.getPitch() * 0.8F);
 
+            //防止触发切换模式
+            ItemNBTHelper.setBoolean(me,"setting",true);
             return EnumActionResult.SUCCESS;
-        } else
-            return EnumActionResult.FAIL;
+        }
+
+        return EnumActionResult.FAIL;
     }
 
+    /*
+    @Override
+    public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
+        switchTorch(playerIn.getHeldItem(handIn));
+        return super.onItemRightClick(worldIn, playerIn, handIn);
+    }*/
 
+    @Override
+    public boolean onEntitySwing(EntityLivingBase entityLiving, ItemStack stack) {
+
+        if(ItemNBTHelper.verifyExistance(stack,"setting")){
+            ItemNBTHelper.removeEntry(stack,"setting");
+        }
+        else switchTorch(stack);
+        return true;
+    }
 
     @Override
     public boolean showDurabilityBar(ItemStack stack) {
@@ -89,14 +112,6 @@ public class ItemInfTorch extends CommonItem implements IManaUsingItem {
             return 0.5D;
     }
 
-    private boolean getTorch(ItemStack stack) {
-        return ItemNBTHelper.getBoolean(stack, "redstone", false);
-    }
-
-    private void switchTorch(ItemStack stack) {
-        ItemNBTHelper.setBoolean(stack, "redstone", !getTorch(stack));
-    }
-
     @SideOnly(Side.CLIENT)
     @Override
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
@@ -107,11 +122,5 @@ public class ItemInfTorch extends CommonItem implements IManaUsingItem {
             tooltip.add(I18n.format("esupermisc.torchinfo0"));
 
         super.addInformation(stack, worldIn, tooltip, flagIn);
-    }
-
-
-    @SubscribeEvent
-    public void leftClick(PlayerInteractEvent.LeftClickEmpty e) {
-        switchTorch(e.getItemStack());
     }
 }

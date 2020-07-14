@@ -17,8 +17,8 @@ public class RenderXTHand extends Render<EntityXTHand> {
         super(renderManagerIn);
     }
 
+    private static final ResourceLocation TEXTURE = new ResourceLocation("esuperbotany:textures/entity/xthand.png");
 
-    @Nullable
     @Override
     protected ResourceLocation getEntityTexture(EntityXTHand entity) {
         return TEXTURE;
@@ -63,7 +63,5 @@ public class RenderXTHand extends Render<EntityXTHand> {
         GlStateManager.popMatrix();
         super.doRender(entity, x, y, z, entityYaw, partialTicks);
     }
-
-    private static final ResourceLocation TEXTURE = new ResourceLocation("esuperbotany:textures/entity/xthand.png");
 
 }
