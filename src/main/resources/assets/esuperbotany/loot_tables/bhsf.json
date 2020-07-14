@@ -1,6 +1,7 @@
 {
   "pools": [
     {
+      "name": "bhsf",
       "rolls": 1,
       "entries": [
         {

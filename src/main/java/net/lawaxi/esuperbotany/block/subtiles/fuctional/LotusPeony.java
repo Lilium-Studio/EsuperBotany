@@ -59,7 +59,7 @@ public class LotusPeony extends SubTileFunctional {
 
     @Override
     public int getMaxMana() {
-        return 500;
+        return 2000;
     }
 
 

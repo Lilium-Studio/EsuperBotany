@@ -4,7 +4,6 @@ import net.lawaxi.esuperbotany.block.BlockCopperBlock;
 import net.lawaxi.esuperbotany.block.BlockCopperOre;
 import net.lawaxi.esuperbotany.block.BlockManaEmeraldBlock;
 import net.lawaxi.esuperbotany.block.BlockManaStorage;
-import net.lawaxi.esuperbotany.block.tile.TileManaStorage;
 import net.lawaxi.esuperbotany.item.*;
 import net.lawaxi.esuperbotany.item.equipment.ArmorBHSFUniform;
 import net.lawaxi.esuperbotany.item.equipment.ArmorXT;
@@ -14,8 +13,8 @@ import net.lawaxi.esuperbotany.item.relic.ItemExpelloRod;
 import net.lawaxi.esuperbotany.item.relic.ItemManaBow;
 import net.lawaxi.esuperbotany.item.relic.ItemOldEater;
 import net.lawaxi.esuperbotany.item.util.CommonItemBowRelic;
-import net.lawaxi.esuperbotany.item.util.CommonItemRelic;
 import net.lawaxi.esuperbotany.item.util.CommonItemRecord;
+import net.lawaxi.esuperbotany.item.util.CommonItemRelic;
 import net.lawaxi.esuperbotany.utils.names.FuctionalFlora;
 import net.lawaxi.esuperbotany.utils.names.GeneratingFlora;
 import net.minecraft.block.Block;
@@ -24,8 +23,6 @@ import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.NonNullList;
-import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 import vazkii.botania.common.block.BlockSpecialFlower;
 import vazkii.botania.common.item.block.ItemBlockSpecialFlower;
 
@@ -72,7 +69,12 @@ public class EsuCommons {
 
     public static void init(){
 
+        /*
+
+        由于注册了tileEntity后发现活塞推不动的情况 因此删掉
         GameRegistry.registerTileEntity(TileManaStorage.class,new ResourceLocation("esuperbotany","manastorage"));
+           */
+
 
         //花朵
 

@@ -41,10 +41,10 @@ public class EsuMultiBlockSet {
         a.addComponent(new BlockPos(1,0,0), ModBlocks.pool.getDefaultState());
         a.addComponent(new BlockPos(0,0,0),ModBlocks.specialFlower.getDefaultState());
         a.addComponent(new BlockPos(-1,-1,+1),reFace(Blocks.REDSTONE_TORCH.getDefaultState(),EnumFacing.EAST));
-        a.addComponent(new BlockPos(+2,0,-1),Blocks.REDSTONE_WIRE.getDefaultState());
+        a.addComponent(new BlockPos(-2,0,+1),Blocks.REDSTONE_WIRE.getDefaultState());
         a.addComponent(new BlockPos(-2,0,+2),Blocks.STONE.getDefaultState());
         a.addComponent(new BlockPos(-2,1,+2),reFace(Blocks.PISTON.getDefaultState(),EnumFacing.EAST));
-        a.addComponent(new BlockPos(+1,0,-2),reFace(Blocks.PISTON.getDefaultState(),EnumFacing.SOUTH));
+        a.addComponent(new BlockPos(-1,0,+2),reFace(Blocks.PISTON.getDefaultState(),EnumFacing.SOUTH));
 
         return a.makeSet();
 

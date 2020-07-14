@@ -1,34 +1,18 @@
 package net.lawaxi.esuperbotany.block;
 
-import net.lawaxi.esuperbotany.EsuperBotany;
-import net.lawaxi.esuperbotany.block.tile.TileManaStorage;
 import net.lawaxi.esuperbotany.item.block.ItemManaStorage;
 import net.lawaxi.esuperbotany.utils.register.EsuCommons;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.RayTraceResult;
-import net.minecraft.world.Explosion;
-import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.oredict.OreDictionary;
-
-import javax.annotation.Nullable;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
 
 public class BlockManaStorage extends Block {
 
@@ -57,10 +41,11 @@ public class BlockManaStorage extends Block {
         // BlockSlimeCongealed.java
 
         if (entityIn instanceof EntityLivingBase || entityIn instanceof EntityItem) {
-
+/*
             int mana = getMana(worldIn,new BlockPos((int)entityIn.posX,(int)entityIn.posY,(int)entityIn.posZ).add(0,-1,0));
+
             if(mana!=default_mana)
-                entityIn.motionY *= mana/default_mana;
+                entityIn.motionY *= mana/default_mana;*/
 
             entityIn.motionY *= -1.2F;
             entityIn.fallDistance = 0;
@@ -69,7 +54,7 @@ public class BlockManaStorage extends Block {
                 entityIn.onGround = false;
         }
     }
-
+/*
     //挖掘掉落
     @Override
     public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
@@ -129,5 +114,5 @@ public class BlockManaStorage extends Block {
     public void onBlockPlacedBy(World worldIn, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack) {
         super.onBlockPlacedBy(worldIn, pos, state, placer, stack);
         setMana(worldIn,pos,((ItemManaStorage)stack.getItem()).getMana(stack));
-    }
+    }*/
 }

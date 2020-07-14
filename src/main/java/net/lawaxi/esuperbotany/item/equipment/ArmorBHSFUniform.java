@@ -73,7 +73,7 @@ public class ArmorBHSFUniform extends CommonArmor implements IManaUsingItem {
             if(e.getSource()== DamageSource.OUT_OF_WORLD && e.getAmount()>=player.getHealth()){
                 if(ManaItemHandler.requestManaExactForTool(stack, player, costHurtKill, true))
                 {
-                    e.setAmount(player.getHealth()/2);
+                    e.setAmount(player.getMaxHealth()/2);
                     EntityHelper.particleAround(player, EnumParticleTypes.CLOUD,true);
                 }
                 return;
