@@ -1,6 +1,7 @@
 package net.lawaxi.esuperbotany.item;
 
 import net.lawaxi.esuperbotany.item.util.CommonItem;
+import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -14,6 +15,7 @@ public class ItemVoidWalker extends CommonItem implements IManaUsingItem {
 
     public ItemVoidWalker() {
         super("esuperbotany:voidwalker");
+        setMaxStackSize(1);
     }
 
     private static final int cost_on_binding = 100;
@@ -29,16 +31,23 @@ public class ItemVoidWalker extends CommonItem implements IManaUsingItem {
             if(ItemNBTHelper.verifyExistance(stack,"bind")){
 
                 if(onHand(stack,player)) {
-                    if(costManaPerTick(stack,player))
+                    if(costManaPerTick(stack,player)) {
+
+                        player.capabilities.allowFlying=true;
+
+                        if(!GuiScreen.isShiftKeyDown())
                         player.motionY = 0;
+                    }
                 }
-                else
-                    ItemNBTHelper.removeEntry(stack,"bind");
+                else {
+                    player.capabilities.allowFlying = ItemNBTHelper.getBoolean(stack,"bind",false);
+                    ItemNBTHelper.removeEntry(stack, "bind");
+                }
 
             }else{
 
                 if(onHand(stack,player) && costManaOnBinding(stack,player)) {
-                    ItemNBTHelper.setBoolean(stack,"bind",true);
+                    ItemNBTHelper.setBoolean(stack,"bind",player.capabilities.allowFlying);
                     player.swingArm(((EntityPlayer) entityIn).getHeldItemMainhand() == stack ? EnumHand.MAIN_HAND : EnumHand.OFF_HAND);
                 }
 

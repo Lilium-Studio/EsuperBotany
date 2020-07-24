@@ -9,6 +9,7 @@ tile.botania:flower.lily.name=Lily
 tile.botania:flower.lily.reference=Unfortunately, xxx is dead
 tile.botania:flower.yanhuang.name=Yan Huang
 tile.botania:flower.yanhuang.reference=To produce Mana from copper smelting
+tile.botania:flower.rafrafflosia.name=Rafrafflosia
 
 #- Fuctional Flora
 tile.botania:flower.lotuspeony.name=Lotus Peony
@@ -120,9 +121,14 @@ tile.esuperbotany:manastorage.name=Block of Mana
 tile.esuperbotany:manastorage.lore=§bMana: §9
 item.esuperbotany:netherAirBottle.name=Nether Air Bottle
 item.esuperbotany:lytPicture.name=Dragon Picture
+item.esuperbotany:lytPicture.lore=No Persecuting!
 item.esuperbotany:pension.name=Pension
+item.esuperbotany:upMan.name=UpMan Card
 item.esuperbotany:elvenBread.name=Elven Bread
 item.esuperbotany:elvenBread.lore=Tell you friends to drop breads in the portal
+item.esuperbotany:sleepingTea.name=Sleeping Tea
+item.esuperbotany:fractureDrink.name=Fracture Drink
+item.esuperbotany:longjingTea.name=Longjing Tea
 item.esuperbotany:inftorch.name=Infinite Torch
 item.esuperbotany:voidwalker.name=Rod of Void Walker
 esupermisc.torchinfo0=§7Mode: Torch
@@ -134,7 +140,7 @@ item.esuperbotany:resourceBag.name=§cBag of the Spring Festival
 item.esuperbotany:flowerBag.name=§eBag of Grain in Ear
 item.esuperbotany:runeBag.name=§8Bag of the Lantern Festival
 
-item.esuperbotany:redScarf.name=Trump's Red Scarf
+item.esuperbotany:redScarf.name=Tran Jianguo's Red Scarf
 item.esuperbotany:flowerCollector.name=Auto Collector
 esuperbotany.armorset.xt.name=Xingtian Armor
 esuperbotany.armorset.xt.desc0=Heaven and earth can't stop
@@ -152,6 +158,9 @@ item.esuperbotany:bhsfUniform.lore3=§7 - §bExperiences doubled
 item.esuperbotany:bhsfUniform.lore4=§7 - §4All damages reduced to §4
 
 item.record.esuperbotany:record_bhsf.desc=Redstone Music - The song of hope and ideal
+
+#Challenging
+entity.esuperbotany:vazkii.name=Vazkii Offical
 
 #Advancements
 advancements.esuper.root.title=Esuperia

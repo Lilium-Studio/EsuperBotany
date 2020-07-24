@@ -9,9 +9,9 @@
     "subtitle": "esuperbotany.bhsf",
     "sounds": [ "esuperbotany:bhsf" ]
   },
-  "114514_short": {
-    "category": "block",
-    "subtitle": "esuperbotany.114514_short",
-    "sounds": [ "esuperbotany:114514_short" ]
+  "history_of_moon": {
+    "category": "record",
+    "subtitle": "esuperbotany.history_of_moon",
+    "sounds": [ "esuperbotany:history_of_moon" ]
   }
 }

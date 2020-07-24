@@ -2,8 +2,8 @@ package net.lawaxi.esuperbotany.item.equipment;
 
 import net.lawaxi.esuperbotany.client.model.armor.ModelArmorXT;
 import net.lawaxi.esuperbotany.entity.EntityXTHand;
-import net.lawaxi.esuperbotany.network2.EsuNetwork;
-import net.lawaxi.esuperbotany.network2.PacketXTHand;
+import net.lawaxi.esuperbotany.network.EsuNetwork;
+import net.lawaxi.esuperbotany.network.PacketXTHand;
 import net.lawaxi.esuperbotany.utils.register.minecraft.EsuMaterial;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.entity.Entity;

@@ -1,16 +1,19 @@
 package net.lawaxi.esuperbotany.item;
 
 import net.lawaxi.esuperbotany.entity.EntityHellAirBottle;
+import net.lawaxi.esuperbotany.entity.boss.vazkii.EntityVazkii;
 import net.lawaxi.esuperbotany.item.util.CommonItem;
+import net.minecraft.client.resources.I18n;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.SoundCategory;
+import net.minecraft.util.*;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldProviderHell;
 import net.minecraftforge.common.MinecraftForge;
@@ -20,9 +23,12 @@ import net.minecraftforge.oredict.OreDictionary;
 import vazkii.botania.api.recipe.IFlowerComponent;
 import vazkii.botania.common.entity.EntityEnderAirBottle;
 
+import javax.annotation.Nullable;
+import java.util.List;
+
 public class ItemResource extends CommonItem implements IFlowerComponent {
 
-    public static final String[] names = {"manaEmerald","netherAirBottle","lytPicture","pension","mana_ingot"};
+    public static final String[] names = {"manaEmerald","netherAirBottle","lytPicture","pension","upMan"};
 
 
     public ItemResource() {
@@ -33,7 +39,6 @@ public class ItemResource extends CommonItem implements IFlowerComponent {
         MinecraftForge.EVENT_BUS.register(this);
         OreDictionary.registerOre("manaEmerald", new ItemStack(this,0,0));
         OreDictionary.registerOre("elvenDragonpicture", new ItemStack(this,0,2));
-        OreDictionary.registerOre("ingotMana", new ItemStack(this,0,4));
 
     }
 
@@ -103,8 +108,47 @@ public class ItemResource extends CommonItem implements IFlowerComponent {
                 stack.shrink(1);
                 target.onKillCommand();
             }
-        }
+        }/*else if(stack.getMetadata()==4){
+            if(target instanceof EntityPlayer){
+                stack.shrink(1);
+                target.getPassengers().add(playerIn);
+            }
+        }*/
 
         return super.itemInteractionForEntity(stack, playerIn, target, hand);
     }
+
+    @Override
+    public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+
+        ItemStack me = player.getHeldItem(hand);
+        if(me.getMetadata()==4){
+            return EntityVazkii.spawn(player, me, worldIn, pos) ? EnumActionResult.SUCCESS : EnumActionResult.FAIL;
+        }
+
+        return super.onItemUse(player, worldIn, pos, hand, facing, hitX, hitY, hitZ);
+    }
+
+
+    @Override
+    public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
+
+        switch (stack.getMetadata()) {
+
+            case 2: {
+                tooltip.add(TextFormatting.ITALIC + I18n.format("item.esuperbotany:lytPicture.lore"));
+                break;
+            }
+
+            case 4:{
+                tooltip.add(TextFormatting.ITALIC + I18n.format("item.esuperbotany:upMan.lore"));
+                break;
+
+            }
+
+        }
+
+        super.addInformation(stack, worldIn, tooltip, flagIn);
+    }
+
 }

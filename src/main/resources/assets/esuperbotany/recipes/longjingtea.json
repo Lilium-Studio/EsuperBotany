@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "esuperbotany",
+  "pattern": [
+    "X",
+    "Y"
+  ],
+  "key": {
+    "X": {
+      "item": "esuperbotany:resource",
+      "data": 2
+    },
+    "Y": {
+      "item": "esuperbotany:food",
+      "data": 1
+    }
+  },
+  "result": {
+    "item": "esuperbotany:food",
+    "data": 3
+  }
+}

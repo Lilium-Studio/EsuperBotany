@@ -1,6 +1,7 @@
 package net.lawaxi.esuperbotany.item;
 
 import net.lawaxi.esuperbotany.api.Helper;
+import net.lawaxi.esuperbotany.api.PlayerHelper;
 import net.lawaxi.esuperbotany.item.util.CommonItem;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.resources.I18n;
@@ -51,7 +52,7 @@ public class ItemLootBag extends CommonItem {
 
                 if (!worldIn.isRemote) {
                     me.shrink(1);
-                    player.addItemStackToInventory(new ItemStack(ModItems.manaResource, 1, resources[itemRand.nextInt(resources.length)]));
+                    PlayerHelper.giveItem(player,new ItemStack(ModItems.manaResource, 1, resources[itemRand.nextInt(resources.length)]));
                 } else
                     player.swingArm(hand);
                 break;
@@ -61,7 +62,7 @@ public class ItemLootBag extends CommonItem {
 
                 if(!worldIn.isRemote){
                     me.shrink(1);
-                    player.addItemStackToInventory(new ItemStack(ModBlocks.flower,1,flowers[itemRand.nextInt(flowers.length)]));
+                    PlayerHelper.giveItem(player,new ItemStack(ModBlocks.flower,1,flowers[itemRand.nextInt(flowers.length)]));
                 }else
                     player.swingArm(hand);
                 break;
@@ -69,7 +70,7 @@ public class ItemLootBag extends CommonItem {
             case 2:{
                 if(!worldIn.isRemote){
                     me.shrink(1);
-                    player.addItemStackToInventory(new ItemStack(ModItems.rune,1,runes[itemRand.nextInt(runes.length)]));
+                    PlayerHelper.giveItem(player,new ItemStack(ModItems.rune,1,runes[itemRand.nextInt(runes.length)]));
                 }else
                     player.swingArm(hand);
                 break;

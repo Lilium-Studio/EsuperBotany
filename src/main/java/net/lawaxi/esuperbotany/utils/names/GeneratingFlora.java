@@ -4,5 +4,6 @@ public class GeneratingFlora {
 
     public static final String LILY = "lily";
     public static final String YANHUANG = "yanhuang";
+    public static final String RAFFRAFFLOWSIA = "rafrafflosia";
 
 }

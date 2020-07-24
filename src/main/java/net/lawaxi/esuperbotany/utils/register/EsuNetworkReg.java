@@ -1,9 +1,9 @@
 package net.lawaxi.esuperbotany.utils.register;
 
-import net.lawaxi.esuperbotany.network2.EsuNetwork;
-import net.lawaxi.esuperbotany.network2.PacketXTHand;
-import net.lawaxi.esuperbotany.network2.utils.EsuPacket;
-import net.lawaxi.esuperbotany.network2.utils.EsuPacketHandler;
+import net.lawaxi.esuperbotany.network.EsuNetwork;
+import net.lawaxi.esuperbotany.network.PacketXTHand;
+import net.lawaxi.esuperbotany.network.utils.EsuPacket;
+import net.lawaxi.esuperbotany.network.utils.EsuPacketHandler;
 import net.minecraftforge.fml.relauncher.Side;
 
 public class EsuNetworkReg {

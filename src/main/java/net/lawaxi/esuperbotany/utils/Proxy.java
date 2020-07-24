@@ -2,6 +2,7 @@ package net.lawaxi.esuperbotany.utils;
 
 import net.lawaxi.esuperbotany.utils.register.*;
 import net.lawaxi.esuperbotany.utils.register.botania.EsuBotaniaAll;
+import net.lawaxi.esuperbotany.utils.register.minecraft.EsuEvents;
 import net.lawaxi.esuperbotany.utils.register.minecraft.EsuMinecraftAll;
 import net.lawaxi.esuperbotany.world.WorldGenerator;
 import net.minecraftforge.common.MinecraftForge;

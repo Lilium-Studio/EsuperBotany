@@ -20,6 +20,7 @@ public class LotusPeony extends SubTileFunctional {
 
      */
 
+    private static final int per = 500;
 
     @Override
     public void onUpdate() {
@@ -28,7 +29,7 @@ public class LotusPeony extends SubTileFunctional {
         for(EntityPlayer player :
                 getWorld().getEntitiesWithinAABB(EntityPlayer.class, new AxisAlignedBB(getPos().add(-3,-3,-3),getPos().add(3,3,3)))){
 
-            if(mana<10)
+            if(mana<per)
                 break;
 
             float health = -1;
@@ -52,7 +53,7 @@ public class LotusPeony extends SubTileFunctional {
             player.addPotionEffect(new PotionEffect(MobEffects.HEALTH_BOOST, 20*10, 2,false,false));
             if(health!=-1)
                 player.setHealth(health);
-            mana -= 500;
+            mana -= per;
 
         }
     }

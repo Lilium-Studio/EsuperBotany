@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "esuperbotany",
+  "pattern": [
+    "X",
+    "Y"
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:dye",
+      "data": 15
+    },
+    "Y": {
+      "item": "minecraft:glass_bottle"
+    }
+  },
+  "result": {
+    "item": "esuperbotany:food",
+    "data": 2
+  }
+}

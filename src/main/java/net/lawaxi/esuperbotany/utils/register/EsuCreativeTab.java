@@ -98,6 +98,10 @@ public class EsuCreativeTab {
             items.add("food:"+i);
         }
 
+        items.addAll(Arrays.asList(new String[]{
+                "dice"
+        }));
+
         for(int i=0;i<ItemLootBag.names.length;i++){
             items.add("lootbag:"+i);
         }

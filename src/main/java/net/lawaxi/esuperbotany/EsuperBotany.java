@@ -9,7 +9,7 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import org.apache.logging.log4j.Logger;
 
-@Mod(modid = "esuperbotany", name = "Esuper Botany", version = "beta1.3")
+@Mod(modid = "esuperbotany", name = "Esuper Botany", version = "alfa7")
 public class EsuperBotany
 {
     public static EsuperBotany instance;

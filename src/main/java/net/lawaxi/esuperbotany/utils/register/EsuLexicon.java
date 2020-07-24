@@ -26,6 +26,7 @@ public class EsuLexicon {
     public static LexiconCategory categoryESU;
     public static LexiconEntry LILY;
     public static LexiconEntry YANHUANG;
+
     public static LexiconEntry LOTUSPEONY;
     public static LexiconEntry IRRIGATOR;
     public static LexiconEntry JOESSR;

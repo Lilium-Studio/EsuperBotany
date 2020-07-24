@@ -8,10 +8,7 @@ import net.lawaxi.esuperbotany.item.*;
 import net.lawaxi.esuperbotany.item.equipment.ArmorBHSFUniform;
 import net.lawaxi.esuperbotany.item.equipment.ArmorXT;
 import net.lawaxi.esuperbotany.item.record.ItemRecordBHSF;
-import net.lawaxi.esuperbotany.item.relic.Item1srod;
-import net.lawaxi.esuperbotany.item.relic.ItemExpelloRod;
-import net.lawaxi.esuperbotany.item.relic.ItemManaBow;
-import net.lawaxi.esuperbotany.item.relic.ItemOldEater;
+import net.lawaxi.esuperbotany.item.relic.*;
 import net.lawaxi.esuperbotany.item.util.CommonItemBowRelic;
 import net.lawaxi.esuperbotany.item.util.CommonItemRecord;
 import net.lawaxi.esuperbotany.item.util.CommonItemRelic;
@@ -58,6 +55,7 @@ public class EsuCommons {
     public static CommonItemRelic OLDEATER;
     public static CommonItemRelic EXPELLOROD;
     public static CommonItemBowRelic MANABOW;
+    public static CommonItemRelic DICE;
 
     public static ArmorXT XT0;
     public static ArmorXT XT1;
@@ -81,6 +79,7 @@ public class EsuCommons {
         floras.addAll(Arrays.asList(new String[]{
                 GeneratingFlora.LILY,
                 GeneratingFlora.YANHUANG,
+                GeneratingFlora.RAFFRAFFLOWSIA,
                 FuctionalFlora.LOTUSPEONY,
                 FuctionalFlora.IRRIGATOR,
                 FuctionalFlora.JOESSR,
@@ -117,6 +116,7 @@ public class EsuCommons {
         OLDEATER = new ItemOldEater();
         EXPELLOROD = new ItemExpelloRod();
         MANABOW = new ItemManaBow();
+        DICE = new ItemDice();
 
         XT0 = new ArmorXT(EntityEquipmentSlot.HEAD);
         XT1 = new ArmorXT(EntityEquipmentSlot.CHEST);
